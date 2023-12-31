@@ -2,11 +2,11 @@
 
 ### Some of my projects are ...
 
-|     | Project                                                                    | Descriptiopn                                                                                                                         |                         Tools                          |
-| :-: | :------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------- | :----------------------------------------------------: |
-| 🔭  | [SpectraFit](https://github.com/Anselmoo/spectrafit)                       | A Python package for fitting spectroscopic data and everything else                                                                  | ![_](https://skillicons.dev/icons?i=python,vscode)     |
-| 📊  | [TanabeSugano](https://github.com/Anselmoo/TanabeSugano)                   | A Python package for simulating energy correlation diagrams according to the original publications of Yukito Tanabe and Satoru Sugan | ![_](https://skillicons.dev/icons?i=python,html)       |
-| 🧮  | [Useful-Math-Functions](https://github.com/Anselmoo/useful-math-functions) | A dedicated collection of mathematical functions implemented in Python and presented in `mkdocs-material`                            | ![_](https://skillicons.dev/icons?i=python)            |
+|     | Project                                                                    | Descriptiopn                                                                                                                         |                         Tools                                                              |
+| :-: | :------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------: |
+| 🔭  | [SpectraFit](https://github.com/Anselmoo/spectrafit)                       | A Python package for fitting spectroscopic data and everything else                                                                  | ![_](https://skillicons.dev/icons?i=python,vscode)                                         |
+| 📊  | [TanabeSugano](https://github.com/Anselmoo/TanabeSugano)                   | A Python package for simulating energy correlation diagrams according to the original publications of Yukito Tanabe and Satoru Sugan | ![_](https://skillicons.dev/icons?i=python,html)                                           |
+| 🧮  | [Useful-Math-Functions](https://github.com/Anselmoo/useful-math-functions) | A dedicated collection of mathematical functions implemented in Python and presented in `mkdocs-material`                            | ![_](https://skillicons.dev/icons?i=python,md)                                             |
 | 🧪  | [Atomistic-Toolbox](https://github.com/Anselmoo/atomistic-toolbox)         | A Vue app for visualizing and presenting atomic parameters                                                                           | ![_](https://skillicons.dev/icons?i=vue,js)![_](https://skillicons.dev/icons?i=css,nodejs) |
 
 ### My stats are ...
