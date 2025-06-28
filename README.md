@@ -8,7 +8,8 @@
 | 📊  | [TanabeSugano](https://github.com/Anselmoo/TanabeSugano)                   | A Python package for simulating energy correlation diagrams according to the original publications of Yukito Tanabe and Satoru Sugan | ![_](https://skillicons.dev/icons?i=python,html)                                           |
 | 🧮  | [Useful-Math-Functions](https://github.com/Anselmoo/useful-math-functions) | A dedicated collection of mathematical functions implemented in Python and presented in `mkdocs-material`                            | ![_](https://skillicons.dev/icons?i=python,md)                                             |
 | 🧪  | [Atomistic-Toolbox](https://github.com/Anselmoo/atomistic-toolbox)         | A Vue app for visualizing and presenting atomic parameters                                                                           | ![_](https://skillicons.dev/icons?i=vue,js)![_](https://skillicons.dev/icons?i=css,nodejs) |
-
+| 🧛🏻‍♂️  | [Dracula-Palette](https://github.com/Anselmoo/dracula-palette)             | A Vue based color generator to transform any color into comprehensive Dracula-themed                                                 | ![_](https://skillicons.dev/icons?i=vue,ts)![_](https://skillicons.dev/icons?i=scss,nodejs) |
+           
 ### My stats are ...
 
 | ![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=Anselmoo&show_icons=true&theme=radical) | ![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=Anselmoo&layout=compact&theme=radical) |
