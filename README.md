@@ -135,7 +135,8 @@
 <a href="https://nodejs.org/"><img src="https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=node.js&logoColor=white" alt="Node.js" /></a>
 <a href="https://vitejs.dev/"><img src="https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white" alt="Vite" /></a>
 <a href="https://expressjs.com/"><img src="https://img.shields.io/badge/Express-000000?style=flat-square&logo=express&logoColor=white" alt="Express" /></a>
-<a href="https://fastapi.tiangolo.com/"><img src="https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white" alt="FastAPI" /></a>
+<a href="https://docs.pydantic.dev/latest/"><img src="https://img.shields.io/badge/Pydantic-D6336C?style=flat-square&logo=pydantic&logoColor=white" alt="Pydantic" /></a>
+<a href="https://typer.tiangolo.com/"><img src="https://img.shields.io/badge/Typer-222222?style=flat-square&logo=typer&logoColor=white" alt="Typer" /></a>
 <a href="https://www.mkdocs.org/"><img src="https://img.shields.io/badge/MkDocs-526CFE?style=flat-square&logo=materialformkdocs&logoColor=white" alt="MkDocs" /></a>
 <a href="https://docusaurus.io/"><img src="https://img.shields.io/badge/Docusaurus-3ECC5F?style=flat-square&logo=docusaurus&logoColor=white" alt="Docusaurus" /></a>
 
