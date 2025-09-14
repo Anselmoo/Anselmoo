@@ -44,9 +44,9 @@
 
 [![Guidelines](https://github-readme-stats.vercel.app/api/pin/?username=Anselmoo&repo=mcp-ai-agent-guidelines&theme=dracula&hide_border=false&border_color=8BE9FD&bg_color=282A36&title_color=8BE9FD&icon_color=50FA7B)](https://github.com/Anselmoo/mcp-ai-agent-guidelines)
 
-[![Architecton](https://github-readme-stats.vercel.app/api/pin/?username=Anselmoo&repo=mcp-architecton&theme=dracula&hide_border=false&border_color=8BE9FD&bg_color=282A36&title_color=8BE9FD&icon_color=50FA7B)](https://github.com/Anselmoo/mcp-architecton)
-
 [![Analyzer](https://github-readme-stats.vercel.app/api/pin/?username=Anselmoo&repo=mcp-server-analyzer&theme=dracula&hide_border=false&border_color=8BE9FD&bg_color=282A36&title_color=8BE9FD&icon_color=50FA7B)](https://github.com/Anselmoo/mcp-server-analyzer)
+
+[![Architecton](https://github-readme-stats.vercel.app/api/pin/?username=Anselmoo&repo=mcp-architecton&theme=dracula&hide_border=false&border_color=8BE9FD&bg_color=282A36&title_color=8BE9FD&icon_color=50FA7B)](https://github.com/Anselmoo/mcp-architecton)
 
 </td>
 </tr>
