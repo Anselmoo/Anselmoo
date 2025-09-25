@@ -111,9 +111,9 @@
 <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Anselmoo&layout=compact&theme=dracula&hide_border=false&border_color=50FA7B&bg_color=282A36&title_color=50FA7B&text_color=F8F8F2&langs_count=6&hide=html" width="70%" />
 </div>
 
-<div align="center">
+<!-- <div align="center">
 <img src="https://github-readme-streak-stats.herokuapp.com/?user=Anselmoo&theme=dracula&hide_border=false&border=BD93F9&background=282A36&ring=BD93F9&fire=FF79C6&currStreakLabel=F8F8F2&dates=F8F8F2&sideLabels=BD93F9&sideNums=8BE9FD" width="70%" />
-</div>
+</div> -->
 
 </td>
 <td width="40%" valign="top">
