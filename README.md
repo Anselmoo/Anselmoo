@@ -31,7 +31,7 @@
 
 ### 💻 Web Development
 
-[![Virtual Clubhouse](https://github-readme-stats.vercel.app/api/pin/?username=Anselmoo&repo=virtual-clubhouse&theme=dracula&hide_border=false&border_color=FF79C6&bg_color=282A36&title_color=FF79C6&icon_color=8BE9FD)](https://github.com/Anselmoo/virtual-clubhouse)
+[![VSPlot](https://github-readme-stats.vercel.app/api/pin/?username=Anselmoo&repo=vsplot&theme=dracula&hide_border=false&border_color=FF79C6&bg_color=282A36&title_color=FF79C6&icon_color=8BE9FD)](https://github.com/Anselmoo/vsplot)
 
 [![Atomistic Toolbox](https://github-readme-stats.vercel.app/api/pin/?username=Anselmoo&repo=atomistic-toolbox&theme=dracula&hide_border=false&border_color=FF79C6&bg_color=282A36&title_color=FF79C6&icon_color=8BE9FD)](https://github.com/Anselmoo/atomistic-toolbox)
 
