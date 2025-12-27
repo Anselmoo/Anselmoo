@@ -1,0 +1,28 @@
+{
+  "badges": [
+    {
+      "id": "spectrafit_stars",
+      "location": "README.md",
+      "badge_url": "https://img.shields.io/github/stars/Anselmoo/spectrafit",
+      "mitigation": "shields",
+      "owner": "@anselm",
+      "last_checked": null
+    },
+    {
+      "id": "vsplot_stars",
+      "location": "README.md",
+      "badge_url": "https://img.shields.io/github/stars/Anselmoo/vsplot",
+      "mitigation": "shields",
+      "owner": "@anselm",
+      "last_checked": null
+    },
+    {
+      "id": "repo_stars",
+      "location": "README.md",
+      "badge_url": "https://img.shields.io/github/stars/Anselmoo",
+      "mitigation": "shields",
+      "owner": "@anselm",
+      "last_checked": null
+    }
+  ]
+}

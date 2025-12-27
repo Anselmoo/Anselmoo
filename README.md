@@ -20,33 +20,42 @@
 
 ### 🔬 Scientific Computing
 
-[![SpectraFit](https://github-readme-stats.vercel.app/api/pin/?username=Anselmoo&repo=spectrafit&theme=dracula&hide_border=false&border_color=BD93F9&bg_color=282A36&title_color=BD93F9&icon_color=FF79C6)](https://github.com/Anselmoo/spectrafit)
+[![SpectraFit Stars](https://img.shields.io/github/stars/Anselmoo/spectrafit?style=for-the-badge&label=SpectraFit&color=BD93F9)](https://github.com/Anselmoo/spectrafit)  
+[![SpectraFit Language](https://img.shields.io/github/languages/top/Anselmoo/spectrafit?style=for-the-badge&color=282A36)](https://github.com/Anselmoo/spectrafit)
 
-[![TanabeSugano](https://github-readme-stats.vercel.app/api/pin/?username=Anselmoo&repo=TanabeSugano&theme=dracula&hide_border=false&border_color=BD93F9&bg_color=282A36&title_color=BD93F9&icon_color=FF79C6)](https://github.com/Anselmoo/TanabeSugano)
+[![TanabeSugano Stars](https://img.shields.io/github/stars/Anselmoo/TanabeSugano?style=for-the-badge&label=TanabeSugano&color=BD93F9)](https://github.com/Anselmoo/TanabeSugano)  
+[![TanabeSugano Language](https://img.shields.io/github/languages/top/Anselmoo/TanabeSugano?style=for-the-badge&color=282A36)](https://github.com/Anselmoo/TanabeSugano)
 
-[![Useful Optimizer](https://github-readme-stats.vercel.app/api/pin/?username=Anselmoo&repo=useful-optimizer&theme=dracula&hide_border=false&border_color=BD93F9&bg_color=282A36&title_color=BD93F9&icon_color=FF79C6)](https://github.com/Anselmoo/useful-optimizer)
+[![Useful Optimizer Stars](https://img.shields.io/github/stars/Anselmoo/useful-optimizer?style=for-the-badge&label=Useful%20Optimizer&color=BD93F9)](https://github.com/Anselmoo/useful-optimizer)  
+[![Useful Optimizer Language](https://img.shields.io/github/languages/top/Anselmoo/useful-optimizer?style=for-the-badge&color=282A36)](https://github.com/Anselmoo/useful-optimizer) 
 
 </td>
 <td width="33%" valign="top">
 
 ### 💻 Web Development
 
-[![VSPlot](https://github-readme-stats.vercel.app/api/pin/?username=Anselmoo&repo=vsplot&theme=dracula&hide_border=false&border_color=FF79C6&bg_color=282A36&title_color=FF79C6&icon_color=8BE9FD)](https://github.com/Anselmoo/vsplot)
+[![VSPlot Stars](https://img.shields.io/github/stars/Anselmoo/vsplot?style=for-the-badge&label=VSPlot&color=FF79C6)](https://github.com/Anselmoo/vsplot)  
+[![VSPlot Language](https://img.shields.io/github/languages/top/Anselmoo/vsplot?style=for-the-badge&color=282A36)](https://github.com/Anselmoo/vsplot)
 
-[![Atomistic Toolbox](https://github-readme-stats.vercel.app/api/pin/?username=Anselmoo&repo=atomistic-toolbox&theme=dracula&hide_border=false&border_color=FF79C6&bg_color=282A36&title_color=FF79C6&icon_color=8BE9FD)](https://github.com/Anselmoo/atomistic-toolbox)
+[![Atomistic Toolbox Stars](https://img.shields.io/github/stars/Anselmoo/atomistic-toolbox?style=for-the-badge&label=Atomistic%20Toolbox&color=FF79C6)](https://github.com/Anselmoo/atomistic-toolbox)  
+[![Atomistic Toolbox Language](https://img.shields.io/github/languages/top/Anselmoo/atomistic-toolbox?style=for-the-badge&color=282A36)](https://github.com/Anselmoo/atomistic-toolbox)
 
-[![Dracula Palette](https://github-readme-stats.vercel.app/api/pin/?username=Anselmoo&repo=dracula-palette&theme=dracula&hide_border=false&border_color=FF79C6&bg_color=282A36&title_color=FF79C6&icon_color=8BE9FD)](https://github.com/Anselmoo/dracula-palette)
+[![Dracula Palette Stars](https://img.shields.io/github/stars/Anselmoo/dracula-palette?style=for-the-badge&label=Dracula%20Palette&color=FF79C6)](https://github.com/Anselmoo/dracula-palette)  
+[![Dracula Palette Language](https://img.shields.io/github/languages/top/Anselmoo/dracula-palette?style=for-the-badge&color=282A36)](https://github.com/Anselmoo/dracula-palette) 
 
 </td>
 <td width="33%" valign="top">
 
 ### 🤖 MCP Projects
 
-[![Guidelines](https://github-readme-stats.vercel.app/api/pin/?username=Anselmoo&repo=mcp-ai-agent-guidelines&theme=dracula&hide_border=false&border_color=8BE9FD&bg_color=282A36&title_color=8BE9FD&icon_color=50FA7B)](https://github.com/Anselmoo/mcp-ai-agent-guidelines)
+[![Guidelines Stars](https://img.shields.io/github/stars/Anselmoo/mcp-ai-agent-guidelines?style=for-the-badge&label=Guidelines&color=8BE9FD)](https://github.com/Anselmoo/mcp-ai-agent-guidelines)  
+[![Guidelines Language](https://img.shields.io/github/languages/top/Anselmoo/mcp-ai-agent-guidelines?style=for-the-badge&color=282A36)](https://github.com/Anselmoo/mcp-ai-agent-guidelines)
 
-[![Analyzer](https://github-readme-stats.vercel.app/api/pin/?username=Anselmoo&repo=mcp-server-analyzer&theme=dracula&hide_border=false&border_color=8BE9FD&bg_color=282A36&title_color=8BE9FD&icon_color=50FA7B)](https://github.com/Anselmoo/mcp-server-analyzer)
+[![Analyzer Stars](https://img.shields.io/github/stars/Anselmoo/mcp-server-analyzer?style=for-the-badge&label=Analyzer&color=8BE9FD)](https://github.com/Anselmoo/mcp-server-analyzer)  
+[![Analyzer Language](https://img.shields.io/github/languages/top/Anselmoo/mcp-server-analyzer?style=for-the-badge&color=282A36)](https://github.com/Anselmoo/mcp-server-analyzer)
 
-[![Architecton](https://github-readme-stats.vercel.app/api/pin/?username=Anselmoo&repo=mcp-architecton&theme=dracula&hide_border=false&border_color=8BE9FD&bg_color=282A36&title_color=8BE9FD&icon_color=50FA7B)](https://github.com/Anselmoo/mcp-architecton)
+[![Architecton Stars](https://img.shields.io/github/stars/Anselmoo/mcp-architecton?style=for-the-badge&label=Architecton&color=8BE9FD)](https://github.com/Anselmoo/mcp-architecton)  
+[![Architecton Language](https://img.shields.io/github/languages/top/Anselmoo/mcp-architecton?style=for-the-badge&color=282A36)](https://github.com/Anselmoo/mcp-architecton) 
 
 </td>
 </tr>
@@ -107,9 +116,11 @@
 ### 📊 Some Facts
 
 <div align="center">
-<img src="https://github-readme-stats.vercel.app/api?username=Anselmoo&show_icons=true&theme=dracula&hide_border=false&border_color=BD93F9&bg_color=282A36&title_color=BD93F9&icon_color=FF79C6&text_color=F8F8F2&include_all_commits=true&count_private=true" width="70%" />
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Anselmoo&layout=compact&theme=dracula&hide_border=false&border_color=50FA7B&bg_color=282A36&title_color=50FA7B&text_color=F8F8F2&langs_count=6&hide=html" width="70%" />
-</div>
+[![GitHub Stars](https://img.shields.io/github/stars/Anselmoo?style=flat-square&color=8BE9FD)](https://github.com/Anselmoo)  
+[![Top Languages](https://img.shields.io/github/languages/top/Anselmoo?style=flat-square)](https://github.com/Anselmoo)
+
+> **Note:** The original `github-readme-stats` images became unavailable; the project uses stable Shields.io badges as a reliable alternative and a documented fallback.  
+</div> 
 
 <!-- <div align="center">
 <img src="https://github-readme-streak-stats.herokuapp.com/?user=Anselmoo&theme=dracula&hide_border=false&border=BD93F9&background=282A36&ring=BD93F9&fire=FF79C6&currStreakLabel=F8F8F2&dates=F8F8F2&sideLabels=BD93F9&sideNums=8BE9FD" width="70%" />
