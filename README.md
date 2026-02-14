@@ -33,7 +33,7 @@
 
 [![VSPlot](https://github-readme-stats-fast.vercel.app/api/pin/?username=Anselmoo&repo=vsplot&theme=dracula&hide_border=false&border_color=FF79C6&bg_color=282A36&title_color=FF79C6&icon_color=8BE9FD)](https://github.com/Anselmoo/vsplot)
 
-[![Atomistic Toolbox](https://github-readme-stats-fast.vercel.app/api/pin/?username=Anselmoo&repo=atomistic-toolbox&theme=dracula&hide_border=false&border_color=FF79C6&bg_color=282A36&title_color=FF79C6&icon_color=8BE9FD)](https://github.com/Anselmoo/atomistic-toolbox)
+[![Caligo VSCode Theme](https://github-readme-stats-fast.vercel.app/api/pin/?username=Anselmoo&repo=caligo-vscode-theme&theme=dracula&hide_border=false&border_color=FF79C6&bg_color=282A36&title_color=FF79C6&icon_color=8BE9FD)](https://github.com/Anselmoo/caligo-vscode-theme)
 
 [![Dracula Palette](https://github-readme-stats-fast.vercel.app/api/pin/?username=Anselmoo&repo=dracula-palette&theme=dracula&hide_border=false&border_color=FF79C6&bg_color=282A36&title_color=FF79C6&icon_color=8BE9FD)](https://github.com/Anselmoo/dracula-palette)
 
