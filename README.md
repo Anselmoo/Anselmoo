@@ -46,7 +46,7 @@
 
 [![Analyzer](https://github-readme-stats-fast.vercel.app/api/pin/?username=Anselmoo&repo=mcp-server-analyzer&theme=dracula&hide_border=false&border_color=8BE9FD&bg_color=282A36&title_color=8BE9FD&icon_color=50FA7B)](https://github.com/Anselmoo/mcp-server-analyzer)
 
-[![Architecton](https://github-readme-stats-fast.vercel.app/api/pin/?username=Anselmoo&repo=mcp-architecton&theme=dracula&hide_border=false&border_color=8BE9FD&bg_color=282A36&title_color=8BE9FD&icon_color=50FA7B)](https://github.com/Anselmoo/mcp-architecton)
+[![Zen Of Languages](https://github-readme-stats-fast.vercel.app/api/pin/?username=Anselmoo&repo=mcp-zen-of-languages&theme=dracula&hide_border=false&border_color=8BE9FD&bg_color=282A36&title_color=8BE9FD&icon_color=50FA7B)](https://github.com/Anselmoo/mcp-zen-of-languages)
 
 </td>
 </tr>
