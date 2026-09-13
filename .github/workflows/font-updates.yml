@@ -1,0 +1,114 @@
+name: Font updates
+
+# Checks the two self-hosted fonts on two axes, weekly and on demand.
+#
+# It OPENS AN ISSUE, it does not update. A font release shifts metrics, and the
+# size-adjust values in tokens/font-chain.css were obtained by measuring a browser,
+# not by reading the font files. An automatic bump would silently invalidate them
+# and nothing downstream would notice. This belongs in front of a person.
+
+on:
+  schedule:
+    - cron: "0 6 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # Axis one: did the file on disk change without tokens/fonts.json being updated?
+      # This catches a hand-swapped font, which is the failure the checksum exists for.
+      - name: Verify checksums
+        run: |
+          node -e '
+            const { readFileSync } = require("node:fs");
+            const { createHash } = require("node:crypto");
+            const m = JSON.parse(readFileSync("tokens/fonts.json", "utf8"));
+            let bad = 0;
+            for (const f of m.fonts) {
+              const sum = createHash("sha256").update(readFileSync(f.file)).digest("hex");
+              const ok = sum === f.sha256;
+              console.log(`${ok ? "ok  " : "FAIL"} ${f.family} ${f.file}`);
+              if (!ok) {
+                console.log(`     recorded ${f.sha256}`);
+                console.log(`     actual   ${sum}`);
+                bad++;
+              }
+            }
+            if (bad) {
+              console.error(`\n${bad} font file(s) differ from tokens/fonts.json.`);
+              console.error("Either the file was replaced without running npm run fonts,");
+              console.error("or fonts.json was edited without refetching. Both are drift.");
+              process.exit(1);
+            }
+          '
+
+      # Axis two: is there a newer upstream release? Tracked against the authoritative
+      # source, not against the CDN path the files were actually fetched from — the CDN
+      # version segment is opaque and tells us nothing about the font's own version.
+      - name: Check upstream releases
+        id: upstream
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          node -e '
+            const { readFileSync, appendFileSync } = require("node:fs");
+            const m = JSON.parse(readFileSync("tokens/fonts.json", "utf8"));
+            const lines = [];
+            (async () => {
+              for (const f of m.fonts) {
+                const r = await fetch(`https://api.github.com/repos/${f.upstream}/releases/latest`, {
+                  headers: { Accept: "application/vnd.github+json",
+                             "User-Agent": "anselmoo-brand-ci",
+                             Authorization: `Bearer ${process.env.GH_TOKEN}` } });
+                if (!r.ok) { console.log(`${f.upstream}: HTTP ${r.status}, skipped`); continue; }
+                const j = await r.json();
+                const current = f.upstreamVersion ?? "unknown";
+                console.log(`${f.family}: pinned ${current}, upstream ${j.tag_name}`);
+                if (j.tag_name && j.tag_name !== current) {
+                  lines.push(`- **${f.family}**: pinned \`${current}\`, upstream \`${j.tag_name}\` (${(j.published_at||"").slice(0,10)}) — ${f.upstream}`);
+                }
+              }
+              const out = process.env.GITHUB_OUTPUT;
+              appendFileSync(out, `stale=${lines.length ? "true" : "false"}\n`);
+              appendFileSync(out, `body<<EOF\n${lines.join("\n")}\nEOF\n`);
+            })();
+          '
+
+      - name: Open an issue when a font is behind
+        if: steps.upstream.outputs.stale == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh issue list --label fonts --state open --json title --jq '.[].title' > open.txt
+          if grep -q "Font update available" open.txt; then
+            echo "An open issue already exists, not filing a second one."
+            exit 0
+          fi
+          gh issue create \
+            --title "Font update available" \
+            --label fonts \
+            --body "$(cat <<'BODY'
+A newer upstream release exists for at least one self-hosted font.
+
+${{ steps.upstream.outputs.body }}
+
+**Do not bump this without re-measuring.** The `size-adjust` values in
+`tokens/font-chain.css` were obtained by measuring rendered text in a browser, not by
+reading the font files. A new version can move the x-height or the advance width, and
+the fallback chain would then be wrong by exactly the amount nobody checked.
+
+Steps:
+1. `npm run fonts` — refetch and rewrite `tokens/fonts.json`.
+2. Re-measure the fallbacks and update `tokens/font-chain.css`. The telltale of a
+   fallback that silently failed to resolve is the generic advance width, 216.98 at 18px.
+3. `npm run tokens` and check that the type scale still passes.
+4. Look at `guidelines/type-scale.html` and `guidelines/code-fence.html` in both bands.
+BODY
+)"

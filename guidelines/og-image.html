@@ -1,0 +1,49 @@
+<!-- @dsCard group="Assets" viewport="940x720" name="Open Graph image" subtitle="The sheet at 2x, and what survives a feed" -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body { margin: 0; height: 720px; }
+  .card { height: 720px; background: var(--paper); color: var(--ink); padding: var(--space-6); display: grid; grid-template-columns: 440px 1fr; grid-template-rows: max-content max-content 1fr; gap: var(--space-4) var(--space-6); align-content: start; }
+  .eyebrow { grid-column: 1 / -1; font-size: var(--text-eyebrow-size); font-weight: var(--text-eyebrow-weight); letter-spacing: var(--text-eyebrow-tracking); line-height: var(--text-eyebrow-leading); text-transform: uppercase; color: var(--ink-tertiary); }
+  img { display: block; border: 1px solid var(--hairline); }
+  .big { width: 440px; height: auto; }
+  .feed { width: 360px; height: auto; }
+  .facts { display: grid; grid-template-columns: max-content 1fr; gap: var(--space-2) var(--space-4); align-content: start; }
+  .mono { font-family: var(--font-mono); font-size: var(--text-code-size); line-height: var(--text-code-leading); font-variant-numeric: tabular-nums; }
+  .k { color: var(--ink-tertiary); white-space: nowrap; }
+  .v { color: var(--ink); }
+  p { margin: 0; font-size: var(--text-caption-size); line-height: var(--text-caption-leading); color: var(--ink-secondary); max-width: var(--measure); }
+  .stack { display: grid; gap: var(--space-3); align-content: start; }
+</style>
+</head>
+<body>
+<section class="card" data-theme="light">
+  <div class="eyebrow">Open Graph · 1200 × 630</div>
+
+  <img class="big" src="../assets/og/portfolio.svg" alt="The portfolio Open Graph image: the name at 124px over a role line, with the measured ink ladder along the bottom.">
+
+  <div class="stack">
+    <div class="facts mono">
+      <span class="k">canvas</span><span class="v">1200 × 630</span>
+      <span class="k">scale</span><span class="v">2 — 1200 ÷ 612, the measure at 18px, is 1.96</span>
+      <span class="k">name</span><span class="v">124px = display 62 × 2</span>
+      <span class="k">role</span><span class="v">36px = body 18 × 2, 56 characters a line</span>
+      <span class="k">margin</span><span class="v">84px = the page's own 7 %</span>
+      <span class="k">motif</span><span class="v">the ink ladder: 15.10 · 8.38 · 5.35 · 2.39</span>
+    </div>
+    <p>The scale is not chosen: the OG image is the portfolio page's own sheet, twice, so every value on it is already in the token file. The motif is the same on every variant — it is a reading of the system, which is what all the variants share. A per-project reading would need a per-project measurement, and monthly downloads are not comparable across npm, PyPI and a marketplace.</p>
+  </div>
+
+  <img class="feed" src="../assets/og/portfolio.svg" alt="">
+
+  <div class="stack">
+    <p><strong>Actual size in the narrowest feed.</strong> A card renders about 504px wide on X, 552 on LinkedIn and 360 in Slack. At 360 the name lands at <span class="mono">37.2px</span> and the role line at <span class="mono">10.8px</span> — the name is what has to survive, the role line is for the reader who already stopped.</p>
+    <p><strong>One file, not two.</strong> The image brings its own paper, so the feed's band never touches it and there is no dark variant. The icon set answered the same question the other way, and for a good reason: an icon is transparent and inherits its ground.</p>
+    <p><strong>Not delivered: the PNG.</strong> Feeds take png and jpg, not svg. Rasterising needs a headless browser or a library and this repository installs neither, so <span class="mono">assets/og/og-lab.html</span> renders these at full size and the export is one browser away. Whatever rasterises them needs Inter, which the repo self-hosts.</p>
+  </div>
+</section>
+</body>
+</html>

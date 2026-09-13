@@ -1,0 +1,78 @@
+<!-- @dsCard group="Interaction" viewport="900x660" name="Interaction states" subtitle="Five states, no colour, one line at three strengths" -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body { margin: 0; height: 660px; display: flex; flex-direction: column; }
+  .band { flex: 1; background: var(--paper); color: var(--ink); padding: var(--space-5) var(--space-6); display: flex; flex-direction: column; gap: var(--space-4); }
+  .eyebrow { font-size: var(--text-eyebrow-size); font-weight: var(--text-eyebrow-weight); letter-spacing: var(--text-eyebrow-tracking); line-height: var(--text-eyebrow-leading); text-transform: uppercase; color: var(--ink-tertiary); }
+  .grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: var(--space-3) var(--space-4); align-items: center; }
+  .grid .button { justify-self: start; }
+  .head { font-family: var(--font-mono); font-size: var(--text-code-size); line-height: var(--text-code-leading); color: var(--ink-tertiary); }
+  .sample { font-size: var(--text-body-size); line-height: var(--text-body-leading); }
+  .note { font-size: var(--text-caption-size); line-height: var(--text-caption-leading); color: var(--ink-secondary); margin: 0; max-width: var(--measure); }
+  .note-mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+  /* The hover, focus and active columns are FORCED copies of the same declarations —
+   * a static card cannot hold a pointer. The rest and disabled columns are live, and
+   * the rest column answers a real hover. Source of truth stays components/components.css. */
+  .is-hover.link { border-bottom-color: var(--ink); }
+  .is-active.link { color: var(--ink-secondary); border-bottom-color: var(--ink-secondary); }
+  .is-hover.button { color: var(--ink); border-color: var(--hairline-strong); }
+  .is-active.button { border-color: var(--ink); }
+  .is-focus { outline: 2px solid var(--ink); outline-offset: 2px; }
+</style>
+</head>
+<body>
+
+<section class="band" data-theme="light">
+  <div class="eyebrow">Light band</div>
+  <div class="grid">
+    <span class="head">rest</span>
+    <span class="head">:hover</span>
+    <span class="head">:focus-visible</span>
+    <span class="head">:active</span>
+    <span class="head">[aria-disabled]</span>
+
+    <span class="sample"><a class="link" href="#rest">a link</a></span>
+    <span class="sample"><a class="link is-hover" href="#hover">a link</a></span>
+    <span class="sample"><a class="link is-focus" href="#focus">a link</a></span>
+    <span class="sample"><a class="link is-active" href="#active">a link</a></span>
+    <span class="sample"><a class="link" href="#disabled" aria-disabled="true">a link</a></span>
+
+    <button class="button" type="button">Reload</button>
+    <button class="button is-hover" type="button">Reload</button>
+    <button class="button is-focus" type="button">Reload</button>
+    <button class="button is-active" type="button">Reload</button>
+    <button class="button" type="button" disabled>Reload</button>
+  </div>
+  <p class="note">Line, not colour: the border runs <span class="note-mono">--hairline → --hairline-strong → --ink</span>, the three strengths the sheets and tables already separate with. Disabled drops to <span class="note-mono">--ink-tertiary</span>, measured <span class="note-mono">5.35</span> against paper — <span class="note-mono">--decor</span> would be <span class="note-mono">2.39</span> and a disabled control still has to be read.</p>
+</section>
+
+<section class="band" data-theme="dark">
+  <div class="eyebrow">Dark band</div>
+  <div class="grid">
+    <span class="head">rest</span>
+    <span class="head">:hover</span>
+    <span class="head">:focus-visible</span>
+    <span class="head">:active</span>
+    <span class="head">[aria-disabled]</span>
+
+    <span class="sample"><a class="link" href="#rest-dark">a link</a></span>
+    <span class="sample"><a class="link is-hover" href="#hover-dark">a link</a></span>
+    <span class="sample"><a class="link is-focus" href="#focus-dark">a link</a></span>
+    <span class="sample"><a class="link is-active" href="#active-dark">a link</a></span>
+    <span class="sample"><a class="link" href="#disabled-dark" aria-disabled="true">a link</a></span>
+
+    <button class="button" type="button">Reload</button>
+    <button class="button is-hover" type="button">Reload</button>
+    <button class="button is-focus" type="button">Reload</button>
+    <button class="button is-active" type="button">Reload</button>
+    <button class="button" type="button" disabled>Reload</button>
+  </div>
+  <p class="note">The same five declarations, no second rule set: every value is a role, and the roles swap with the band. Disabled holds <span class="note-mono">8.14</span> here, <span class="note-mono">--decor</span> only <span class="note-mono">3.26</span>. The focus outline is <span class="note-mono">2px --ink</span> at <span class="note-mono">2px</span> offset, from styles.css, never the browser default.</p>
+</section>
+
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Mark — check</title>
+<style>
+ body{margin:0;padding:24px;font:13px/1.5 -apple-system,BlinkMacSystemFont,Inter,sans-serif;background:#e9e7e1;color:#232320}
+ h2{font-size:12px;font-weight:600;margin:0 0 12px;letter-spacing:.05em;text-transform:uppercase;color:#6e6e68}
+ .cand{display:flex;gap:22px;align-items:flex-start;background:#fbfaf7;border-radius:8px;padding:20px 22px;margin-bottom:12px}
+ .cand .dark{background:#232320;border-radius:6px;padding:10px}
+ .sizes{display:flex;gap:14px;align-items:flex-end}
+ .sizes figure{margin:0;text-align:center}
+ .sizes figcaption{font-size:10px;color:#696863;margin-top:5px}
+ .meta{flex:1}
+ .meta b{font-weight:600}
+ .note{color:#696863;margin-top:4px}
+ pre{font:12px/1.6 ui-monospace,monospace;background:#fbfaf7;padding:14px;border-radius:6px;overflow:auto}
+</style></head><body>
+
+<h2>Candidates — light, inverted, and at favicon size</h2>
+<div id="cands"></div>
+
+<h2>Measurement</h2>
+<pre id="out">measuring…</pre>
+
+<script type="module">
+// See tokens/paper-check.html: an instrument must not measure a cached version,
+// or its judgment applies to code that no longer exists in that form.
+const { CANDIDATES, markSVG, markInverted } = await import(`./mark.mjs?t=${Date.now()}`);
+
+const host = document.getElementById("cands");
+for (const [key, c] of Object.entries(CANDIDATES)) {
+  const el = document.createElement("div");
+  el.className = "cand";
+  el.innerHTML =
+    `<div class="sizes">
+       <figure>${markSVG(key, { size: 62 })}<figcaption>62 px</figcaption></figure>
+       <figure>${markSVG(key, { size: 32 })}<figcaption>32 px</figcaption></figure>
+       <figure>${markSVG(key, { size: 16 })}<figcaption>16 px</figcaption></figure>
+     </div>
+     <div class="dark"><div class="sizes">
+       <figure>${markInverted(key, { size: 62 })}<figcaption style="color:#babbb4">inverted</figcaption></figure>
+       <figure>${markInverted(key, { size: 16 })}<figcaption style="color:#babbb4">16 px</figcaption></figure>
+     </div></div>
+     <div class="meta"><b>${c.label}</b><div class="note">${c.note}</div></div>`;
+  host.appendChild(el);
+}
+
+// --- Measurement: ink share and self-inversion ---
+const N = 128;
+async function raster(markup) {
+  const img = new Image();
+  await new Promise((ok, no) => { img.onload = ok; img.onerror = () => no(new Error("load"));
+    img.src = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(markup); });
+  const c = document.createElement("canvas"); c.width = N; c.height = N;
+  const ctx = c.getContext("2d", { willReadFrequently: true });
+  ctx.clearRect(0, 0, N, N);
+  ctx.drawImage(img, 0, 0, N, N);
+  return ctx.getImageData(0, 0, N, N).data;
+}
+
+// Share of covering pixels (alpha > 128)
+function coverage(d) {
+  let on = 0;
+  for (let i = 3; i < d.length; i += 4) if (d[i] > 128) on++;
+  return on / (N * N);
+}
+// Congruence: the figure against its own 180-degree rotation
+function rotationMismatch(d) {
+  let diff = 0;
+  for (let y = 0; y < N; y++) for (let x = 0; x < N; x++) {
+    const a = d[(y * N + x) * 4 + 3] > 128;
+    const b = d[((N - 1 - y) * N + (N - 1 - x)) * 4 + 3] > 128;
+    if (a !== b) diff++;
+  }
+  return diff / (N * N);
+}
+// Self-inversion: the figure against the 180-degree-rotated COMPLEMENT
+function inverseMismatch(d) {
+  let diff = 0;
+  for (let y = 0; y < N; y++) for (let x = 0; x < N; x++) {
+    const a = d[(y * N + x) * 4 + 3] > 128;
+    const b = !(d[((N - 1 - y) * N + (N - 1 - x)) * 4 + 3] > 128);
+    if (a !== b) diff++;
+  }
+  return diff / (N * N);
+}
+
+(async () => {
+  const o = ["Candidate  Ink share     Rotational sym  Self-inverse   16px coverage"];
+  o.push("-".repeat(74));
+  for (const key of Object.keys(CANDIDATES)) {
+    const big = await raster(markSVG(key, { size: N }));
+    const small = await raster(markSVG(key, { size: 16 }));
+    const cov = coverage(big), rot = rotationMismatch(big), inv = inverseMismatch(big);
+    o.push(
+      key.padEnd(11) +
+      (cov * 100).toFixed(1).padStart(9) + " %" +
+      (rot * 100).toFixed(2).padStart(14) + " % dev." +
+      (inv * 100).toFixed(2).padStart(12) + " % dev." +
+      (coverage(small) * 100).toFixed(1).padStart(12) + " %"
+    );
+  }
+  o.push("");
+  o.push("Ink share near 50 % means: the mark weighs the same in both bands.");
+  o.push("Self-inverse 0 % deviation means: figure and ground are interchangeable —");
+  o.push("the two-bands property is built, not checked.");
+  o.push("16px coverage near the large value means: nothing collapses on shrinking.");
+  document.getElementById("out").textContent = o.join("\n");
+})().catch(e => { document.getElementById("out").textContent = "Error: " + e.message; });
+</script>
+</body></html>

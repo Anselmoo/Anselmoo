@@ -1,0 +1,82 @@
+<!-- @dsCard group="Spacing" viewport="1380x620" name="Container query" subtitle="The sheet answers to its column, not to the window" -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body { margin: 0; height: 620px; }
+  .card { height: 620px; background: var(--paper); color: var(--ink); padding: var(--space-6); display: flex; flex-direction: column; gap: var(--space-5); }
+  .eyebrow { font-size: var(--text-eyebrow-size); font-weight: var(--text-eyebrow-weight); letter-spacing: var(--text-eyebrow-tracking); line-height: var(--text-eyebrow-leading); text-transform: uppercase; color: var(--ink-tertiary); }
+  .title { font-size: var(--text-headline-size); font-weight: var(--text-headline-weight); letter-spacing: var(--text-headline-tracking); line-height: var(--text-headline-leading); margin: var(--space-1) 0 0; }
+  .row { display: flex; align-items: flex-start; gap: var(--space-6); }
+  .col { display: grid; gap: var(--space-2); }
+  .w1 { width: 560px; } .w2 { width: 400px; } .w3 { width: 280px; }
+  .measure { font-family: var(--font-mono); font-size: var(--text-code-size); line-height: var(--text-code-leading); color: var(--ink-tertiary); font-variant-numeric: tabular-nums; }
+  .sheet { margin-bottom: 0; }
+  .foot { margin-top: auto; border-top: 1px solid var(--hairline); padding-top: var(--space-3); display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-6); }
+  .foot p { margin: 0; font-size: var(--text-caption-size); line-height: var(--text-caption-leading); color: var(--ink-secondary); }
+  .mono { font-family: var(--font-mono); }
+</style>
+</head>
+<body>
+<section class="card" data-theme="light">
+  <div>
+    <div class="eyebrow">Container query</div>
+    <h1 class="title">One component, three columns, no breakpoint</h1>
+  </div>
+
+  <div class="row">
+    <div class="col w1">
+      <div class="measure">container 496px — above 26rem</div>
+      <div class="sheet">
+        <div class="sheet-eyebrow">Publications</div>
+        <h2 class="sheet-title">Introducing SpectraFit</h2>
+        <div class="publication">
+          <div class="publication-year">2024</div>
+          <div>
+            <div class="publication-title">An Open-Source Tool for Interactive Spectral Analysis</div>
+            <div class="publication-source">ACS Omega · <span class="publication-doi">10.1021/acsomega.3c09262</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col w2">
+      <div class="measure">container 336px — below</div>
+      <div class="sheet">
+        <div class="sheet-eyebrow">Publications</div>
+        <h2 class="sheet-title">Introducing SpectraFit</h2>
+        <div class="publication">
+          <div class="publication-year">2024</div>
+          <div>
+            <div class="publication-title">An Open-Source Tool for Interactive Spectral Analysis</div>
+            <div class="publication-source">ACS Omega · <span class="publication-doi">10.1021/acsomega.3c09262</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col w3">
+      <div class="measure">container 216px — below</div>
+      <div class="sheet">
+        <div class="sheet-eyebrow">Publications</div>
+        <h2 class="sheet-title">Introducing SpectraFit</h2>
+        <div class="publication">
+          <div class="publication-year">2024</div>
+          <div>
+            <div class="publication-title">An Open-Source Tool for Interactive Spectral Analysis</div>
+            <div class="publication-source">ACS Omega · <span class="publication-doi">10.1021/acsomega.3c09262</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <p>All three are the same markup on one page, at one window width. The title drops to the subhead grade and the year column folds under the title below <span class="mono">26rem</span> of <strong>sheet</strong>, not of window — which is the condition that was always meant, and the one a breakpoint cannot express. A breakpoint would have left the narrowest sheet with a 30px title and a 4.5rem column holding four digits.</p>
+    <p>26rem is where the year column stops paying for itself: at <span class="mono">4.5rem</span> of a <span class="mono">26rem</span> sheet it takes 17 % of the line to say <span class="mono">2024</span>. The page header answers the same way, against a <span class="mono">page</span> container at the measure. The system now has no media query left.</p>
+  </div>
+</section>
+</body>
+</html>

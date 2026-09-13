@@ -1,0 +1,110 @@
+<!-- @dsCard group="Code" viewport="860x560" name="Table" subtitle="Hairlines, and digits that line up" -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  /* .table and its cells come from components/components.css and are used, not
+   * rebuilt. The left column overrides exactly ONE property so the comparison
+   * isolates the tabular setting and nothing else.
+   *
+   * The demonstration is in Inter, not in the mono face. Measured: in JetBrains Mono
+   * 1111 and 8888 are both 33.60 px with and without the setting, because a
+   * monospaced face already equalises the digits. In Inter they are 29.29 and
+   * 44.55 px apart until tabular-nums makes them both 46.69. Showing the effect in
+   * a face that cannot exhibit it would have been a demonstration of nothing. */
+  body {
+    margin: 0;
+    height: 560px;
+    padding: var(--space-5) var(--space-6);
+    background: var(--paper);
+    color: var(--ink);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+  .pair { display: flex; gap: var(--space-7); }
+  .col { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: var(--space-2); }
+  .label {
+    font-size: var(--text-caption-size);
+    font-weight: var(--text-eyebrow-weight);
+    line-height: var(--text-caption-leading);
+    color: var(--ink-tertiary);
+  }
+  .loose .cell-num { font-variant-numeric: normal; }
+  .note {
+    font-size: var(--text-caption-size);
+    line-height: var(--text-caption-leading);
+    color: var(--ink-secondary);
+    max-width: var(--measure);
+  }
+  .note b { font-weight: var(--text-subhead-weight); color: var(--ink); }
+  .rule { border-top: 1px solid var(--hairline); padding-top: var(--space-3); }
+
+  /* The real column is right-aligned, which is correct and which also hides most of
+   * the effect: the ragged edge ends up on the left, where nobody looks. So the proof
+   * sits beside the table, set flush left against a hairline, the way the material
+   * card puts a magnified crop beside the sheet. Measured, not asserted: without the
+   * setting the two four-digit numbers are 29.29 px and 44.55 px. */
+  .proof { display: flex; gap: var(--space-7); align-items: flex-start; }
+  .proof-col { display: flex; flex-direction: column; gap: var(--space-1); }
+  .proof-num {
+    font-size: var(--text-body-size);
+    line-height: var(--text-body-leading);
+    border-right: 1px solid var(--hairline-strong);
+    padding-right: var(--space-1);
+    width: max-content;
+  }
+  .proof .loose-num { font-variant-numeric: normal; }
+  .proof .tab-num { font-variant-numeric: tabular-nums; }
+</style>
+</head>
+<body>
+  <div class="pair">
+    <div class="col loose">
+      <div class="label">without tabular-nums</div>
+      <table class="table">
+        <tr><th>Package</th><th class="cell-num">Downloads</th></tr>
+        <tr><td>mcp-ai-agent-guidelines</td><td class="cell-num">5862</td></tr>
+        <tr><td>repo-release-tools</td><td class="cell-num">2230</td></tr>
+        <tr><td>vsplot</td><td class="cell-num">1111</td></tr>
+        <tr><td>TanabeSugano</td><td class="cell-num">8888</td></tr>
+      </table>
+    </div>
+    <div class="col" data-comment-anchor="ed91d173d5-div">
+      <div class="label">with tabular-nums</div>
+      <table class="table">
+        <tr><th>Package</th><th class="cell-num">Downloads</th></tr>
+        <tr><td>mcp-ai-agent-guidelines</td><td class="cell-num">5862</td></tr>
+        <tr><td>repo-release-tools</td><td class="cell-num">2230</td></tr>
+        <tr><td>vsplot</td><td class="cell-num">1111</td></tr>
+        <tr><td>TanabeSugano</td><td class="cell-num">8888</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="proof rule">
+    <div class="proof-col">
+      <div class="label">flush left, without</div>
+      <div class="proof-num loose-num">1111</div>
+      <div class="proof-num loose-num">8888</div>
+    </div>
+    <div class="proof-col">
+      <div class="label">flush left, with</div>
+      <div class="proof-num tab-num">1111</div>
+      <div class="proof-num tab-num">8888</div>
+    </div>
+    <p class="note" style="margin:0">Four digits each. In Inter they set 29.29 px and
+    44.55 px — the hairline shows where each one ends. With <b>tabular-nums</b> both are
+    46.69 px. The setting earns its place only in a proportional face: in JetBrains Mono
+    both are 33.60 px with it and without, because a monospaced face already equalises
+    the digits. Applying both mechanisms at once looks thorough and is half inert.</p>
+  </div>
+
+  <p class="note">No zebra striping — this system separates with hairlines and carries
+  no shadows, and a stripe separates by fill. One band only: a table's statement is
+  structural, and the Colors cards already carry the band evidence.</p>
+
+</body>
+</html>

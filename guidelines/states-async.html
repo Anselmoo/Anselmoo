@@ -1,0 +1,58 @@
+<!-- @dsCard group="States" viewport="900x600" name="Empty and error" subtitle="The three returns of an asynchronous surface" -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body { margin: 0; height: 600px; display: flex; flex-direction: column; }
+  .band { flex: 1; background: var(--paper); color: var(--ink); padding: var(--space-5) var(--space-6); display: flex; flex-direction: column; gap: var(--space-4); }
+  .eyebrow { font-size: var(--text-eyebrow-size); font-weight: var(--text-eyebrow-weight); letter-spacing: var(--text-eyebrow-tracking); line-height: var(--text-eyebrow-leading); text-transform: uppercase; color: var(--ink-tertiary); }
+  .three { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-5); align-items: start; }
+  .head { font-family: var(--font-mono); font-size: var(--text-code-size); line-height: var(--text-code-leading); color: var(--ink-tertiary); margin-bottom: var(--space-2); }
+  .foot { font-size: var(--text-caption-size); line-height: var(--text-caption-leading); color: var(--ink-secondary); margin: 0; max-width: var(--measure); }
+  .foot-mono { font-family: var(--font-mono); }
+</style>
+</head>
+<body>
+
+<section class="band" data-theme="light">
+  <div class="eyebrow">Light band</div>
+  <div class="three">
+    <div>
+      <div class="head">before the promise settles</div>
+      <p class="notice">Works are loading …</p>
+    </div>
+    <div>
+      <div class="head">origin: "fallback"</div>
+      <p class="notice">As of <span class="notice-stamp">2026-09-11</span> — the live fetch from ORCID was unavailable, so this list shows the last committed state, 15 works. Current version: <a class="link" href="https://orcid.org/0000-0003-4543-4833">ORCID profile</a>.</p>
+    </div>
+    <div>
+      <div class="head">both paths dead — throw</div>
+      <p class="notice notice--failure">Publications could not be loaded: live "ORCID responded 503", fallback "Failed to fetch". Current list: <a class="link" href="https://orcid.org/0000-0003-4543-4833">ORCID profile</a>.</p>
+    </div>
+  </div>
+  <p class="foot">All three are <span class="foot-mono">--ink-secondary</span>. A failure is separated by a <strong>line</strong>, the same 2px <span class="foot-mono">--ink</span> rule <span class="foot-mono">.project--flagship</span> uses for emphasis — there is no red here and there will not be one.</p>
+</section>
+
+<section class="band" data-theme="dark">
+  <div class="eyebrow">Dark band</div>
+  <div class="three">
+    <div>
+      <div class="head">before the promise settles</div>
+      <p class="notice">Works are loading …</p>
+    </div>
+    <div>
+      <div class="head">origin: "fallback"</div>
+      <p class="notice">As of <span class="notice-stamp">2026-09-11</span> — the live fetch from ORCID was unavailable, so this list shows the last committed state, 15 works. Current version: <a class="link" href="https://orcid.org/0000-0003-4543-4833">ORCID profile</a>.</p>
+    </div>
+    <div>
+      <div class="head">both paths dead — throw</div>
+      <p class="notice notice--failure">Publications could not be loaded: live "ORCID responded 503", fallback "Failed to fetch". Current list: <a class="link" href="https://orcid.org/0000-0003-4543-4833">ORCID profile</a>.</p>
+    </div>
+  </div>
+  <p class="foot">Real values: the date and the count come from <span class="foot-mono">content/publications.json</span>, the wording from <span class="foot-mono">content/orcid.mjs</span>. Only the two quoted reasons are examples — they are whatever the two failures actually said.</p>
+</section>
+
+</body>
+</html>

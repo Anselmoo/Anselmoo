@@ -1,0 +1,128 @@
+<!-- @dsCard group="References" viewport="1180x980" name="Reference reading" subtitle="Nine portfolio references, concept by concept" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+body{margin:0;background:var(--paper);color:var(--ink)}
+section{padding:var(--space-6);display:grid;gap:var(--space-6)}
+h1{font-size:var(--text-headline-size);font-weight:var(--text-headline-weight);letter-spacing:var(--text-headline-tracking);line-height:var(--text-headline-leading);margin:0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(20rem,1fr));gap:var(--space-5)}
+.num{font-family:var(--font-mono);font-variant-numeric:tabular-nums}
+</style>
+</head>
+<body>
+<section data-theme="light">
+
+<div>
+<div class="eyebrow-row">
+<span class="ordinal">01</span>
+<span class="sheet-eyebrow">What was read</span>
+<hr class="eyebrow-rule">
+</div>
+<h1>Nine portfolio references, adapted by admission test</h1>
+<p class="deck">The vocabulary of that genre is narrow and repeats: the name or the address at display scale, a numbered index of work, bare year-pairs, dated recognition rows, a place-and-time strip, section ordinals, and a marquee. Half of it this system already owned under another name. The other half collided with a measured rule, and a collision is the useful part.</p>
+</div>
+
+<div>
+<div class="eyebrow-row">
+<span class="ordinal">02</span>
+<span class="sheet-eyebrow">Admitted</span>
+<hr class="eyebrow-rule">
+</div>
+<table class="table table--zebra">
+<thead><tr><th>Concept</th><th>Became</th><th>Admitted because</th></tr></thead>
+<tbody>
+<tr><td>Name at display scale</td><td><code>.wordmark</code></td><td class="cell-meta">The page had a display grade and nothing set in it. The letter alternation rides weight, 700 against 500 — Inter is roman here and synthesis is off.</td></tr>
+<tr><td>Numbered work index</td><td><code>.index</code></td><td class="cell-meta">Not a new grid: <code>.publication</code> already solved the two-column year layout and its container query already collapses at 26rem. The index is that shape with an ordinal in front.</td></tr>
+<tr><td>Section ordinals</td><td><code>.ordinal</code></td><td class="cell-meta">Seven of the nine number their sections. It tells the reader how much is left, which a sequence of sheets otherwise hides.</td></tr>
+<tr><td>Address as the h1</td><td><code>.address</code></td><td class="cell-meta">pierre.io has no contact form at all. Neither does this system — no field, no label, no validation — and one address does not justify admitting three components.</td></tr>
+<tr><td>Year-pair tenure list</td><td><code>.tenure</code></td><td class="cell-meta">Admitted as a component; its rows are an absence with a reason. There is no <span class="num">content/tenure.json</span>, and four plausible rows typed from memory would be the only unsourced claims in the system.</td></tr>
+<tr><td>Place and local time</td><td><code>.locale</code></td><td class="cell-meta">A clock is a content change, not motion — a digit is replaced once a minute and nothing travels. Tabular figures, or the strip reflows every minute and becomes motion by accident.</td></tr>
+</tbody>
+</table>
+</div>
+
+<div>
+<div class="eyebrow-row">
+<span class="ordinal">03</span>
+<span class="sheet-eyebrow">Refused, with the measurement</span>
+<hr class="eyebrow-rule">
+</div>
+<table class="table table--zebra">
+<thead><tr><th>Concept</th><th>Refused because</th></tr></thead>
+<tbody>
+<tr><td>Marquee ticker</td><td class="cell-meta">Already refused once. <code>.banner</code> was admitted as this system's answer to a server-rendered banner that animated with no pause control — wide, short, carrying its own text, and still.</td></tr>
+<tr><td>Count-up counters</td><td class="cell-meta">A number that animates up from zero is briefly false, and every number here carries a source and a date.</td></tr>
+<tr><td>Scroll percentage</td><td class="cell-meta">The rule is kept as <code>.progress</code>, the readout is not. Scroll depth is neither reading progress nor time remaining, so a percentage would be a measurement of nothing.</td></tr>
+<tr><td>Hover-reveal project image</td><td class="cell-meta">Unreachable by keyboard, invisible on touch — the one carrier of its own meaning. The 64px thumbnail is present at rest instead, generated from project data.</td></tr>
+<tr><td>Custom cursor</td><td class="cell-meta">Pointer-only, with no keyboard equivalent, and states here must carry on surface 1 where no stylesheet applies at all.</td></tr>
+<tr><td>Letter-scramble headings</td><td class="cell-meta">It animates text. Under reduced motion there is nothing left to substitute, and assistive technology reads the scramble.</td></tr>
+<tr><td>Platform logos in the drawn set</td><td class="cell-meta">Fenced into <code>.platform</code> with its own origin. The growth rule in <span class="num">assets/icons/README.md</span> admits a glyph only once its referent has been counted nineteen times, requires the 18-unit grid and the 1-unit stroke, and voids itself at eight members.</td></tr>
+</tbody>
+</table>
+</div>
+
+<div>
+<div class="eyebrow-row">
+<span class="ordinal">04</span>
+<span class="sheet-eyebrow">The two counts that decided it</span>
+<hr class="eyebrow-rule">
+</div>
+<div class="grid">
+
+<div class="sheet on-veil">
+<div class="sheet-eyebrow">Ink rungs — headroom for one more</div>
+<p class="sheet-lead">A rung needs 1.20&times; of clearance on both sides, so it needs 1.44&times; of gap to sit in. Measured against paper:</p>
+<table class="table">
+<thead><tr><th>Gap</th><th class="cell-num">light</th><th class="cell-num">dark</th><th>Verdict</th></tr></thead>
+<tbody>
+<tr><td>ink &rarr; secondary</td><td class="cell-num">1.343</td><td class="cell-num">1.190</td><td class="cell-meta">refused</td></tr>
+<tr><td>secondary &rarr; tertiary</td><td class="cell-num">1.251</td><td class="cell-num">1.144</td><td class="cell-meta">refused</td></tr>
+<tr><td>tertiary &rarr; decor</td><td class="cell-num">1.496</td><td class="cell-num">1.581</td><td class="cell-meta">carried</td></tr>
+</tbody>
+</table>
+<p class="notice notice--failure">The dark band is the narrower one because APCA pins its existing roles above what WCAG asks — dark secondary lands at 10.66 where 7:1 was the target. The crowding is a consequence of the second standard, not of the palette. Five roles, not seven.</p>
+</div>
+
+<div class="sheet on-veil">
+<div class="sheet-eyebrow">Icons — the count admits one</div>
+<p class="sheet-lead">Counted across <span class="num">mockup/index.html</span> and <span class="num">mockup/README.md</span>. The floor is nineteen.</p>
+<table class="table">
+<thead><tr><th>Candidate</th><th class="cell-num">count</th><th>Verdict</th></tr></thead>
+<tbody>
+<tr><td>listing</td><td class="cell-num">49</td><td class="cell-meta">admitted</td></tr>
+<tr><td>download</td><td class="cell-num">26</td><td class="cell-meta">clears the floor, duplicates <code>package.svg</code></td></tr>
+<tr><td>orcid</td><td class="cell-num">15</td><td class="cell-meta">under the floor</td></tr>
+<tr><td>release / tag</td><td class="cell-num">5</td><td class="cell-meta">under the floor</td></tr>
+<tr><td>star</td><td class="cell-num">4</td><td class="cell-meta">under the floor</td></tr>
+<tr><td>arrow</td><td class="cell-num">2</td><td class="cell-meta">literal name, refused regardless</td></tr>
+</tbody>
+</table>
+<p class="notice">The set grows by one, not by nine. Everything the count refused lives in <code>.platform</code> instead, flattened to one tone and never the only carrier beside its own label.</p>
+</div>
+
+</div>
+</div>
+
+<div>
+<div class="eyebrow-row">
+<span class="ordinal">05</span>
+<span class="sheet-eyebrow">What the strict version cost</span>
+<hr class="eyebrow-rule">
+</div>
+<p class="sheet-lead">Seven of the eight standing prohibitions were phrased only as refusals. A system made of refusals can state what a page must not do and has nothing to say about what it is for — which is how three earlier page drafts came out correct and empty. Shadows, badge rows, zebra striping and one unsourced headline figure are now in play. Italics are in play as a rule and absent as an asset: the cut is specified in <span class="num">FONT_CHAIN.sans.italic</span> and not shipped, so emphasis is still weight 500 — the face and its token are gated together on the file existing, because a face with no file and a token with no face are the same dead declaration seen from two ends. <span style="font-weight: 500">No emoji</span> is the one prohibition kept verbatim, and colour in typography was never dropped, which is why the new eye-separation is carried by five grounds rather than by hue.</p>
+<div class="badge-row">
+<span class="badge"><span class="badge-label">shadow ceiling</span><span class="badge-value">0.078</span></span>
+<span class="badge"><span class="badge-label">grounds per band</span><span class="badge-value">5</span></span>
+<span class="badge"><span class="badge-label">ink roles</span><span class="badge-value">5</span></span>
+<span class="badge"><span class="badge-label">gesture</span><span class="badge-value">360ms</span></span>
+<span class="badge"><span class="badge-label">icons</span><span class="badge-value">3 &rarr; 4</span></span>
+<span class="badge"><span class="badge-label">thumbnails</span><span class="badge-value">26</span></span>
+</div>
+</div>
+
+</section>
+</body>
+</html>

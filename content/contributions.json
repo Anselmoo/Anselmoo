@@ -1,0 +1,18 @@
+{
+  "$comment": "Contributions to OTHER PEOPLE's software. A category of its own, because it is a different kind of evidence than an own repo: not 'I built something', but 'others took my work into theirs'.",
+  "foundVia": "Zenodo search by author name. WARNING: this search is not an enumeration — it finds neither TanabeSugano nor SpectraFit, whose metadata carries the name differently. Further contributions may exist and be missing here.",
+  "contributions": [
+    {
+      "id": "orca-external-tools",
+      "project": "faccts/orca-external-tools",
+      "what": "ORCA External Tools — interfaces to external programs for the quantum chemistry package ORCA.",
+      "role": "co-author",
+      "authors": 7,
+      "doiConcept": "10.5281/zenodo.17865682",
+      "doiVersion": "10.5281/zenodo.17961058",
+      "version": "OET v2.0.0",
+      "year": 2025,
+      "whyItCounts": "ORCA is an established quantum chemistry package. A contribution there is evidence of a different kind than an own repo with the same star count."
+    }
+  ]
+}

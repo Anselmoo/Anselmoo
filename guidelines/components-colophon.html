@@ -1,0 +1,101 @@
+<!-- @dsCard group="Components" viewport="860x340" name="Colophon" subtitle="Material evidence instead of badges" -->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    body {
+      margin: 0;
+      height: 340px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    section {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      background: var(--paper);
+      color: var(--ink);
+      padding: var(--space-4) var(--space-5);
+      gap: var(--space-3);
+    }
+
+    .header {
+      display: flex;
+      gap: var(--space-6);
+      font-size: var(--text-caption-size);
+      color: var(--ink-tertiary);
+      font-weight: var(--text-eyebrow-weight);
+    }
+
+    .header > div {
+      flex: 1;
+    }
+
+    .content {
+      display: flex;
+      gap: var(--space-6);
+      flex: 1;
+      min-height: 0;
+    }
+
+    .content > div {
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      align-items: center;
+    }
+
+    pre {
+      margin: 0;
+      font-family: var(--font-mono);
+      font-size: var(--text-caption-size);
+      line-height: var(--text-caption-leading);
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    .footer {
+      font-size: var(--text-caption-size);
+      color: var(--ink-secondary);
+      line-height: var(--text-caption-leading);
+      border-top: 1px solid var(--hairline);
+      padding-top: var(--space-2);
+    }
+  </style>
+</head>
+<body>
+  <section data-theme="light">
+    <div class="header">
+      <div>Web</div>
+      <div>GitHub Markdown</div>
+    </div>
+
+    <div class="content">
+      <div>
+        <div class="colophon">
+          <dl>
+            <dt>Type</dt>
+            <dd>Inter, Grade 62 to 12, smallest gap 1.17</dd>
+            <dt>Paper</dt>
+            <dd>generated, luminance deviation at most 0.0553 percent, anisotropy at most 1.0690 · tokens/material.json, 2026-09-10, six sheets</dd>
+            <dt>Ink</dt>
+            <dd>15.10 to 1 against paper</dd>
+            <dt>Space</dt>
+            <dd>Four-pixel division, nine steps</dd>
+          </dl>
+        </div>
+      </div>
+
+      <div>
+        <pre>---
+*Type: Inter, Grade 62 to 12, smallest gap 1.17 · Paper: generated, luminance deviation at most 0.0553 percent, anisotropy at most 1.0690 (tokens/material.json, 2026-09-10, six sheets) · Ink: 15.10 to 1 against paper · Space: Four-pixel division, nine steps*</pre>
+      </div>
+    </div>
+
+    <div class="footer">Single-band: a component is structure, and structure is band-independent — only the color roles change, and their behavior is already evidenced by the cards in the Colors group. A second band would double the area here without proving anything.</div>
+  </section>
+</body>
+</html>

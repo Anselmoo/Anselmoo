@@ -1,0 +1,166 @@
+<!-- @dsCard group="Motion" viewport="1180x880" name="Scroll gestures" subtitle="Nine gestures, four tokens, one gate" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+body{margin:0;background:var(--paper);color:var(--ink)}
+/* Every [data-theme] scope restates `color`: it inherits as an already-resolved value,
+ * so re-scoping --ink below the point where `color` was resolved does not re-resolve
+ * it. Under prefers-color-scheme: dark this rendered near-white ink on light paper at
+ * contrast 1.00 in a sibling card. */
+section[data-theme]{color:var(--ink);background:var(--paper)}
+section{padding:var(--space-6);display:grid;gap:var(--space-6)}
+h1{font-size:var(--text-headline-size);font-weight:var(--text-headline-weight);letter-spacing:var(--text-headline-tracking);line-height:var(--text-headline-leading);margin:0}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--space-4);container-type:inline-size}
+@container (max-width: 40rem){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.num{font-family:var(--font-mono);font-variant-numeric:tabular-nums}
+.demo{border:1px solid var(--hairline);border-radius:var(--radius-card);padding:var(--space-4);background:var(--paper-veil);display:grid;gap:var(--space-3)}
+.demo-stage{block-size:56px;display:grid;place-items:center;background:var(--paper);border-radius:var(--radius-card);overflow:hidden}
+.tile{inline-size:72px;block-size:24px;background:var(--ink-faint);border-radius:4px}
+@media (prefers-reduced-motion: no-preference){
+.loop-reveal{animation:demo-reveal 2.4s var(--motion-ease) infinite}
+.loop-rule{animation:demo-rule 2.4s var(--motion-ease) infinite;transform-origin:0 50%}
+.loop-thumb{animation:demo-thumb 2.4s var(--motion-ease) infinite}
+.loop-weight{animation:demo-weight 3.2s linear infinite}
+.loop-progress{animation:demo-progress 2.4s linear infinite;transform-origin:0 50%}
+/* Three more gestures, so the set is nine and the grid is 3x3. All three already exist
+ * in components.css; they were simply never shown. */
+.loop-draw{stroke-dasharray:1;animation:demo-draw 3s var(--motion-ease) infinite}
+.loop-retire{animation:demo-retire 2.6s linear infinite}
+.loop-letter{display:inline-block;animation:demo-letter 2.8s var(--motion-ease) infinite;animation-delay:calc(var(--i) * 60ms)}
+}
+@keyframes demo-reveal{0%,10%{opacity:0;transform:translateY(16px)}45%,100%{opacity:1;transform:translateY(0)}}
+@keyframes demo-rule{0%,10%{transform:scaleX(0)}45%,100%{transform:scaleX(1)}}
+@keyframes demo-thumb{0%,10%{opacity:0;transform:scale(.94)}45%,100%{opacity:1;transform:scale(1)}}
+@keyframes demo-weight{0%{font-weight:700;letter-spacing:-.022em}50%{font-weight:500;letter-spacing:.01em}100%{font-weight:700;letter-spacing:-.022em}}
+@keyframes demo-progress{0%{transform:scaleX(0)}100%{transform:scaleX(1)}}
+@keyframes demo-draw{0%{stroke-dashoffset:1}55%,100%{stroke-dashoffset:0}}
+@keyframes demo-retire{0%,20%{opacity:1}70%,100%{opacity:0}}
+@keyframes demo-letter{0%,10%{transform:translateY(0.32em)}55%,100%{transform:translateY(0)}}
+</style>
+</head>
+<body>
+<section data-theme="light">
+
+<div>
+<div class="eyebrow-row">
+<span class="ordinal">01</span>
+<span class="sheet-eyebrow">The gestures</span>
+<hr class="eyebrow-rule">
+</div>
+<h1>Nine gestures, and the gate that made them declare themselves</h1>
+<p class="deck">Nothing in this system moved until 2026-09-12, and <span class="num">--motion-gesture</span> was deliberately <span class="num">null</span> so it could not become a dead token. The portfolio surface moves, so the pair was filled in. Two rules came out of shipping them: every range uses the <span class="num">cover</span> phase, which stays defined at any subject height, and a timeline-driven keyframe animates <em>transform only</em> &mdash; so no gesture can hide content. The demos below loop on a time clock so the card can show them standing still; on the real surface progress is the reader's scroll position and nothing plays on its own.</p>
+</div>
+
+<div class="grid">
+
+<div class="demo">
+<div class="sheet-eyebrow" style="margin:0">Sheet reveal</div>
+<div class="demo-stage"><span class="tile loop-reveal"></span></div>
+<p class="notice">Transform only — 16px of travel, one spacing step, enough to read as arrival and not enough to look like a slide. The demo fades because it runs on a time clock; the real gesture does not touch opacity at all. <span class="num">cover 0%</span> to <span class="num">cover 30%</span>.</p>
+</div>
+
+<div class="demo">
+<div class="sheet-eyebrow" style="margin:0">Seam draws outward</div>
+<div class="demo-stage"><span class="tile loop-rule" style="block-size:1px;inline-size:80%;border-radius:0"></span></div>
+<p class="notice">The cheapest gesture: a 1px rule scaling on one axis, composited. It lives <strong>only</strong> on <span class="num">.divider</span>, which runs two of them from opposite origins so the seam draws outward from its glyph. A standalone drawn rule was tried three times and retired &mdash; see 03.</p>
+</div>
+
+<div class="demo">
+<div class="sheet-eyebrow" style="margin:0">Thumbnail settles</div>
+<div class="demo-stage"><span class="tile loop-thumb" style="inline-size:40px;block-size:40px;border-radius:8px"></span></div>
+<p class="notice">Scale, never travel: a 64px square moved 16px reads as a jolt. It lands a beat after its row &mdash; <span class="num">cover 5%</span> against the row's <span class="num">cover 0%</span>.</p>
+</div>
+
+<div class="demo">
+<div class="sheet-eyebrow" style="margin:0">Wordmark answers the scroll</div>
+<div class="demo-stage"><span class="loop-weight" style="font-size:var(--text-subhead-size)">Anselm</span></div>
+<p class="notice">Weight and tracking, never position. Not a transition either &mdash; the scroll position is already continuous, so a transition on top would be a second animation lagging the first.</p>
+</div>
+
+<div class="demo">
+<div class="sheet-eyebrow" style="margin:0">Read progress</div>
+<div class="demo-stage"><span class="tile loop-progress" style="block-size:1px;inline-size:90%;border-radius:0;background:var(--ink-faint)"></span></div>
+<p class="notice">Scale, not width: an animated width relayouts every frame and the generator fails the build for it. No percentage readout &mdash; scroll depth is neither reading progress nor time remaining.</p>
+</div>
+
+<div class="demo">
+<div class="sheet-eyebrow" style="margin:0">Index rows stagger</div>
+<div class="demo-stage" style="align-content:center;gap:4px;display:grid;padding:var(--space-2)">
+<span class="tile loop-reveal" style="block-size:6px;inline-size:100%;animation-delay:0s"></span>
+<span class="tile loop-reveal" style="block-size:6px;inline-size:100%;animation-delay:.12s"></span>
+<span class="tile loop-reveal" style="block-size:6px;inline-size:100%;animation-delay:.24s"></span>
+</div>
+<p class="notice">Each row carries its own timeline, so the stagger is a consequence of position rather than a list of delays. Inserting a row renumbers nothing.</p>
+</div>
+<div class="demo">
+<div class="sheet-eyebrow" style="margin:0">Mark draws itself</div>
+<div class="demo-stage"><svg viewBox="0 0 120 60" width="120" height="48" aria-hidden="true" style="color:var(--ink)"><path class="loop-draw" pathLength="1" d="M10 50 L18 49.4 L26 47.2 L34 41.8 L42 32.4 L50 21 L56 14 L60 12 L64 14 L70 21 L78 32.4 L86 41.8 L94 47.2 L102 49.4 L110 50" fill="none" stroke="currentColor" stroke-width="2.5" vector-effect="non-scaling-stroke" stroke-linecap="butt"/><line x1="10" y1="31" x2="110" y2="31" stroke="currentColor" stroke-width="2.5" vector-effect="non-scaling-stroke"/></svg></div>
+<p class="notice">The cover mark on a dash offset: the Gaussian draws and the axis is there from the first frame, because a peak against nothing is not yet a measurement and an A with no bar is not yet a letter. <span class="num">stroke-dashoffset</span> is paint, so this is the guard-free class.</p>
+</div>
+
+<div class="demo">
+<div class="sheet-eyebrow" style="margin:0">Cue retires</div>
+<div class="demo-stage"><span class="loop-retire" style="display:inline-flex;align-items:center;gap:var(--space-2)"><span style="display:block;inline-size:32px;block-size:1px;background:var(--ink-faint)"></span><span class="num" style="font-size:var(--text-caption-size);color:var(--ink-tertiary)">eight sheets</span></span></div>
+<p class="notice">The one place opacity is animated on a scroll timeline, and it is legal because it fades <em>out</em>: a cue still on screen after the reader has taken it is no longer a cue. Failure leaves content visible, which is the direction that costs nothing.</p>
+</div>
+
+<div class="demo">
+<div class="sheet-eyebrow" style="margin:0">Letters rise</div>
+<div class="demo-stage"><span style="font-size:var(--text-subhead-size);font-weight:700;letter-spacing:-0.022em"><span class="loop-letter" style="--i:0">A</span><span class="loop-letter" style="--i:1">n</span><span class="loop-letter" style="--i:2">s</span><span class="loop-letter" style="--i:3">e</span><span class="loop-letter" style="--i:4">l</span><span class="loop-letter" style="--i:5">m</span></span></div>
+<p class="notice">The cover entrance, 60ms apart. Travel is in <span class="num">em</span> and not px, so a 62px display letter and a 40px one rise by the same proportion of themselves &mdash; in px the responsive pair would read as two different animations.</p>
+</div>
+
+
+</div>
+</div>
+
+<div>
+<div class="eyebrow-row">
+<span class="ordinal">02</span>
+<span class="sheet-eyebrow">The three classes</span>
+<hr class="eyebrow-rule">
+</div>
+<table class="table table--zebra">
+<thead><tr><th>Class</th><th>Properties</th><th class="cell-num">Duration</th><th>Guard</th></tr></thead>
+<tbody>
+<tr><td>guard-free</td><td class="cell-meta">colour, border-colour, opacity</td><td class="cell-num--mono">120ms</td><td class="cell-meta">none needed under 200ms</td></tr>
+<tr><td>guarded</td><td class="cell-meta">transform, and nothing else &mdash; opacity is never driven from a keyframe</td><td class="cell-num--mono">360ms</td><td class="cell-meta"><span class="num">prefers-reduced-motion</span>, always</td></tr>
+<tr><td>forbidden</td><td class="cell-meta">width, height, margin, padding, inset</td><td class="cell-num--mono">&mdash;</td><td class="cell-meta">the build fails, it does not warn</td></tr>
+</tbody>
+</table>
+<div class="badge-row" style="margin-block-start: var(--space-4)">
+<span class="badge"><span class="badge-label">--motion-fast</span><span class="badge-value">120ms</span></span>
+<span class="badge"><span class="badge-label">--motion-gesture</span><span class="badge-value">360ms</span></span>
+<span class="badge"><span class="badge-label">multiple</span><span class="badge-value">3&times;</span></span>
+<span class="badge"><span class="badge-label">--motion-ease</span><span class="badge-value">ease-out</span></span>
+<span class="badge"><span class="badge-label">--motion-ease-in</span><span class="badge-value">ease-in</span></span>
+</div>
+<p class="notice" style="margin-block-start: var(--space-4)">360 is <span class="num">3 &times; --motion-fast</span> exactly, and the multiple is checked rather than asserted. An arbitrary number beside a 120ms token reads as two motion systems on one page; a whole multiple reads as one system at two speeds. Three is the smallest multiple that reads as a travel rather than a switch.</p>
+</div>
+
+<div>
+<div class="eyebrow-row">
+<span class="ordinal">03</span>
+<span class="sheet-eyebrow">Two faults the gestures found</span>
+<hr class="eyebrow-rule">
+</div>
+<div class="grid">
+<div class="sheet on-veil">
+<div class="sheet-eyebrow">A separator may not depend on scroll to exist</div>
+<p class="sheet-lead">The same fault as the reveal, one property along. A <span class="num">scaleX</span>-from-zero gesture needs its range to complete, and both ends of a document make that impossible: an element at the top never scrolls <em>into</em> its <span class="num">cover</span> range &mdash; measured at 41 % on first paint and staying there, a hairline drawn 41 % across &mdash; while one at the bottom never scrolls <em>past</em> it, measured at <span class="num">scaleX(0)</span> at the very end of the document, so the footer separator was simply absent.</p>
+<p class="notice notice--failure">"Use it below the fold" was the first patch and it is not a rule anyone can follow: the safe zone is the middle of a document, which no component can know it is in. Retired for standalone rules. The gesture keeps one home, <span class="num">.divider</span>, where the element <em>is</em> the gesture and the glyph and label carry the seam whether or not it has drawn.</p>
+</div>
+<div class="sheet on-veil">
+<div class="sheet-eyebrow">A gesture may not own the content</div>
+<p class="sheet-lead">The first <span class="num">reveal-in</span> animated <span class="num">opacity</span> from 0 with <span class="num">fill: both</span>. All seven sheets were invisible at every scroll position &mdash; including sheets scrolled far past the viewport. Measured: animation attached, playState running, ViewTimeline live, <span class="num">currentTime -5.9%</span>. Negative progress with <span class="num">both</span> pins an element to its <span class="num">from</span> keyframe, so <span class="num">opacity: 0</span> was forever. No console error.</p>
+<p class="notice notice--failure">Two faults, one symptom. The <span class="num">entry</span> phase is <strong>ill-defined for a subject taller than the scrollport</strong>, and the sheets run to 2662px; and opacity had no business in a timeline-driven keyframe at all. Both are fixed: every range is now <span class="num">cover</span>, and the guarded class animates <strong>transform only</strong>. A broken timeline now costs a 16px offset instead of the page.</p>
+</div>
+</div>
+</div>
+
+</section>
+</body>
+</html>

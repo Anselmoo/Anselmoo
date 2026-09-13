@@ -1,0 +1,44 @@
+{
+  "$comment": "GENERATED — do not edit by hand.",
+  "idea": "A fitted Gaussian on its baseline reads as the letter A, and the A crossbar IS the spectrum baseline. One figure carrying both the subject and the initial, with nothing added to make the pun work.",
+  "credit": "Observed by the user against candidate 05 of the retired mark-candidates sheet — the peak was drawn as a spectroscopy mark and is a better monogram than the monogram candidate.",
+  "construction": {
+    "grid": 120,
+    "baseline": 94,
+    "apex": 16,
+    "strokeCurve": 5,
+    "strokeBaseline": 2,
+    "crossbar": "placed where the curve reaches 0.42 of its height, so it terminates ON the flanks rather than crossing them — that contact is what makes it read as an A rather than as a peak with a line over it"
+  },
+  "cuts": [
+    {
+      "name": "wide",
+      "sigma": 26,
+      "reads": "a hill — spectroscopy first, letter second"
+    },
+    {
+      "name": "mid",
+      "sigma": 19,
+      "reads": "both at once, which is the point"
+    },
+    {
+      "name": "narrow",
+      "sigma": 14,
+      "reads": "a letter — A first, peak second"
+    }
+  ],
+  "open": "Which sigma, and whether the crossbar ships at all — imagery/mark-peak-*-nobar-light.svg is the control.",
+  "chosen": {
+    "construction": "A Gaussian over a full-width axis. sigma 13, axis at y=54 of 120, apex at y=10.",
+    "why": "One line does both jobs — the x axis a peak is measured against, and the crossbar that makes the figure an A. The earlier version carried a low baseline AND a crossbar, which was one line too many: it read as a peak on a shelf with a bar across it rather than as one letter.",
+    "strokes": "4px, non-scaling, so the weight is a device pixel count and not a viewBox unit — the fault that made the first cover mark render at 13.5px against 1px hairlines.",
+    "files": [
+      "imagery/mark-peak-light.svg",
+      "imagery/mark-peak-dark.svg",
+      "imagery/mark-peak-sm-light.svg",
+      "imagery/mark-peak-sm-dark.svg"
+    ],
+    "supersedes": "the three-cut sigma study and the crossbar-at-0.42 construction below",
+    "sharpened": "sigma 19 -> 13 and the axis 62 -> 54. A wide peak with a low crossbar reads as a hill with a line under it; a narrow peak with a high crossbar reads as an A. The footer variant keeps its axis low because there the axis IS the page rule."
+  }
+}

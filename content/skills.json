@@ -1,0 +1,130 @@
+{
+  "$comment": "Capabilities, each admitted by an artefact that already exists in this content model. NO self-assessment: there is no level, no percentage, no proficiency and no years-of-experience field, and _scripts/check-content.mjs fails the build if one appears. A bar chart of skills is a claim about a person; a link to a shipped artefact is evidence, and this system has already decided which of those it prints.",
+  "selectionRule": "A capability is admitted only if at least one artefact already in projects.json, publications.json, contributions.json or software-archive.json demonstrates it. A human decides inclusion, not a number.",
+  "sinceRule": "DERIVED, never stated. The year shown is the earliest dated evidence for that capability. An author-supplied 'since' would be a number without a source, which is the one thing content/model.md forbids everywhere else.",
+  "asOf": "2026-09-12",
+  "groups": [
+    {
+      "id": "computational-spectroscopy",
+      "name": "Computational spectroscopy",
+      "capabilities": [
+        {
+          "id": "spectral-fitting",
+          "name": "Spectral fitting and peak deconvolution",
+          "claim": "Separating overlapping features in a measured spectrum into components a chemist can argue about, with the fit itself reproducible.",
+          "evidence": [
+            { "kind": "project", "ref": "spectrafit" },
+            { "kind": "publication", "doi": "10.1021/acsomega.3c09262" }
+          ]
+        },
+        {
+          "id": "ligand-field-analysis",
+          "name": "Ligand-field and term-symbol analysis",
+          "claim": "Turning d-d excitation energies into a ligand-field parameter set, and the diagrams that make the assignment checkable.",
+          "evidence": [
+            { "kind": "project", "ref": "tanabesugano" },
+            { "kind": "publication", "doi": "10.1021/acs.inorgchem.7b00940" }
+          ]
+        },
+        {
+          "id": "xray-electronic-structure",
+          "name": "X-ray spectroscopy of transition-metal complexes",
+          "claim": "Reading oxidation state and electronic structure out of RIXS and X-ray emission data, including where the conventional reading fails.",
+          "evidence": [
+            { "kind": "publication", "doi": "10.1002/ange.202015669" },
+            { "kind": "publication", "doi": "10.1021/acs.inorgchem.8b01010" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tools-for-models",
+      "name": "Tools for language models",
+      "capabilities": [
+        {
+          "id": "mcp-server-design",
+          "name": "Model Context Protocol server design",
+          "claim": "Exposing a scientific instrument to a language model as a tool it can call, rather than as prose it has to imitate.",
+          "evidence": [
+            { "kind": "publication", "doi": "10.26434/chemrxiv.15007941/v2" },
+            { "kind": "project", "ref": "mcp-zen-of-languages" }
+          ]
+        },
+        {
+          "id": "mcp-packaging",
+          "name": "Packaging and distributing MCP servers",
+          "claim": "Getting a server from a working repository to something a stranger can install without reading the source.",
+          "evidence": [
+            { "kind": "project", "ref": "mcp2mcpb" }
+          ]
+        },
+        {
+          "id": "static-analysis-tooling",
+          "name": "Static analysis as an agent-callable tool",
+          "claim": "Wrapping linters and type checkers so a model gets a verdict with locations instead of an opinion.",
+          "evidence": [
+            { "kind": "project", "ref": "mcp-server-analyzer" },
+            { "kind": "project", "ref": "mcp-ai-agent-guidelines" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "research-software-practice",
+      "name": "Research software practice",
+      "capabilities": [
+        {
+          "id": "release-engineering",
+          "name": "Release engineering and repository policy",
+          "claim": "Versioning, changelogs and branch policy enforced by a tool rather than by remembering.",
+          "evidence": [
+            { "kind": "project", "ref": "repo-release-tools" },
+            { "kind": "project", "ref": "werkstoff" }
+          ]
+        },
+        {
+          "id": "citable-software",
+          "name": "Making software citable",
+          "claim": "Archived releases with concept DOIs, so a method section can point at the exact code that produced a figure.",
+          "evidence": [
+            { "kind": "archive", "ref": "Anselmoo/useful-math-functions" },
+            { "kind": "contribution", "ref": "orca-external-tools" }
+          ]
+        },
+        {
+          "id": "numerical-methods",
+          "name": "Optimisation and numerical methods",
+          "claim": "Implementing and comparing optimisers where the objective is a physical model, not a benchmark function.",
+          "evidence": [
+            { "kind": "archive", "ref": "Anselmoo/useful-optimizer" },
+            { "kind": "archive", "ref": "Anselmoo/RBF_NetworkFitting" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "visual-computing",
+      "name": "Visual computing",
+      "capabilities": [
+        {
+          "id": "plotting-surfaces",
+          "name": "Plotting where the data already is",
+          "claim": "Charts in the terminal and inside the editor, so looking at a column of numbers does not require leaving the tool holding them.",
+          "evidence": [
+            { "kind": "project", "ref": "bashplot" },
+            { "kind": "project", "ref": "vsplot" }
+          ]
+        },
+        {
+          "id": "colour-systems",
+          "name": "Colour systems for reading code",
+          "claim": "Editor themes built as a measured palette rather than a set of preferences, including the contrast the palette has to hold.",
+          "evidence": [
+            { "kind": "project", "ref": "caligo-vscode-theme" },
+            { "kind": "project", "ref": "dracula-palette" }
+          ]
+        }
+      ]
+    }
+  ]
+}

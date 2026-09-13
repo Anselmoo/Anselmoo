@@ -1,0 +1,30 @@
+{
+  "name": "anselmoo-brand",
+  "private": true,
+  "type": "module",
+  "description": "Tools of the personal brand system: token derivation, imagery, page and README generators, checks.",
+  "scripts": {
+    "tokens": "node _scripts/derive-tokens.mjs .",
+    "colophon": "node _scripts/build-colophon.mjs .",
+    "readme": "node _scripts/build-readme.mjs",
+    "orcid": "node _scripts/fetch-orcid.mjs",
+    "content": "node _scripts/check-content.mjs",
+    "icons": "node _scripts/check-icons.mjs assets/icons",
+    "usage": "node _scripts/fetch-usage.mjs",
+    "fonts": "node _scripts/fetch-fonts.mjs",
+    "imagery": "node _scripts/build-imagery.mjs",
+    "og": "node _scripts/build-og.mjs",
+    "mark": "node _scripts/build-mark.mjs",
+    "hero": "node _scripts/build-hero.mjs",
+    "figures": "node _scripts/build-figures.mjs",
+    "chroma": "node _scripts/check-chroma.mjs tokens/colors.css tokens/tokens.json styles.css components/components.css imagery/*.svg imagery/*.json assets/*.svg assets/og/*.svg assets/icons/*.svg assets/icons/platform/*.svg",
+    "build": "npm run tokens && npm run imagery && npm run hero && npm run figures && npm run mark && npm run og && npm run index && npm run readme && npm run colophon",
+    "check": "npm run content && npm run icons && npm run classes && npm run chroma",
+    "dev": "node _scripts/dev.mjs",
+    "index": "node _scripts/build-index.mjs",
+    "classes": "node _scripts/check-classes.mjs"
+  },
+  "dependencies": {
+    "culori": "^4.0.1"
+  }
+}

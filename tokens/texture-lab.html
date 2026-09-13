@@ -1,0 +1,149 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Texture lab — R3 + R6</title>
+<style>
+  body{margin:0;padding:24px;font:13px/1.5 -apple-system,BlinkMacSystemFont,Inter,sans-serif;background:#e9e7e1;color:#232320}
+  .row{display:flex;gap:14px;margin-bottom:24px;flex-wrap:wrap}
+  .cell svg{display:block;width:250px;height:150px;border-radius:3px}
+  .lbl{font-size:12px;color:#6e6e68;margin-top:6px;width:250px}
+  h2{font-size:12px;font-weight:600;margin:0 0 10px;letter-spacing:.05em;text-transform:uppercase;color:#6e6e68}
+  pre{font:12px/1.6 ui-monospace,monospace;background:#fbfaf7;padding:14px;border-radius:3px;overflow:auto}
+  .spec{position:relative;width:520px}
+  .spec .txt{position:relative;font-size:18px;line-height:1.65;padding:22px 24px}
+</style>
+</head><body>
+
+<h2>Variants</h2>
+<div class="row" id="swatches"></div>
+
+<h2>Body text on the paper variant</h2>
+<div class="row"><div class="spec" id="spec"></div></div>
+
+<h2>Measurement — R6 (luminance neutrality) and R3 (isotropy)</h2>
+<pre id="out">measuring…</pre>
+
+<script>
+const BASE = '#fbfaf7', W = 250, H = 150;
+
+function turb(freq, oct, seed, res) {
+  return `<feTurbulence type="fractalNoise" baseFrequency="${freq}" numOctaves="${oct}" seed="${seed}" result="${res}"/>`;
+}
+const GREY_A1 = `type="matrix" values="0.3333 0.3333 0.3333 0 0  0.3333 0.3333 0.3333 0 0  0.3333 0.3333 0.3333 0 0  0 0 0 0 1"`;
+function scale(inp, slope, res) {
+  const ic = (0.5 - slope * 0.5).toFixed(4);
+  return `<feComponentTransfer in="${inp}" result="${res}">
+    <feFuncR type="linear" slope="${slope}" intercept="${ic}"/>
+    <feFuncG type="linear" slope="${slope}" intercept="${ic}"/>
+    <feFuncB type="linear" slope="${slope}" intercept="${ic}"/>
+  </feComponentTransfer>`;
+}
+
+const FILTERS = {
+  grain: s => `${turb(0.85, 4, 17, 'n')}
+    <feColorMatrix in="n" ${GREY_A1} result="g"/>
+    ${scale('g', s, 'o')}
+    <feComposite in="o" in2="SourceGraphic" operator="arithmetic" k1="0" k2="1" k3="1" k4="-0.5"/>`,
+
+  paper: s => `${turb(0.85, 4, 17, 'n1')}
+    ${turb(0.035, 3, 41, 'n2')}
+    <feColorMatrix in="n1" ${GREY_A1} result="g1"/>
+    <feColorMatrix in="n2" ${GREY_A1} result="g2"/>
+    <feComposite in="g1" in2="g2" operator="arithmetic" k1="0" k2="0.55" k3="0.45" k4="0" result="mix"/>
+    ${scale('mix', s * 1.5, 'o')}
+    <feComposite in="o" in2="SourceGraphic" operator="arithmetic" k1="0" k2="1" k3="1" k4="-0.5"/>`,
+
+  linen: s => `${turb('0.035 0.95', 2, 23, 'w')}
+    ${turb('0.95 0.035', 2, 29, 'f')}
+    <feColorMatrix in="w" ${GREY_A1} result="gw"/>
+    <feColorMatrix in="f" ${GREY_A1} result="gf"/>
+    <feComposite in="gw" in2="gf" operator="arithmetic" k1="0" k2="0.5" k3="0.5" k4="0" result="mix"/>
+    ${scale('mix', s * 1.6, 'o')}
+    <feComposite in="o" in2="SourceGraphic" operator="arithmetic" k1="0" k2="1" k3="1" k4="-0.5"/>`,
+};
+
+const VARIANTS = [
+  { key: 'flat',  label: 'flat — reference',                       fx: null,    s: 0 },
+  { key: 'grain', label: 'grain — one frequency band',             fx: 'grain', s: 0.10 },
+  { key: 'paper', label: 'paper — grain + sheet formation',        fx: 'paper', s: 0.10 },
+  { key: 'linen', label: 'linen — warp and weft, bidirectional',   fx: 'linen', s: 0.10 },
+];
+
+function svgFor(v, w = W, h = H) {
+  if (!v.fx) return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${w} ${h}" width="${w}" height="${h}"><rect width="${w}" height="${h}" fill="${BASE}"/></svg>`;
+  const id = 'f_' + v.key;
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${w} ${h}" width="${w}" height="${h}">`
+    + `<defs><filter id="${id}" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">`
+    + FILTERS[v.fx](v.s) + `</filter></defs>`
+    + `<rect width="${w}" height="${h}" fill="${BASE}" filter="url(#${id})"/></svg>`;
+}
+
+const host = document.getElementById('swatches');
+for (const v of VARIANTS) {
+  const d = document.createElement('div');
+  d.className = 'cell';
+  d.innerHTML = svgFor(v) + `<div class="lbl">${v.label}</div>`;
+  host.appendChild(d);
+}
+document.getElementById('spec').innerHTML =
+  `<div style="position:absolute;inset:0;border-radius:3px;overflow:hidden">${svgFor(VARIANTS[2], 520, 110)}</div>`
+  + `<div class="txt">Reproducible tools for spectroscopy. Open-source software at the seam between computational research and engineering.</div>`;
+
+const lin = v => (v <= 0.04045 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4);
+const relLum = (r, g, b) => 0.2126 * lin(r / 255) + 0.7152 * lin(g / 255) + 0.0722 * lin(b / 255);
+
+async function measure(markup) {
+  const img = new Image();
+  await new Promise((ok, no) => { img.onload = ok; img.onerror = () => no(new Error('load'));
+    img.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(markup); });
+  const c = document.createElement('canvas'); c.width = W; c.height = H;
+  const ctx = c.getContext('2d', { willReadFrequently: true });
+  ctx.drawImage(img, 0, 0, W, H);
+  const d = ctx.getImageData(0, 0, W, H).data;
+  const L = new Float64Array(W * H);
+  let sum = 0, chroma = 0;
+  for (let i = 0, p = 0; i < d.length; i += 4, p++) {
+    L[p] = relLum(d[i], d[i + 1], d[i + 2]); sum += L[p];
+    chroma += Math.max(d[i], d[i + 1], d[i + 2]) - Math.min(d[i], d[i + 1], d[i + 2]);
+  }
+  const n = W * H, mean = sum / n;
+  let varSum = 0;
+  for (let p = 0; p < n; p++) varSum += (L[p] - mean) ** 2;
+  // Directional energy: mean squared difference to the neighbour, horizontal vs vertical
+  let eh = 0, ev = 0, ch = 0, cv = 0;
+  for (let y = 0; y < H; y++) for (let x = 0; x < W - 1; x++) { eh += (L[y * W + x + 1] - L[y * W + x]) ** 2; ch++; }
+  for (let y = 0; y < H - 1; y++) for (let x = 0; x < W; x++) { ev += (L[(y + 1) * W + x] - L[y * W + x]) ** 2; cv++; }
+  eh /= ch; ev /= cv;
+  return { mean, chroma: chroma / n, sd: Math.sqrt(varSum / n),
+           aniso: Math.max(eh, ev) / Math.max(Math.min(eh, ev), 1e-12) };
+}
+
+(async () => {
+  const res = [];
+  for (const v of VARIANTS) res.push(await measure(svgFor(v)));
+  const base = res[0], o = [];
+  o.push(`Ground tone ${BASE} — L ${base.mean.toFixed(5)}, chroma ${base.chroma.toFixed(2)}`);
+  o.push('');
+  o.push('Variant    mean L       R6 dev.   spread(SD)    chroma   anisotropy');
+  o.push('-'.repeat(70));
+  res.forEach((x, i) => {
+    const dev = (x.mean - base.mean) / base.mean * 100;
+    o.push(VARIANTS[i].key.padEnd(10)
+      + x.mean.toFixed(5).padStart(11)
+      + ((dev >= 0 ? '+' : '') + dev.toFixed(2) + '%').padStart(10)
+      + x.sd.toFixed(4).padStart(14) + x.chroma.toFixed(2).padStart(9)
+      + (i === 0 ? '—' : x.aniso.toFixed(2) + '×').padStart(13));
+  });
+  o.push('');
+  o.push('R6  |dev.| <= 1 %        R3  anisotropy <= 1.15x for areas under body text');
+  res.forEach((x, i) => {
+    if (i === 0) return;
+    const dev = Math.abs((x.mean - base.mean) / base.mean * 100);
+    const r6 = dev <= 1, r3 = x.aniso <= 1.15;
+    o.push('  ' + VARIANTS[i].key.padEnd(8)
+      + 'R6 ' + (r6 ? 'ok  ' : 'FAIL') + ` (${dev.toFixed(2)}%)`.padEnd(10)
+      + '  R3 ' + (r3 ? 'ok  ' : 'FAIL') + ` (${x.aniso.toFixed(2)}x)`
+      + (r3 ? '' : '  -> only outside body text'));
+  });
+  document.getElementById('out').textContent = o.join('\n');
+})().catch(e => { document.getElementById('out').textContent = 'Error: ' + e.message; });
+</script>
+</body></html>

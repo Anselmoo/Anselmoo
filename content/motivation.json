@@ -1,0 +1,10 @@
+{
+  "$comment": "AUTHOR-WRITTEN. Nothing here can be fetched and nothing here may be generated. CUT ON 2026-09-12 from 211 words to under 100: a survey of 14 developer portfolios put the median landing-view word count at 314 and this page carried 2167. The prose was not wrong, there was just too much of it in front of the work. Edit by hand; it is the one file in content/ where a script has no opinion.",
+  "eyebrow": "Why this work exists",
+  "lead": "Spectroscopy produces numbers that only become results once somebody can interpret them. Most of what is here exists because that step was harder than it needed to be.",
+  "paragraphs": [
+    "I work on the software side of experimental chemistry: X-ray spectra of transition-metal complexes, ligand-field models, and the fitting that connects the two. The measurements are expensive and the interpretation is not automatic.",
+    "The tools here close that gap, and more recently the same question has moved to conversational ones — whether a language model can be handed a scientific instrument rather than a description of one."
+  ],
+  "asOf": "2026-09-12"
+}

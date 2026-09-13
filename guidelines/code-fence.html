@@ -1,0 +1,93 @@
+<!-- @dsCard group="Code" viewport="860x500" name="Code fence" subtitle="Three rungs, no new colour" -->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    body {
+      margin: 0;
+      height: 500px;
+      display: flex;
+      flex-direction: column;
+    }
+    .band {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: var(--space-5);
+      align-items: center;
+      padding: var(--space-4) var(--space-6);
+      background: var(--paper);
+    }
+    .code-container {
+      flex: 1;
+    }
+    .caption {
+      font-size: var(--text-caption-size);
+      line-height: var(--text-caption-leading);
+      color: var(--ink-secondary);
+      font-family: var(--font-mono);
+      white-space: nowrap;
+    }
+    .caption-row {
+      margin-bottom: var(--space-2);
+    }
+    .caption-label {
+      color: var(--ink);
+      font-weight: var(--text-subhead-weight);
+    }
+    .caption-values {
+      color: var(--ink-tertiary);
+    }
+    .closing {
+      margin: 0;
+      padding: var(--space-2) var(--space-6) var(--space-3);
+      background: var(--paper);
+      color: var(--ink-secondary);
+      font-size: var(--text-caption-size);
+      line-height: var(--text-caption-leading);
+      max-width: var(--measure);
+    }
+  </style>
+</head>
+<body>
+  <section class="band" data-theme="light">
+    <div class="code-container">
+      <pre class="code"><code><span class="code-gutter"> 1</span> function bisect(arr, target) {
+<span class="code-gutter"> 2</span>   <span class="code-comment">// Search for target in sorted array</span>
+<span class="code-gutter"> 3</span>   let left = 0, right = arr.length - 1;
+<span class="code-gutter"> 4</span>   return left &lt;= right ? mid : -1;
+<span class="code-gutter"> 5</span> }</code></pre>
+    </div>
+    <div>
+      <div class="caption">
+        <div class="caption-row"><span class="caption-label">code</span> <span class="caption-values">--ink  12.75</span></div>
+        <div class="caption-row"><span class="caption-label">comment</span> <span class="caption-values">--ink-secondary  7.07</span></div>
+        <div class="caption-row"><span class="caption-label">line number</span> <span class="caption-values">--ink-tertiary  4.52</span></div>
+        <div class="caption-row" style="color: var(--ink-tertiary); margin-top: var(--space-3);">--decor forbidden  2.02</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" data-theme="dark">
+    <div class="code-container">
+      <pre class="code"><code><span class="code-gutter"> 1</span> function bisect(arr, target) {
+<span class="code-gutter"> 2</span>   <span class="code-comment">// Search for target in sorted array</span>
+<span class="code-gutter"> 3</span>   let left = 0, right = arr.length - 1;
+<span class="code-gutter"> 4</span>   return left &lt;= right ? mid : -1;
+<span class="code-gutter"> 5</span> }</code></pre>
+    </div>
+    <div>
+      <div class="caption">
+        <div class="caption-row"><span class="caption-label">code</span> <span class="caption-values">--ink  12.50</span></div>
+        <div class="caption-row"><span class="caption-label">comment</span> <span class="caption-values">--ink-secondary  8.83</span></div>
+        <div class="caption-row"><span class="caption-label">line number</span> <span class="caption-values">--ink-tertiary  6.74</span></div>
+        <div class="caption-row" style="color: var(--ink-tertiary); margin-top: var(--space-3);">--decor forbidden  2.70</div>
+      </div>
+    </div>
+  </section>
+  <p class="closing">No new colour token was needed: the ladder that already existed
+  carries a code fence against the recessed ground.</p>
+</body>
+</html>

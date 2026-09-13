@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="">
+<title>dracula-palette</title>
+<desc>Index thumbnail. A fitted peak on its axis; the peak height encodes this project's usage as a share of the largest value IN ITS OWN UNIT (no published package, so no measured usage — a dashed absence rather than a zero-height peak). Drawn as a 1.4px STROKE, not a fill. The previous cut applied the layer-drop rule literally and produced a single filled bar covering 30 to 100 per cent of the tile, in a tone identical to --ink, which made the decoration the brightest thing in every index row — tone capped, area not. The axis is kept so the peak is read against something: one layer of a bar figure is a rectangle. GENERATED.</desc>
+<rect x="0" y="0" width="64" height="64" rx="11" fill="#fafafa"></rect><line x1="5" y1="46" x2="59" y2="46" stroke="#8f8f8f" stroke-width="1" vector-effect="non-scaling-stroke"></line><line x1="25" y1="37" x2="39" y2="37" stroke="#8f8f8f" stroke-width="1.4" stroke-dasharray="3 3" vector-effect="non-scaling-stroke"></line>
+</svg>

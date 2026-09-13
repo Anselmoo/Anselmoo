@@ -1,0 +1,526 @@
+{
+  "$comment": "Hand-picked. Order is a statement, not a sort — the first card in each category carries it.",
+  "selectionRule": "A human decides inclusion, not a number. Stars demonstrably misrepresent the usage of this body of work: mcp-server-analyzer has 11 stars, mcp-ai-agent-guidelines 6 — but the latter is pulled from npm thousands of times a month. Whoever sorts by stars sorts by visibility instead of impact.",
+  "starsAsOf": "2026-09-10",
+  "categories": [
+    {
+      "id": "science",
+      "name": "Scientific Software",
+      "audience": "Whoever arrives from a DOI and is looking for the software behind the figure.",
+      "projects": [
+        {
+          "id": "spectrafit",
+          "repo": "Anselmoo/SpectraFit",
+          "name": "SpectraFit",
+          "summary": "Spectral data fitting, grown from a personal script into peer-reviewed software.",
+          "stars": 36,
+          "language": "Python",
+          "package": {
+            "kind": "pypi",
+            "name": "spectrafit"
+          },
+          "usage": {
+            "value": 557,
+            "unit": "PyPI downloads per month",
+            "source": "pypistats.org, last week 170",
+            "asOf": "2026-09-10"
+          },
+          "doiConcept": "10.1021/acsomega.3c09262",
+          "doiVersion": null,
+          "series": {
+            "unit": "PyPI downloads per day",
+            "days": 90,
+            "from": "2026-06-14",
+            "to": "2026-09-11",
+            "points": [
+              10, 11, 2, 220, 7, 1, 2,
+              6, 6, 11, 4, 2, 13, 17,
+              0, 11, 4, 4, 6, 4, 8,
+              14, 2, 4, 46, 0, 1, 2,
+              1, 0, 4, 7, 3, 2, 3,
+              0, 1, 7, 14, 4, 8, 9,
+              0, 4, 2, 4, 4, 1, 5,
+              12, 11, 5, 3, 5, 6, 4,
+              11, 3, 1, 4, 1, 4, 8,
+              3, 26, 2, 160, 19, 22, 16,
+              5, 4, 2, 3, 0, 6, 1,
+              3, 6, 83, 8, 4, 8, 0,
+              128, 28, 2, 0, 5, 7
+            ],
+            "source": "pypistats.org/api/packages/spectrafit/overall?mirrors=false",
+            "asOf": "2026-09-12"
+          }
+        },
+        {
+          "id": "tanabesugano",
+          "repo": "Anselmoo/TanabeSugano",
+          "name": "TanabeSugano",
+          "summary": "Solver for Tanabe-Sugano and energy-correlation diagrams, with its own software DOI.",
+          "stars": 21,
+          "language": "Python",
+          "package": {
+            "kind": "pypi",
+            "name": "tanabesugano"
+          },
+          "usage": {
+            "value": 1082,
+            "unit": "PyPI downloads per month",
+            "source": "pypistats.org, last week 143",
+            "asOf": "2026-09-10"
+          },
+          "doiConcept": "10.5281/zenodo.3402463",
+          "doiVersion": "10.5281/zenodo.22062396",
+          "zenodo": {
+            "value": 347,
+            "unit": "Zenodo downloads total",
+            "source": "zenodo.org, 1189 views, latest version 10.5281/zenodo.22070277",
+            "asOf": "2026-09-10"
+          },
+          "series": {
+            "unit": "PyPI downloads per day",
+            "days": 90,
+            "from": "2026-06-13",
+            "to": "2026-09-10",
+            "points": [
+              4, 2, 5, 9, 8, 41, 63,
+              6, 5, 95, 15, 6, 0, 5,
+              11, 4, 2, 14, 0, 0, 7,
+              3, 7, 2, 1, 0, 5, 2,
+              6, 0, 8, 1, 3, 2, 2,
+              1, 0, 6, 0, 14, 6, 2,
+              2, 7, 6, 0, 2, 0, 0,
+              3, 2, 0, 1, 0, 5, 3,
+              3, 8, 0, 0, 2, 1, 0,
+              2, 1, 0, 0, 100, 6, 3,
+              215, 274, 21, 15, 10, 22, 72,
+              68, 9, 88, 13, 17, 2, 16,
+              32, 47, 29, 13, 4, 7
+            ],
+            "source": "pypistats.org/api/packages/tanabesugano/overall?mirrors=false",
+            "asOf": "2026-09-12"
+          }
+        },
+        {
+          "id": "moplots",
+          "repo": "Anselmoo/moplots",
+          "name": "moplots",
+          "summary": "Molecular-orbital plots as a series for ORCA.",
+          "stars": 1,
+          "language": "Python",
+          "package": {
+            "kind": "pypi",
+            "name": "moplots"
+          },
+          "usage": {
+            "value": 13,
+            "unit": "PyPI downloads per month",
+            "source": "pypistats.org, last week 1",
+            "asOf": "2026-09-10"
+          },
+          "doiConcept": null,
+          "doiVersion": null,
+          "series": {
+            "unit": "PyPI downloads per day",
+            "days": 90,
+            "from": "2026-06-13",
+            "to": "2026-09-10",
+            "points": [
+              1, 0, 0, 0, 1, 1, 0,
+              0, 6, 2, 2, 2, 0, 1,
+              2, 0, 2, 6, 0, 0, 3,
+              4, 1, 0, 0, 2, 0, 0,
+              0, 1, 0, 1, 0, 2, 0,
+              0, 0, 0, 0, 1, 2, 2,
+              0, 0, 0, 0, 2, 0, 1,
+              0, 3, 0, 0, 0, 1, 0,
+              0, 4, 0, 1, 0, 0, 2,
+              0, 0, 0, 0, 1, 0, 0,
+              0, 2, 0, 0, 0, 0, 2,
+              1, 0, 3, 0, 0, 1, 0,
+              0, 0, 0, 0, 0, 1
+            ],
+            "source": "pypistats.org/api/packages/moplots/overall?mirrors=false",
+            "asOf": "2026-09-12"
+          }
+        }
+      ],
+      "orderRationale": "SpectraFit stands first even though TanabeSugano is pulled more often (1082 against 557). That is the editorial exception and not an oversight: SpectraFit is the only project with a peer-reviewed article and carries the arc from personal script to citable software. Whoever arrives from a DOI is looking for exactly that arc."
+    },
+    {
+      "id": "agents",
+      "name": "Tools for Agents and Development",
+      "audience": "Whoever arrives from npm or a toolchain and wants the source.",
+      "projects": [
+        {
+          "id": "mcp2mcpb",
+          "repo": "Anselmoo/mcp2mcpb",
+          "name": "mcp2mcpb",
+          "summary": "Turns MCP servers published on PyPI and npm into bundles that install in Claude Desktop with one click.",
+          "stars": 0,
+          "language": "Python",
+          "doiConcept": null,
+          "doiVersion": null,
+          "package": {
+            "kind": "pypi",
+            "name": "mcp2mcpb"
+          },
+          "usage": {
+            "value": 229,
+            "unit": "PyPI downloads per month",
+            "source": "pypistats.org, last week 25",
+            "asOf": "2026-09-10"
+          },
+          "flagship": true,
+          "listings": [
+            {
+              "where": "GitHub Marketplace",
+              "url": "https://github.com/marketplace/actions/build-mcpb-bundle",
+              "classification": "Action — Build .mcpb bundle",
+              "note": "The Marketplace lists the action under its own name, not the repo name. Whoever searches for mcp2mcpb will not find it.",
+              "asOf": "2026-09-10"
+            }
+          ],
+          "series": {
+            "unit": "PyPI downloads per day",
+            "days": 90,
+            "from": "2026-06-14",
+            "to": "2026-09-11",
+            "points": [
+              0, 0, 0, 0, 0, 184, 8,
+              205, 123, 20, 125, 8, 35, 5,
+              0, 2, 6, 4, 16, 22, 10,
+              15, 10, 10, 2, 27, 30, 46,
+              20, 0, 0, 10, 15, 19, 0,
+              0, 4, 4, 12, 4, 0, 0,
+              0, 0, 2, 0, 12, 8, 0,
+              2, 0, 0, 3, 1, 0, 1,
+              6, 2, 22, 18, 14, 2, 0,
+              0, 0, 2, 14, 4, 14, 38,
+              36, 0, 2, 1, 8, 6, 0,
+              18, 1, 1, 3, 11, 4, 1,
+              0, 4, 5, 0, 1, 1
+            ],
+            "source": "pypistats.org/api/packages/mcp2mcpb/overall?mirrors=false",
+            "asOf": "2026-09-12"
+          }
+        },
+        {
+          "id": "mcp-ai-agent-guidelines",
+          "repo": "Anselmoo/mcp-ai-agent-guidelines",
+          "name": "mcp-ai-agent-guidelines",
+          "summary": "MCP server with tools for hierarchical prompting, code hygiene and planning.",
+          "stars": 6,
+          "language": "TypeScript",
+          "package": {
+            "kind": "npm",
+            "name": "mcp-ai-agent-guidelines"
+          },
+          "usage": {
+            "value": 5862,
+            "unit": "npm downloads per month",
+            "source": "api.npmjs.org, 2026-08-11 to 2026-09-09",
+            "asOf": "2026-09-10"
+          },
+          "doiConcept": null,
+          "doiVersion": null,
+          "series": {
+            "unit": "npm downloads per day",
+            "days": 90,
+            "from": "2026-06-14",
+            "to": "2026-09-11",
+            "points": [
+              26, 3, 1, 347, 977, 69, 368,
+              903, 1178, 142, 230, 165, 752, 527,
+              541, 258, 83, 22, 40, 44, 89,
+              247, 23, 39, 39, 24, 25, 58,
+              0, 11, 17, 13, 19, 10, 18,
+              21, 45, 46, 804, 104, 83, 51,
+              16, 0, 13, 11, 42, 32, 58,
+              84, 73, 85, 47, 46, 44, 8,
+              362, 295, 421, 220, 335, 0, 484,
+              500, 819, 727, 451, 739, 552, 72,
+              15, 25, 12, 26, 28, 45, 45,
+              56, 59, 70, 45, 0, 51, 31,
+              16, 0, 0, 18, 30, 0
+            ],
+            "source": "api.npmjs.org/downloads/range/2026-06-14:2026-09-11",
+            "asOf": "2026-09-12"
+          }
+        },
+        {
+          "id": "repo-release-tools",
+          "repo": "Anselmoo/repo-release-tools",
+          "name": "repo-release-tools",
+          "summary": "Keeps versioning, commits and changelogs boring across four ecosystems.",
+          "stars": 1,
+          "language": "Python",
+          "package": {
+            "kind": "pypi",
+            "name": "repo-release-tools"
+          },
+          "usage": {
+            "value": 2230,
+            "unit": "PyPI downloads per month",
+            "source": "pypistats.org, last week 735",
+            "asOf": "2026-09-10"
+          },
+          "doiConcept": null,
+          "doiVersion": null,
+          "listings": [
+            {
+              "where": "GitHub Marketplace",
+              "url": "https://github.com/marketplace/actions/repo-release-tools-policy-checks",
+              "classification": "Action — repo-release-tools policy checks",
+              "note": null,
+              "asOf": "2026-09-10"
+            }
+          ],
+          "series": {
+            "unit": "PyPI downloads per day",
+            "days": 90,
+            "from": "2026-06-14",
+            "to": "2026-09-11",
+            "points": [
+              31, 57, 6, 8, 35, 71, 30,
+              106, 202, 37, 142, 96, 122, 19,
+              51, 75, 16, 53, 15, 31, 34,
+              145, 27, 9, 9, 97, 122, 137,
+              119, 94, 42, 29, 100, 106, 24,
+              32, 71, 52, 86, 19, 25, 36,
+              31, 35, 72, 56, 137, 111, 74,
+              61, 101, 181, 29, 34, 14, 7,
+              34, 42, 56, 46, 101, 51, 12,
+              29, 54, 18, 32, 35, 31, 99,
+              75, 25, 8, 5, 100, 92, 41,
+              342, 83, 14, 146, 240, 174, 38,
+              45, 53, 100, 85, 21, 43
+            ],
+            "source": "pypistats.org/api/packages/repo-release-tools/overall?mirrors=false",
+            "asOf": "2026-09-12"
+          }
+        },
+        {
+          "id": "mcp-server-analyzer",
+          "repo": "Anselmoo/mcp-server-analyzer",
+          "name": "mcp-server-analyzer",
+          "summary": "MCP server for Python analysis with Ruff and Vulture.",
+          "stars": 11,
+          "language": "Python",
+          "package": {
+            "kind": "pypi",
+            "name": "mcp-server-analyzer"
+          },
+          "usage": {
+            "value": 863,
+            "unit": "PyPI downloads per month",
+            "source": "pypistats.org, last week 152",
+            "asOf": "2026-09-10"
+          },
+          "listings": [
+            {
+              "where": "MCP Market",
+              "url": "https://mcpmarket.com/server/analyzer",
+              "classification": "Developer Tools, Security & Testing",
+              "note": "Third-party curated. The page contradicts its own numbers (the header names 11 stars, the generated feature list 0) — the evidence is the listing, not the number.",
+              "asOf": "2026-09-10"
+            }
+          ],
+          "doiConcept": null,
+          "doiVersion": null,
+          "series": {
+            "unit": "PyPI downloads per day",
+            "days": 90,
+            "from": "2026-06-14",
+            "to": "2026-09-11",
+            "points": [
+              22, 17, 32, 28, 14, 21, 30,
+              20, 126, 94, 36, 34, 49, 26,
+              31, 62, 50, 133, 98, 65, 27,
+              37, 28, 35, 23, 48, 36, 23,
+              14, 31, 22, 42, 20, 24, 14,
+              12, 26, 40, 90, 81, 34, 9,
+              6, 44, 52, 53, 12, 18, 14,
+              24, 45, 29, 58, 38, 40, 9,
+              14, 17, 7, 22, 22, 69, 12,
+              66, 22, 18, 30, 9, 14, 25,
+              15, 11, 8, 9, 6, 4, 8,
+              195, 84, 25, 30, 19, 24, 21,
+              23, 31, 18, 16, 13, 10
+            ],
+            "source": "pypistats.org/api/packages/mcp-server-analyzer/overall?mirrors=false",
+            "asOf": "2026-09-12"
+          }
+        },
+        {
+          "id": "mcp-zen-of-languages",
+          "repo": "Anselmoo/mcp-zen-of-languages",
+          "name": "mcp-zen-of-languages",
+          "summary": "Architecture and idiom analysis across multiple languages, as an MCP server and CLI.",
+          "stars": 2,
+          "language": "Python",
+          "package": {
+            "kind": "pypi",
+            "name": "mcp-zen-of-languages"
+          },
+          "usage": {
+            "value": 337,
+            "unit": "PyPI downloads per month",
+            "source": "pypistats.org, last week 149",
+            "asOf": "2026-09-10"
+          },
+          "doiConcept": null,
+          "doiVersion": null,
+          "series": {
+            "unit": "PyPI downloads per day",
+            "days": 90,
+            "from": "2026-06-14",
+            "to": "2026-09-11",
+            "points": [
+              18, 2, 2, 28, 6, 1, 2,
+              18, 100, 31, 8, 0, 2, 15,
+              7, 9, 67, 0, 15, 13, 8,
+              11, 5, 3, 1, 12, 0, 1,
+              4, 0, 1, 28, 2, 1, 2,
+              5, 8, 0, 29, 2, 0, 0,
+              0, 0, 5, 1, 0, 1, 1,
+              1, 0, 0, 0, 1, 2, 0,
+              11, 0, 0, 0, 0, 2, 0,
+              0, 0, 2, 3, 0, 0, 0,
+              2, 0, 4, 1, 0, 0, 0,
+              136, 26, 4, 8, 99, 25, 7,
+              4, 12, 2, 0, 6, 1
+            ],
+            "source": "pypistats.org/api/packages/mcp-zen-of-languages/overall?mirrors=false",
+            "asOf": "2026-09-12"
+          }
+        },
+        {
+          "id": "werkstoff",
+          "repo": "Anselmoo/werkstoff",
+          "name": "werkstoff",
+          "summary": "Workshop for original Claude Code plugins: self-assess, compass, cupertino, andon.",
+          "stars": 1,
+          "language": "Python",
+          "package": null,
+          "usage": null,
+          "doiConcept": null,
+          "doiVersion": null
+        }
+      ],
+      "orderRationale": "mcp2mcpb stands first as flagship, even though mcp-ai-agent-guidelines shows markedly more usage — see its own usage figure, which carries the number and the date it was measured. That is the editorial exception, and it has a reason: mcp2mcpb closes a gap instead of solving a task — it connects the existing PyPI and npm ecosystem to one-click installation in Claude Desktop, in both directions, and for that it is listed as an action on the GitHub Marketplace. What follows after it is ordered by measured usage."
+    },
+    {
+      "id": "display",
+      "name": "Display and Terminal",
+      "audience": "Whoever wants to see in twenty seconds whether someone here puts care into what's visible.",
+      "projects": [
+        {
+          "id": "vsplot",
+          "repo": "Anselmoo/vsplot",
+          "name": "vsplot",
+          "summary": "Plot and display data in VS Code.",
+          "stars": 2,
+          "language": "JavaScript",
+          "package": {
+            "kind": "vscode-marketplace",
+            "name": "vsplot"
+          },
+          "usage": {
+            "value": 588,
+            "unit": "installs",
+            "source": "VS Marketplace, 581 downloads total",
+            "asOf": "2026-09-10"
+          },
+          "doiConcept": null,
+          "doiVersion": null,
+          "listings": [
+            {
+              "where": "Visual Studio Marketplace",
+              "url": "https://marketplace.visualstudio.com/items?itemName=anselmhahn.vsplot",
+              "classification": "Extension, canonical identifier AnselmHahn.vsplot",
+              "note": "The URL carries the identifier lowercase, the API returns it capitalized. AnselmHahn.vsplot is authoritative.",
+              "asOf": "2026-09-10"
+            }
+          ]
+        },
+        {
+          "id": "caligo-vscode-theme",
+          "repo": "Anselmoo/caligo-vscode-theme",
+          "name": "Caligo",
+          "summary": "Dark VS Code theme, computed from OKLCH color science rather than chosen.",
+          "stars": 0,
+          "language": "TypeScript",
+          "package": {
+            "kind": "vscode-marketplace",
+            "name": "caligo-vscode-theme"
+          },
+          "usage": {
+            "value": 66,
+            "unit": "installs",
+            "source": "VS Marketplace, 502 downloads total",
+            "asOf": "2026-09-10"
+          },
+          "doiConcept": null,
+          "doiVersion": null
+        },
+        {
+          "id": "bashplot",
+          "repo": "Anselmoo/bashplot",
+          "name": "bashplot",
+          "summary": "Plot data instantly in the terminal, without ever leaving it.",
+          "stars": 8,
+          "language": "Python",
+          "package": {
+            "kind": "pypi",
+            "name": "bashplot"
+          },
+          "usage": {
+            "value": 35,
+            "unit": "PyPI downloads per month",
+            "source": "pypistats.org, last week 4",
+            "asOf": "2026-09-10"
+          },
+          "doiConcept": null,
+          "doiVersion": null,
+          "series": {
+            "unit": "PyPI downloads per day",
+            "days": 90,
+            "from": "2026-06-11",
+            "to": "2026-09-08",
+            "points": [
+              1, 1, 0, 1, 1, 3, 4,
+              3, 0, 0, 5, 1, 6, 0,
+              0, 2, 3, 1, 6, 7, 2,
+              2, 23, 0, 3, 0, 2, 0,
+              0, 2, 2, 0, 3, 1, 2,
+              0, 0, 2, 5, 0, 6, 1,
+              5, 3, 0, 0, 0, 3, 0,
+              1, 0, 1, 1, 1, 0, 3,
+              2, 1, 0, 8, 0, 1, 0,
+              0, 3, 0, 0, 0, 0, 1,
+              0, 2, 0, 5, 5, 1, 0,
+              1, 2, 0, 0, 5, 5, 0,
+              0, 0, 0, 0, 0, 4
+            ],
+            "source": "pypistats.org/api/packages/bashplot/overall?mirrors=false",
+            "asOf": "2026-09-12"
+          }
+        },
+        {
+          "id": "dracula-palette",
+          "repo": "Anselmoo/dracula-palette",
+          "name": "dracula-palette",
+          "summary": "Color harmonies from a single seed hue, computed in OKLCH.",
+          "stars": 3,
+          "language": "Vue",
+          "package": null,
+          "usage": null,
+          "doiConcept": null,
+          "doiVersion": null
+        }
+      ],
+      "orderRationale": "vsplot stands first because, in the same unit, it is installed nine times as often as Caligo. My first judgment had Caligo first; the measurement disproved it."
+    }
+  ],
+  "ordering": "The first entry in each category is an editorial decision and carries the category; it is exempt from the usage ordering and must state its reason. Below it follows the measured usage, but only between COMPARABLE units: npm downloads, PyPI downloads and marketplace installs are three different numbers and must not be weighed against each other. npm run content fails a violation of this."
+}

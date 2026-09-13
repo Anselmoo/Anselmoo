@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      margin: 0;
+      width: 1200px;
+      height: 630px;
+      position: relative;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--font-sans);
+    }
+
+    .paper-ground {
+      position: absolute;
+      inset: 0;
+      display: block;
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+      box-sizing: border-box;
+      height: 630px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: var(--space-8) var(--page-inset);
+    }
+
+    /* The cover carried no mark until 2026-09-11, on purpose: three candidates were
+     * in play and putting one here would have decided by habit what nobody had decided
+     * on the evidence. The bend is chosen, so the cover can carry it. */
+    .mark { display: block; margin-bottom: var(--space-4); }
+
+    .eyebrow {
+      font-family: var(--font-sans);
+      font-size: var(--text-eyebrow-size);
+      font-weight: var(--text-eyebrow-weight);
+      letter-spacing: var(--text-eyebrow-tracking);
+      line-height: var(--text-eyebrow-leading);
+      color: var(--ink-tertiary);
+      text-transform: uppercase;
+    }
+
+    .headline {
+      font-family: var(--font-sans);
+      font-size: var(--text-display-size);
+      font-weight: var(--text-display-weight);
+      letter-spacing: var(--text-display-tracking);
+      line-height: var(--text-display-leading);
+      color: var(--ink);
+      max-width: var(--measure);
+      margin: var(--space-5) 0 0 0;
+    }
+
+    .subhead {
+      font-family: var(--font-sans);
+      font-size: var(--text-subhead-size);
+      font-weight: var(--text-subhead-weight);
+      letter-spacing: var(--text-subhead-tracking);
+      line-height: var(--text-subhead-leading);
+      color: var(--ink-secondary);
+      max-width: var(--measure);
+      margin: var(--space-4) 0 0 0;
+    }
+
+    .footer {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: var(--space-6);
+      border-top: 1px solid var(--hairline);
+      padding-top: var(--space-4);
+    }
+
+    .caption {
+      font-family: var(--font-mono);
+      font-size: var(--text-caption-size);
+      font-weight: var(--text-caption-weight);
+      letter-spacing: var(--text-caption-tracking);
+      line-height: var(--text-caption-leading);
+      color: var(--ink-tertiary);
+    }
+  </style>
+</head>
+<body>
+  <svg class="paper-ground" width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <filter id="paper-1100" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+        <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="4" seed="1100" result="n1"/>
+        <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="3" seed="1101" result="n2"/>
+        <feColorMatrix in="n1" type="matrix" values="0.3333 0.3333 0.3333 0 0  0.3333 0.3333 0.3333 0 0  0.3333 0.3333 0.3333 0 0  0 0 0 0 1" result="g1"/>
+        <feColorMatrix in="n2" type="matrix" values="0.3333 0.3333 0.3333 0 0  0.3333 0.3333 0.3333 0 0  0.3333 0.3333 0.3333 0 0  0 0 0 0 1" result="g2"/>
+        <feComposite in="g1" in2="g2" operator="arithmetic" k1="0" k2="0.55" k3="0.45" k4="0" result="mix"/>
+        <feComponentTransfer in="mix" result="off">
+          <feFuncR type="linear" slope="0.15" intercept="0.4250"/>
+          <feFuncG type="linear" slope="0.15" intercept="0.4250"/>
+          <feFuncB type="linear" slope="0.15" intercept="0.4250"/>
+        </feComponentTransfer>
+        <feComposite in="off" in2="SourceGraphic" operator="arithmetic" k1="0" k2="1" k3="1" k4="-0.5"/>
+      </filter>
+    </defs>
+    <rect width="1200" height="630" style="fill: var(--paper)" filter="url(#paper-1100)"/>
+  </svg>
+
+  <div class="content">
+    <svg class="mark" width="44" height="44" viewBox="0 0 64 64" role="img" aria-label="Mark">
+      <path d="M 6 6 L 23.68 14.32 L 32 32 L 40.32 49.68 L 58 58 L 58 6 Z" fill-rule="evenodd" style="fill: var(--ink)"/>
+    </svg>
+    <div class="eyebrow">Personal brand system</div>
+
+    <div>
+      <div class="headline">Paper, ink,<br>hairline</div>
+      <div class="subhead">A monochrome system for a profile and a portfolio</div>
+    </div>
+
+    <div class="footer">
+      <div class="caption">styles.css</div>
+      <div class="caption">The single entry point</div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,100 @@
+{
+  "$comment": "GENERATED — do not edit by hand.",
+  "mark": {
+    "type": "(2,5) torus knot",
+    "parametrisation": "theta = 2t, rho = 2 + cos(5t), t in [0, 2pi]",
+    "symmetry": "exact five-fold: rho has period 2pi/5 in t while theta advances 4pi/5, so the curve maps onto itself under a 4pi/5 rotation",
+    "lineage": "absorbs the centre of AIML~dark.png, which has five outer lobes and five crossings. The layered blob around it is dropped — it was the generic part.",
+    "interlacing": "drawn as 60 ordered chunks, each a ground-coloured casing plus an ink core. Later chunks paint over earlier ones and a torus knot's crossings alternate along its parameter, so the over/under comes out right without hand-authoring it.",
+    "files": [
+      "imagery/knot-light.svg",
+      "imagery/knot-dark.svg",
+      "imagery/knot-sm-light.svg",
+      "imagery/knot-sm-dark.svg"
+    ],
+    "twoSizes": "256 and 96, each drawn at its own stroke weight rather than scaled — the same rule the icon set states, that a scaled drawing reads heavier than a drawn one",
+    "animation": {
+      "what": "the mark draws itself along its own length on first paint, then holds",
+      "totalMs": 840,
+      "revealPerChunkMs": 120,
+      "staggerMs": 720,
+      "derivation": "120ms is --motion-fast; 720ms is 2 x --motion-gesture; neither is a picked number",
+      "twoOrderings": "the 120 chunks are PAINTED in depth order, so cos(5t) keeps the over/under correct, and REVEALED in parameter order, so the curve grows along itself. The same chunks, sorted twice.",
+      "whyInsideTheFile": "an SVG loaded as <img> cannot read the host's custom properties, so the durations are written out with their derivation. Declarative CSS animation does run inside an SVG image; script does not, which is why this is CSS and not JS.",
+      "reducedMotion": "guarded inside the SVG: the animation is dropped and stroke-dashoffset resolves to 0, so the finished knot is simply there. A one-shot time-based animation always reaches its last frame, which is why it may touch a paint property at all — see the timeline-vs-time-based rule in tokens.json.",
+      "notAClock": "it runs once on load and stops. Nothing here loops."
+    }
+  },
+  "family": {
+    "basis": "one construction per topic, all computed, all monochrome, and each carrying the symmetry its own physics has rather than a symmetry imposed on it — mirror, four-fold, two-fold rotational, barycentre-balanced, twenty-fold",
+    "topics": [
+      {
+        "topic": "spectroscopy",
+        "file": "imagery/topic-spectro-*.svg",
+        "construction": "sum of Gaussians in polar form, mirrored about the vertical axis",
+        "symmetry": "mirror"
+      },
+      {
+        "topic": "quantum mechanics",
+        "file": "imagery/topic-quantum-*.svg",
+        "construction": "r = |cos 2theta|, the angular part of a d orbital, with both nodal planes",
+        "symmetry": "four-fold"
+      },
+      {
+        "topic": "molecular orbitals",
+        "file": "imagery/topic-mo-*.svg",
+        "construction": "two-level interaction diagram with tie lines",
+        "symmetry": "two-fold rotational — the antibonding level rises by as much as the bonding level falls"
+      },
+      {
+        "topic": "covalency, ligand field",
+        "file": "imagery/topic-ligandfield-*.svg",
+        "construction": "octahedral splitting, eg at +0.6 Delta-o and t2g at -0.4 Delta-o",
+        "symmetry": "balanced, not mirrored: 2(+0.6) + 3(-0.4) = 0, so the barycentre is conserved"
+      },
+      {
+        "topic": "AI",
+        "file": "imagery/topic-ai-*.svg",
+        "construction": "chord diagram of i -> (2i mod 20) on twenty points",
+        "symmetry": "twenty-fold"
+      }
+    ],
+    "correction": "The fourth topic is MOLECULAR ELECTRONIC STRUCTURE, not \"atoms\". Two atoms make a molecule; there is no such thing as atomistic spectroscopy, and the subject is the molecule and its electronic structure. An earlier study set said \"atoms\" and offered Bohr shells; both are withdrawn.",
+    "withdrawn": {
+      "topic-molecular-*.svg": "A homonuclear two-centre sigma/sigma* pair. Withdrawn: it is a diatomic, and the subject is the MIXING of ligand and transition-metal orbitals — covalency — which is an unequal interaction, not a symmetric diatomic bond.",
+      "Bohr shells": "Withdrawn with the \"atoms\" framing. Two atoms make a molecule; there is no atomistic spectroscopy, and the subject is the molecule and its electronic structure."
+    }
+  },
+  "spectrum": {
+    "status": "SYNTHETIC, and labelled as such wherever it appears",
+    "why": "Real fitted peaks change with every run, and a synthetic curve presented as a measurement would be the unsourced claim this system refuses. A model with its parameters written down IS sourced — as a model.",
+    "form": "r(theta) = 0.34 + sum_i a_i * 0.42 * exp(-(theta - c_i)^2 / 2 w_i^2), theta in degrees, mirrored at 180",
+    "peaks": [
+      {
+        "c": 18,
+        "w": 7,
+        "a": 1
+      },
+      {
+        "c": 52,
+        "w": 11,
+        "a": 0.62
+      },
+      {
+        "c": 96,
+        "w": 9,
+        "a": 0.78
+      },
+      {
+        "c": 144,
+        "w": 16,
+        "a": 0.35
+      }
+    ],
+    "toMakeItReal": "replace PEAKS with fitted centres, widths and amplitudes from one SpectraFit run and record the run alongside them"
+  },
+  "sources": [
+    "Molecular orbital theory",
+    "Ligand field theory — the covalency of ligand and transition-metal mixing"
+  ]
+}

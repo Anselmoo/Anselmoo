@@ -1,0 +1,67 @@
+<!-- @dsCard group="Colors" viewport="760x180" name="Hairlines" subtitle="In use, not as a color swatch" -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  /* Measured, not calculated: with --space-6 margin and two long lines of running
+   * text, the card needed 218px against a 180px frame. The margin drops to --space-4,
+   * the lines become short enough not to wrap, and the two token names
+   * share one caption. The point stands: both lines in use. */
+  body { margin: 0; height: 180px; display: flex; }
+  section {
+    flex: 1; min-width: 0;
+    background: var(--paper);
+    color: var(--ink);
+    padding: var(--space-4);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .zeile {
+    font-size: var(--text-body-size);
+    font-weight: var(--text-body-weight);
+    line-height: var(--text-body-leading);
+  }
+  .strich { border-top: 1px solid var(--hairline); margin: var(--space-2) 0; }
+  .rahmen {
+    background: var(--paper-alt);
+    border: 1px solid var(--hairline-strong);
+    border-radius: var(--radius-card);
+    padding: var(--space-3) var(--space-4);
+  }
+  .beschriftung {
+    font-size: var(--text-caption-size);
+    font-weight: var(--text-caption-weight);
+    line-height: var(--text-caption-leading);
+    color: var(--ink-secondary);
+  }
+</style>
+</head>
+<body>
+  <section data-theme="light">
+    <div>
+      <div class="zeile">First line</div>
+      <div class="strich"></div>
+      <div class="zeile">Second line</div>
+    </div>
+    <div class="rahmen">
+      <div class="beschriftung">Divider --hairline #ddd9d0</div>
+      <div class="beschriftung">Frame --hairline-strong #c9c5ba</div>
+    </div>
+  </section>
+
+  <section data-theme="dark">
+    <div>
+      <div class="zeile">First line</div>
+      <div class="strich"></div>
+      <div class="zeile">Second line</div>
+    </div>
+    <div class="rahmen">
+      <div class="beschriftung">Divider --hairline #383835</div>
+      <div class="beschriftung">Frame --hairline-strong #4d4d4a</div>
+    </div>
+  </section>
+</body>
+</html>

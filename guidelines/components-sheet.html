@@ -1,0 +1,110 @@
+<!-- @dsCard group="Components" viewport="860x360" name="Sheet" subtitle="The layout unit" -->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    body {
+      margin: 0;
+      height: 360px;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-5);
+      padding: var(--space-5);
+      box-sizing: border-box;
+    }
+
+    .caption {
+      display: flex;
+      gap: var(--space-6);
+      font-size: var(--text-caption-size);
+      font-weight: 600;
+      color: var(--ink-tertiary);
+      line-height: var(--text-caption-leading);
+    }
+
+    .caption-item {
+      flex: 1;
+      text-align: center;
+    }
+
+    .demo-container {
+      display: flex;
+      gap: var(--space-5);
+      flex: 1;
+      min-height: 0;
+    }
+
+    .demo-side {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+    }
+
+    section {
+      flex: 1;
+      border-radius: var(--radius-card);
+      background: var(--paper);
+      color: var(--ink);
+    }
+
+    section[data-theme="light"] {
+      background: var(--paper);
+      color: var(--ink);
+    }
+
+    section[data-theme="dark"] {
+      background: var(--paper);
+      color: var(--ink);
+    }
+
+    .web-demo {
+      padding: var(--space-5) var(--space-6);
+    }
+
+    .markdown-demo {
+      padding: var(--space-5) var(--space-6);
+      font-family: var(--font-mono);
+      font-size: var(--text-caption-size);
+      line-height: 1.5;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      color: var(--ink-secondary);
+    }
+
+    .markdown-demo code {
+      color: var(--ink);
+    }
+  </style>
+</head>
+<body>
+  <div class="caption">
+    <div class="caption-item">Web</div>
+    <div class="caption-item">GitHub Markdown</div>
+  </div>
+
+  <div class="demo-container">
+    <div class="demo-side">
+      <section data-theme="light">
+        <div class="web-demo">
+          <div class="sheet">
+            <div class="sheet-eyebrow">Scientific software</div>
+            <h2 class="sheet-title">What's here</h2>
+            <p class="sheet-lead">Every sheet carries one thought. No grid that shows everything at once.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="demo-side">
+      <section data-theme="light">
+        <div class="markdown-demo"><code>## Scientific software
+
+Every sheet carries one thought. No grid that shows everything at once.</code></div>
+      </section>
+    </div>
+  </div>
+</body>
+</html>

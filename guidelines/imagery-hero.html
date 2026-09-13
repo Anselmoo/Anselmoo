@@ -1,0 +1,68 @@
+<!-- @dsCard group="Imagery" viewport="1280x1340" name="Hero" subtitle="Papercut in greys, depth by lightness and by pattern" -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+body{margin:0;height:1340px}
+.page{height:1340px;display:flex;flex-direction:column;background:var(--paper-alt);color:var(--ink)}
+.head{padding:var(--space-6) var(--space-6) var(--space-5)}
+.eyebrow{font-size:var(--text-eyebrow-size);font-weight:var(--text-eyebrow-weight);letter-spacing:var(--text-eyebrow-tracking);text-transform:uppercase;color:var(--ink-tertiary)}
+.title{font-size:var(--text-headline-size);font-weight:var(--text-headline-weight);letter-spacing:var(--text-headline-tracking);line-height:var(--text-headline-leading);margin:var(--space-1) 0 0;max-width:34em}
+.bands{display:grid;grid-template-columns:minmax(0,1fr);gap:0}
+.bands>section{background:var(--paper);color:var(--ink)}
+.band-label{font-family:var(--font-mono);font-size:var(--text-code-size);color:var(--ink-tertiary);padding:var(--space-3) var(--space-6) 0}
+.derive{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--space-5);padding:var(--space-6);border-top:1px solid var(--hairline-strong);background:var(--paper)}
+.d{display:flex;flex-direction:column;gap:var(--space-1);min-width:0}
+.d-k{font-size:var(--text-eyebrow-size);font-weight:var(--text-eyebrow-weight);letter-spacing:var(--text-eyebrow-tracking);text-transform:uppercase;color:var(--ink-tertiary)}
+.d-v{font-family:var(--font-mono);font-size:var(--text-code-size);line-height:1.5;color:var(--ink)}
+.d-w{font-size:var(--text-caption-size);line-height:var(--text-caption-leading);color:var(--ink-secondary)}
+.note{font-size:var(--text-caption-size);line-height:var(--text-caption-leading);color:var(--ink-secondary);padding:0 var(--space-6) var(--space-6);background:var(--paper)}
+.note b{color:var(--ink);font-weight:600}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="head">
+    <div class="eyebrow">Imagery · hero</div>
+    <h1 class="title">The construction is borrowed, the colour is not there at all</h1>
+  </div>
+  <div class="bands">
+    <section data-theme="light">
+      <div class="band-label">light band · series 1–3, step 0.155 · solid, hatch, cross-hatch</div>
+      <div class="hero">
+        <div class="hero-inner">
+        <div class="hero-text">
+          <div class="hero-eyebrow">Scientific software</div>
+          <h2 class="hero-title">Anselm W. Hahn</h2>
+          <p class="deck">Scientific software and its provenance — canonical on ORCID and GitHub.</p>
+        </div>
+        <div class="hero-art" role="presentation"></div>
+        </div>
+      </div>
+    </section>
+    <section data-theme="dark">
+      <div class="band-label">dark band · series 1–3, step 0.155 · solid, hatch, cross-hatch</div>
+      <div class="hero">
+        <div class="hero-inner">
+        <div class="hero-text">
+          <div class="hero-eyebrow">Scientific software</div>
+          <h2 class="hero-title">Anselm W. Hahn</h2>
+          <p class="deck">Scientific software and its provenance — canonical on ORCID and GitHub.</p>
+        </div>
+        <div class="hero-art" role="presentation" data-comment-anchor="87a1575698-div"></div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="derive">
+    <div class="d"><span class="d-k">Layers</span><span class="d-v">3</span><span class="d-w">The series count: three greys and three geometries. A fourth layer would need a fourth geometry, not a fourth angle.</span></div>
+    <div class="d"><span class="d-k">Depth</span><span class="d-v">ink · paper · ink</span><span class="d-w">Grounds alternate: solid ink, a grey hatch on paper, a grey cross-hatch on ink. Every cut edge is light against dark, so the depth order survives a photocopy.</span></div>
+    <div class="d"><span class="d-k">Inset · shadow</span><span class="d-v">48px · 12px, dy 4</span><span class="d-w">--space-7 per side per layer; the blur is one quarter of it, checked, so a shadow can never bridge two layers.</span></div>
+    <div class="d"><span class="d-k">Field</span><span class="d-v">grey, sampled stops</span><span class="d-w">--paper to --paper-dim, both pure greys. SVG interpolates in sRGB, so the path is sampled fine enough not to band.</span></div>
+  </div>
+  <p class="note">The references for this were saturated purple, pink, green and orange. None of that is adoptable — this system carries no colour anywhere — but the <b>construction</b> is, and every parameter of it is decided elsewhere in the repository. The silhouette is the mark, <b>scaled</b> about its centre and placed point by point in canvas space, so the 4px hatch keeps its period instead of growing with the layer. The hero <b>splits rather than overlays</b>: text over imagery needs a scrim, a scrim is alpha, and the drop shadow is the single alpha value in this system — confined to the imagery layer and stated rather than discovered.</p>
+</div>
+</body>
+</html>

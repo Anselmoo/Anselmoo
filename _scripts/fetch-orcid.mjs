@@ -1,0 +1,130 @@
+#!/usr/bin/env node
+// Fetch publications from ORCID and commit as a fallback.
+//
+// Live AND frozen, not one or the other: the page fetches from ORCID at
+// runtime, but falls back to the file generated here. cupertino-longevity
+// flagged the fetch without a fallback as a Vista trap, with a real clock
+// attached — the API version sits in the path (v3.0). If ORCID goes down or
+// the version moves, the list degrades instead of emptying.
+//
+// TWO dedup rules, because there are two different cases. The plan spoke of
+// "dedupe by DOI"; that would have caught only the first:
+//
+//   R1  Versions of the same work — chemrxiv.15007941/v1 and /v2.
+//       Shared base DOI, strip the version suffix.
+//   R2  Preprint against version of record — acsomega.3c09262 against
+//       chemrxiv-2023-cdrxf. The DOIs share NOTHING. Only the title connects them.
+//
+// The preprint does not vanish in the process, it becomes the preprintOf
+// field: the earlier publication is part of the story, just not a second entry.
+
+import { writeFileSync } from "node:fs";
+import { OMIT } from "../content/orcid.mjs";
+
+const ORCID = "0000-0003-4543-4833";
+const API = `https://pub.orcid.org/v3.0/${ORCID}/works`;
+
+/** Rank of work types: whichever ranks higher wins on a matching title. */
+const RANK = { "journal-article": 4, "book-chapter": 3, software: 2, preprint: 1 };
+
+const entities = (s) => s
+  .replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">")
+  .replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&nbsp;/g, " ");
+
+/** Reduce the title to what two versions of the same work have in common. */
+const titleKey = (t) => entities(t)
+  .toLowerCase().normalize("NFKD").replace(/[̀-ͯ]/g, "")
+  .replace(/[^a-z0-9]+/g, " ").trim();
+
+/** Strip the version suffix: 10.26434/chemrxiv.15007941/v2 -> ...15007941 */
+const baseDoi = (doi) => doi.replace(/\/v\d+$/i, "");
+const version = (doi) => { const m = doi.match(/\/v(\d+)$/i); return m ? +m[1] : 0; };
+
+function read(group) {
+  const s = group["work-summary"][0];
+  const ids = (group["external-ids"] || {})["external-id"] || [];
+  const doi = (ids.find((e) => e["external-id-type"] === "doi") || {})["external-id-value"] || null;
+  const year = ((s["publication-date"] || {}).year || {}).value || null;
+  return {
+    doi,
+    type: s.type || "unknown",
+    title: entities((s.title.title || {}).value || "").trim(),
+    year: year ? Number(year) : null,
+    journal: ((s["journal-title"] || {}).value || "").trim() || null,
+    url: (s.url || {}).value || (doi ? `https://doi.org/${doi}` : null),
+  };
+}
+
+function dedupe(raw) {
+  const log = [];
+
+  // R1 — versions of the same work
+  const byBase = new Map();
+  for (const w of raw) {
+    const k = w.doi ? baseDoi(w.doi) : `no-doi:${titleKey(w.title)}`;
+    const previous = byBase.get(k);
+    if (!previous) { byBase.set(k, w); continue; }
+    const [kept, dropped] = version(w.doi || "") > version(previous.doi || "")
+      ? [w, previous] : [previous, w];
+    byBase.set(k, kept);
+    log.push({ rule: "R1 Version", kept: kept.doi, dropped: dropped.doi });
+  }
+
+  // R2 — preprint against version of record
+  const byTitle = new Map();
+  for (const w of byBase.values()) {
+    const k = titleKey(w.title);
+    const previous = byTitle.get(k);
+    if (!previous) { byTitle.set(k, w); continue; }
+    const [kept, dropped] = (RANK[w.type] || 0) > (RANK[previous.type] || 0)
+      ? [w, previous] : [previous, w];
+    if (dropped.type === "preprint") kept.preprintOf = dropped.doi;
+    byTitle.set(k, kept);
+    log.push({ rule: "R2 Preprint/VoR", kept: kept.doi, dropped: dropped.doi });
+  }
+
+  return { works: [...byTitle.values()], log };
+}
+
+const res = await fetch(API, { headers: { Accept: "application/json" } });
+if (!res.ok) { console.error(`ORCID responded ${res.status}`); process.exit(1); }
+const raw = (await res.json()).group.map(read);
+
+const { works: deduped, log } = dedupe(raw);
+
+// Omission comes AFTER dedupe, so an omitted work still absorbs its own preprint
+// instead of letting it surface as a separate entry.
+const works = deduped.filter((w) => !OMIT.has(w.doi));
+const omitted = deduped.filter((w) => OMIT.has(w.doi)).map((w) => ({ doi: w.doi, reason: OMIT.get(w.doi) }));
+
+// Checks: the script writes nothing if the data doesn't hold up.
+const errors = [];
+for (const w of works) {
+  if (!w.title) errors.push(`work without a title: ${w.doi}`);
+  if (!w.doi) errors.push(`work without a DOI: ${w.title}`);
+  if (!RANK[w.type]) errors.push(`unknown type "${w.type}" for ${w.doi}`);
+}
+if (works.length < 10) errors.push(`only ${works.length} works — that's too few, probably a fetch problem`);
+if (errors.length) { errors.forEach((f) => console.error("  " + f)); process.exit(1); }
+
+works.sort((a, b) => (b.year || 0) - (a.year || 0) || a.title.localeCompare(b.title));
+
+writeFileSync("content/publications.json", JSON.stringify({
+  $comment: "GENERATED by scripts/fetch-orcid.mjs — fallback for the live fetch, do not edit by hand.",
+  source: API,
+  orcid: ORCID,
+  fetchedAt: new Date().toISOString().slice(0, 10),
+  rawGroups: raw.length,
+  afterDedupe: deduped.length,
+  omitted,
+  works,
+}, null, 2) + "\n");
+
+const counts = works.reduce((a, w) => ({ ...a, [w.type]: (a[w.type] || 0) + 1 }), {});
+console.log(`ORCID ${ORCID}: ${raw.length} groups -> ${works.length} works`);
+for (const [t, n] of Object.entries(counts).sort((a, b) => b[1] - a[1])) console.log(`  ${t.padEnd(16)} ${n}`);
+console.log("\nMerged:");
+for (const p of log) console.log(`  ${p.rule.padEnd(16)} ${p.dropped}  ->  ${p.kept}`);
+console.log("\nOmitted:");
+for (const o of omitted) console.log(`  ${o.doi}  ${o.reason}`);
+console.log("\nWritten: content/publications.json");

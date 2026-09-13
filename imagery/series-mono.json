@@ -1,0 +1,61 @@
+{
+  "$comment": "GENERATED — do not edit by hand.",
+  "title": "The monochrome series — the second solution",
+  "why": "Colour left the imagery layer. The hue-bearing series in series.json is kept as the record of how it was solved, and as what a DATA PLOT may still reach for; nothing else uses it.",
+  "chroma": 0,
+  "hue": 106.8,
+  "whyNotZeroChroma": "A true zero-chroma grey is cold, and this system's ground is warm broken white. Same argument as the shadow, which is tinted with --ink's rgb rather than black. At c = 0.0055 the hue is imperceptible: black to grey in practice, warm-neutral by construction.",
+  "step": 0.155,
+  "whyOneStep": "The hue-bearing series needed two different steps, 0.127 light and 0.152 dark, because lightness was being traded against hue. Lightness is now the only channel, so one step serves both bands.",
+  "desaturationFloor": 0.1,
+  "bands": {
+    "light": {
+      "ground": "#fafafa",
+      "series": [
+        {
+          "series": 1,
+          "l": 0.255,
+          "hex": "#232323",
+          "vsGround": 15.1
+        },
+        {
+          "series": 2,
+          "l": 0.41,
+          "hex": "#4b4b4b",
+          "vsGround": 8.39
+        },
+        {
+          "series": 3,
+          "l": 0.565,
+          "hex": "#767676",
+          "vsGround": 4.37
+        }
+      ]
+    },
+    "dark": {
+      "ground": "#232323",
+      "series": [
+        {
+          "series": 1,
+          "l": 0.985,
+          "hex": "#fafafa",
+          "vsGround": 15.06
+        },
+        {
+          "series": 2,
+          "l": 0.83,
+          "hex": "#c7c7c7",
+          "vsGround": 9.29
+        },
+        {
+          "series": 3,
+          "l": 0.675,
+          "hex": "#979797",
+          "vsGround": 5.38
+        }
+      ]
+    }
+  },
+  "supersedes": "A first pass borrowed --ink, --ink-secondary and --ink-tertiary for the three layers. It failed: the dark band's second-to-third step measured 0.0810, under the 0.10 floor. The ink ladder is solved for TEXT against a ground, not for three fills against each other.",
+  "threeNotFourStillHolds": "The cap was never about hue. A fourth series collapsed into its neighbour once desaturated; a monochrome series IS the desaturated case, so the test is passed by construction. At step 0.155 a fourth would still leave 0.155 — but the cap stays, because the figure it serves has three layers and a fourth token with no consumer is the dead value this system polices."
+}

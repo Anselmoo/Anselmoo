@@ -1,0 +1,152 @@
+/* Single entry point. Link from every surface.
+ * Source every value through var(), never hardcode a hex, a font or a px value
+ * that a token already carries.
+ */
+@import url("tokens/typography.css");
+@import url("tokens/colors.css");
+@import url("tokens/spacing.css");
+@import url("tokens/motion.css");
+@import url("components/components.css");
+
+/* MEASURED, not assumed: without this reset, every padding adds itself to the
+ * set height. Six of ten specimen cards overflowed their own frame because of
+ * this, two of them by exactly the sum of their padding (64px = 2x --space-6,
+ * 106px = 2x 7vw at 760px). The reset fully fixes four of the six cases.
+ * It belongs here and not in every card: a surface that forgets it would
+ * otherwise behave differently from the system. */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { color-scheme: light dark; }
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: var(--text-body-size);
+  line-height: var(--text-body-leading);
+  -webkit-font-smoothing: antialiased;
+  /* NO SYNTHETIC FACES. Inter is self-hosted and ships roman only, so every <em> in
+   * this system was a browser-synthesised oblique — the roman mechanically skewed,
+   * which is not an italic and is not a cut anyone drew. Worse, it was unstable: the
+   * metric fallbacks DO carry real italics, so emphasis changed shape between the
+   * fallback and the webfont. font-synthesis: none refuses the fake outright, which
+   * makes the gap visible instead of plausible. The device that replaces it is
+   * declared below. Shipping the real Inter italic cut supersedes all of this. */
+  font-synthesis: none;
+}
+
+/* EMPHASIS WITHOUT AN ITALIC. With no italic file and no synthesis, emphasis takes
+ * the carrier this system already uses for every other distinction — weight, one
+ * variable step, not a jump to a named weight. 500 sits between body 400 and the
+ * 600 of a subhead, so emphasis inside a sentence cannot be mistaken for a heading.
+ * <cite> is included because journal titles in the publication list are the main
+ * thing that would otherwise ask for an italic. */
+em, i, cite { font-style: normal; font-weight: 500; }
+/* The deck: the summary line between a heading and its body. It was being set in
+ * italics for want of a name. */
+.deck {
+  font-size: var(--text-deck-size);
+  font-weight: var(--text-deck-weight);
+  letter-spacing: var(--text-deck-tracking);
+  line-height: var(--text-deck-leading);
+  color: var(--ink-secondary);
+  max-width: var(--measure);
+}
+:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+/* A bare <a> is browser blue — a colour this system permits nowhere outside the
+ * imagery layer, and the one that appears the moment somebody writes a link without
+ * a class. It inherits the ink role it sits in and keeps its underline, drawn in the
+ * same hairline everything else separates with. .link replaces that underline with a
+ * border, because a border can carry the three-strength state ladder and a
+ * text-decoration cannot. */
+a { color: inherit; text-decoration-color: var(--hairline-strong); }
+a:hover { text-decoration-color: var(--ink); }
+
+/* RESILIENCE. Three things the system has to survive, each a real condition rather
+ * than a preference.
+ *
+ * FORCED COLOURS. The OS replaces every colour it can reach. A system that
+ * separates with hairlines and nothing else loses its separation entirely, because
+ * a border in a colour the OS did not assign is a border the OS may drop. The two
+ * hairline roles are therefore restated in system keywords, which forced-colours
+ * mode does honour, and the focus ring takes Highlight. Monochrome makes this
+ * cheap: there is no accent to lose.
+ *
+ * WRAPPING. A 67-character measure makes a ragged last line and a widow likely.
+ * text-wrap: pretty spends the browser's line-breaking budget at the end of the
+ * paragraph, which is exactly where both defects sit; balance does the same for a
+ * heading, which is short enough to solve completely.
+ *
+ * HYPHENATION. The content carries German publication titles, and German words
+ * overrun a 67-character line without it. It is language-dependent, so the element
+ * needs a lang attribute for this to do anything. */
+@media (forced-colors: active) {
+  :root { --hairline: CanvasText; --hairline-strong: CanvasText; }
+  :focus-visible { outline-color: Highlight; }
+}
+
+/* HIGH CONTRAST is the third appearance, not a variant of the second. The band
+ * question is light or dark; this one is orthogonal to it, and a reader can ask for
+ * both at once. Rather than a third set of solved roles — which would double the
+ * palette to carry one preference — the ladder collapses upward: the weakest rung
+ * takes the value of the one above it in whichever band is already in force. Two
+ * rungs instead of three is the correct answer to "more contrast", because the
+ * alternative is inventing a role stronger than --ink, and --ink is the identity.
+ *
+ * [data-theme] is named alongside :root and this block sits after every import, so
+ * it also reaches the specimen cards, which set their band on a section rather than
+ * on the document. */
+@media (prefers-contrast: more) {
+  :root, [data-theme] {
+    --ink-tertiary: var(--ink-secondary);
+    /* --ink-faint collapses to --ink-tertiary and not to --ink-secondary. It is a
+     * non-text role — rules, the progress bar, the zebra edge — and collapsing it
+     * two rungs would put page furniture at body-text strength, which is more
+     * contrast in the wrong place. One rung up is the answer for a role that was
+     * never text. */
+    --ink-faint: var(--ink-tertiary);
+    --decor: var(--ink-secondary);
+    --hairline: var(--hairline-strong);
+    /* The interleaved grounds collapse into their neighbours: five sheets one step
+     * apart are a separation a reader asking for more contrast cannot see, and the
+     * request is for fewer, stronger distinctions rather than more subtle ones. */
+    --paper-veil: var(--paper);
+    --paper-shade: var(--paper-dim);
+  }
+}
+p, li, dd, figcaption { text-wrap: pretty; hyphens: auto; }
+h1, h2, h3, h4 { text-wrap: balance; }
+::selection { background: var(--ink); color: var(--paper); }
+hr { border: 0; border-top: 1px solid var(--hairline); }
+
+/* GRADIENTS. One token, two rules, and a refusal.
+ *
+ * RULE ONE: a gradient may run only between two grounds this system already owns.
+ * --paper to --paper-dim is a ground with a direction, not a colour statement, so it
+ * stays inside the monochrome rule. Anything with a hue in it belongs to the imagery
+ * layer, where colour is solved rather than picked.
+ *
+ * RULE TWO: the interpolation space is declared, never defaulted. sRGB blends through
+ * grey and puts a dead spot in the middle of a ramp; `in oklch` does not. CSS can say
+ * it out loud, which is why the field is one line here and nine sampled stops in
+ * imagery/hero-*.svg, where SVG has no way to declare it.
+ *
+ * BANDING: the ramp is shallow, which is exactly the case that bands on an 8-bit
+ * display. The mitigation already exists — the paper texture from tokens/paper.mjs is
+ * noise, and noise is what breaks a band.
+ *
+ * NO SCRIM. A scrim is alpha, and alpha is the one thing this palette does not use:
+ * every role is solid and separately solved, so nothing changes meaning over a
+ * different ground. Text never sits on imagery here — the hero splits, it does not
+ * overlay — so the token that would need alpha has no consumer and is not shipped.
+ */
+/* Emitted in ALL FOUR band blocks, not once on :root. A custom property resolves
+ * where it is DECLARED: the two var()s inside it would substitute at :root and the
+ * gradient could never re-resolve inside a [data-theme] subtree — it would carry the
+ * document's band into a section that had asked for the other one. This is the same
+ * trap the optical grade is emitted in whole blocks to avoid. */
+:root { --gradient-field: linear-gradient(in oklch to bottom, var(--paper), var(--paper-dim)); /* @kind other */ }
+@media (prefers-color-scheme: dark) { :root { --gradient-field: linear-gradient(in oklch to bottom, var(--paper), var(--paper-dim)); /* @kind other */ } }
+[data-theme="dark"] { --gradient-field: linear-gradient(in oklch to bottom, var(--paper), var(--paper-dim)); /* @kind other */ }
+[data-theme="light"] { --gradient-field: linear-gradient(in oklch to bottom, var(--paper), var(--paper-dim)); /* @kind other */ }
+
+

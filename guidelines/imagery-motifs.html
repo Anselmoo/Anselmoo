@@ -1,0 +1,45 @@
+<!-- @dsCard group="Imagery" viewport="920x760" name="Seed motifs" subtitle="One reading each, delivered per band" -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body { margin: 0; height: 760px; display: flex; flex-direction: column; }
+  .band { flex: 1; background: var(--paper); color: var(--ink); padding: var(--space-5) var(--space-6); display: grid; grid-template-columns: repeat(2, max-content); gap: var(--space-3) var(--space-6); align-content: start; justify-content: start; }
+  .band figure { width: 340px; }
+  .eyebrow { grid-column: 1 / -1; font-size: var(--text-eyebrow-size); font-weight: var(--text-eyebrow-weight); letter-spacing: var(--text-eyebrow-tracking); line-height: var(--text-eyebrow-leading); text-transform: uppercase; color: var(--ink-tertiary); }
+  figure { margin: 0; }
+  img { width: 100%; height: auto; display: block; border: 1px solid var(--hairline); }
+  figcaption { font-size: var(--text-caption-size); line-height: var(--text-caption-leading); color: var(--ink-secondary); margin-top: var(--space-2); }
+  .mono { font-family: var(--font-mono); }
+</style>
+</head>
+<body>
+
+<section class="band" data-theme="light">
+  <div class="eyebrow" data-comment-anchor="4b4c4d31cb-div">Light band</div>
+  <figure>
+    <img src="../imagery/publications-by-year.svg" alt="Publications per year, 2016 to 2026, stacked by kind: 14 dated works in three series. One undated work is not shown.">
+    <figcaption>Level 4 · 14 dated works, 2016 to 2026, stacked by kind. No axis, no tick marks — and the one undated work is left out rather than placed somewhere convenient.</figcaption>
+  </figure>
+  <figure>
+    <img src="../imagery/bisection.svg" alt="Fourteen steps of the bisection that solved --ink-secondary: each row is the interval, the darker part is the half that survived the step.">
+    <figcaption>Level 3 · the fourteen steps that solved <span class="mono">--ink-secondary</span>. Each row is the live interval, the darker part the half that survived. It converges on <span class="mono">#4c4b46</span> at <span class="mono">7.07</span> — the value in the token file.</figcaption>
+  </figure>
+</section>
+
+<section class="band" data-theme="dark">
+  <div class="eyebrow">Dark band · a separate file, never a filter</div>
+  <figure>
+    <img src="../imagery/publications-by-year-dark.svg" alt="">
+    <figcaption>The same reading, drawn again on the dark ground with the dark band's own solved series. A CSS filter would move the lightness off its floor and the pattern off its period at once.</figcaption>
+  </figure>
+  <figure>
+    <img src="../imagery/bisection-dark.svg" alt="">
+    <figcaption>Both motifs carry their own ground, because an <span class="mono">&lt;img&gt;</span> reaches no custom property — the same reason the icon set ships a midtone for surface 1.</figcaption>
+  </figure>
+</section>
+
+</body>
+</html>

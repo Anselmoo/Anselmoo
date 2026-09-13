@@ -1,0 +1,7 @@
+node_modules/
+
+# Cupertino pipeline state: flags belong to a run, not to the repository
+.cupertino/flags/
+
+# Local host-shell emulation for checking the artifact build
+_artifact-preview.html

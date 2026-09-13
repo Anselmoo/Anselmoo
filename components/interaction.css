@@ -1,0 +1,96 @@
+/* Interaction states — the components that were missing entirely.
+ *
+ * components.css states the admission test: BOTH surfaces need it. A link
+ * passes that test unambiguously and was nevertheless absent, because the
+ * system had grown without a page that had anything to click.
+ *
+ * ONE TOKEN CHANGES ON HOVER. Monochrome has few channels, so spending two on
+ * a state that is merely "the pointer is here" leaves nothing for the states
+ * that matter. The exception is a control, which has a border a link does not.
+ */
+
+/* ------------------------------------------------------------------- Link
+ * text-decoration, not border-bottom: it skips descenders, it follows the text
+ * when a line wraps, and there is exactly one underline mechanism on the page.
+ * (.project-name a used to use border-bottom. It was converted. Two mechanisms
+ * that look identical and behave differently is how a system starts lying.)
+ */
+a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: var(--hairline-strong);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+  transition: text-decoration-color var(--motion-quick) var(--ease-standard);
+}
+a:hover { text-decoration-color: var(--ink); }
+a:active { text-decoration-thickness: 2px; }
+
+/* :visited IS DELIBERATELY NOT DIFFERENTIATED, and that is a decision, not an
+ * oversight — it is recorded in the colophon so nobody "fixes" it later.
+ *
+ * The only channels this system has are ink rungs. Putting a visited link on
+ * --ink-tertiary makes it LESS legible after the reader has used it, and on
+ * this page the visited link is usually the one they care about most: a DOI
+ * they are coming back to. There is no spare non-luminance channel to encode
+ * it in, so the honest answer is not to encode it at all. */
+a:visited { color: inherit; }
+
+/* A touch device reports no hover, but many still fire one on tap — which
+ * leaves the tapped link stuck in its hover state after the finger lifts. */
+@media (hover: none) {
+  a:hover { text-decoration-color: var(--hairline-strong); }
+}
+
+:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* --------------------------------------------------------- Project row
+ * .project is a LIST ROW, not a card. So: no hover fill, and no lift.
+ * This system has no shadows at all (see Depth & Elevation), and a lift
+ * without a shadow is not a lift, it is a jump.
+ *
+ * :focus-within, not just :hover — a keyboard reader moving through the links
+ * inside the row needs the same "you are here" the pointer gets. */
+.project {
+  transition: border-bottom-color var(--motion-quick) var(--ease-standard);
+}
+.project:hover { border-bottom-color: var(--hairline-strong); }
+.project:focus-within { border-bottom-color: var(--ink); }
+
+/* The project name's own underline is heavier than a prose link's, because the
+ * name is the row's primary action and prose links inside a summary are not. */
+.project-name a { text-decoration-color: var(--hairline-strong); }
+.project-name a:hover { text-decoration-color: var(--ink); }
+
+
+/* ------------------------------------------------------- Section reveal
+ *
+ * THE ONE DELIBERATE GESTURE ON THIS SURFACE. The handbook allows at most one, and
+ * this is it — a section settling as it crosses into the viewport, because the
+ * reader scrolled. That scroll is the occasion; without one this would be
+ * decoration that moves, which the motion tokens ban by name.
+ *
+ * THE PAGE IS COMPLETE AT REST. `.reveal` is added by page/reveal.js, and only to
+ * elements that are BELOW the fold at load, and only when the reader has not asked
+ * for reduced motion. Nothing is parked at opacity 0 in the markup. With JavaScript
+ * off, with IntersectionObserver missing, or in a screenshot taken at load, every
+ * word is already on the page — the first screen in particular never animates,
+ * because it is already in view.
+ *
+ * transform, not top/margin: a transform is composited and changes no layout, which
+ * is why --motion-quick's anti-rule excludes layout properties rather than movement.
+ */
+.reveal {
+  opacity: 0;
+  transform: translateY(var(--motion-distance));
+  transition: opacity var(--motion-considered) var(--ease-standard),
+              transform var(--motion-considered) var(--ease-standard);
+}
+.reveal.is-in {
+  opacity: 1;
+  transform: none;
+}

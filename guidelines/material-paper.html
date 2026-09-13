@@ -1,0 +1,187 @@
+<!-- @dsCard group="Material" viewport="760x320" name="Paper structure" subtitle="Made, not sourced" -->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    body {
+      margin: 0;
+      height: 320px;
+    }
+
+    section {
+      background: var(--paper);
+      color: var(--ink);
+      height: 160px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-1);
+      padding: 0 var(--space-5);
+    }
+
+    .pair {
+      display: flex;
+      gap: var(--space-4);
+      align-items: flex-start;
+    }
+
+    /* The shared caption sat centered under BOTH sheets, even though
+     * "magnified eight times" only applies to the right one. Each sheet now
+     * carries its own label. */
+    .bogen { display: flex; flex-direction: column; gap: var(--space-1); }
+    .marke {
+      text-align: center;
+      font-family: var(--font-sans);
+      font-size: var(--text-caption-size);
+      line-height: var(--text-caption-leading);
+      color: var(--ink-tertiary);
+    }
+
+    /* Two fixed 320px sheets NEXT TO the caption needed 64px more than the
+     * card has. A flexible width was the wrong way out: it shrank the
+     * sheets to postage-stamp size. The ratio 296/37 = 8 was preserved
+     * throughout — it only depends on the two viewBox values, not on the
+     * rendered size — but at 100px there was simply nothing left to see,
+     * and a material specimen you cannot see is evidence of nothing.
+     * Correct is: sheet fixed at 296x84,
+     * caption BELOW instead of beside. 296 + 16 + 296 + 2x24 margin = 656. */
+    svg { display: block; flex: 0 0 auto; }
+
+    .caption-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      text-align: center;
+    }
+
+    .caption {
+      font-family: var(--font-sans);
+      font-size: var(--text-caption-size);
+      font-weight: var(--text-caption-weight);
+      letter-spacing: var(--text-caption-tracking);
+      line-height: var(--text-caption-leading);
+      color: var(--ink-secondary);
+    }
+
+    .metrics {
+      font-family: var(--font-mono);
+      font-size: var(--text-caption-size);
+      font-weight: var(--text-caption-weight);
+      letter-spacing: var(--text-caption-tracking);
+      line-height: var(--text-caption-leading);
+      color: var(--ink-tertiary);
+    }
+  </style>
+</head>
+<body>
+  <section data-theme="light">
+    <div class="pair">
+      <div class="bogen">
+      <svg width="296" height="84" viewBox="0 0 296 84" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <filter id="pp-l-flach" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+            <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="4" seed="4464" result="n1"/>
+            <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="3" seed="4465" result="n2"/>
+            <feColorMatrix in="n1" type="matrix" values="0.3333 0.3333 0.3333 0 0  0.3333 0.3333 0.3333 0 0  0.3333 0.3333 0.3333 0 0  0 0 0 0 1" result="g1"/>
+            <feColorMatrix in="n2" type="matrix" values="0.3333 0.3333 0.3333 0 0  0.3333 0.3333 0.3333 0 0  0.3333 0.3333 0.3333 0 0  0 0 0 0 1" result="g2"/>
+            <feComposite in="g1" in2="g2" operator="arithmetic" k1="0" k2="0.55" k3="0.45" k4="0" result="mix"/>
+            <feComponentTransfer in="mix" result="off">
+              <feFuncR type="linear" slope="0.15" intercept="0.4250"/>
+              <feFuncG type="linear" slope="0.15" intercept="0.4250"/>
+              <feFuncB type="linear" slope="0.15" intercept="0.4250"/>
+            </feComponentTransfer>
+            <feComposite in="off" in2="SourceGraphic" operator="arithmetic" k1="0" k2="1" k3="1" k4="-0.5"/>
+          </filter>
+        </defs>
+        <rect width="100%" height="100%" style="fill: var(--paper)" filter="url(#pp-l-flach)"/>
+      </svg>
+        <div class="marke">Sheet</div>
+      </div>
+
+      <div class="bogen">
+      <svg viewBox="0 0 37 10.5" width="296" height="84" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <filter id="pp-l-lupe" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+            <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="4" seed="4464" result="n1"/>
+            <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="3" seed="4465" result="n2"/>
+            <feColorMatrix in="n1" type="matrix" values="0.3333 0.3333 0.3333 0 0  0.3333 0.3333 0.3333 0 0  0.3333 0.3333 0.3333 0 0  0 0 0 0 1" result="g1"/>
+            <feColorMatrix in="n2" type="matrix" values="0.3333 0.3333 0.3333 0 0  0.3333 0.3333 0.3333 0 0  0.3333 0.3333 0.3333 0 0  0 0 0 0 1" result="g2"/>
+            <feComposite in="g1" in2="g2" operator="arithmetic" k1="0" k2="0.55" k3="0.45" k4="0" result="mix"/>
+            <feComponentTransfer in="mix" result="off">
+              <feFuncR type="linear" slope="0.15" intercept="0.4250"/>
+              <feFuncG type="linear" slope="0.15" intercept="0.4250"/>
+              <feFuncB type="linear" slope="0.15" intercept="0.4250"/>
+            </feComponentTransfer>
+            <feComposite in="off" in2="SourceGraphic" operator="arithmetic" k1="0" k2="1" k3="1" k4="-0.5"/>
+          </filter>
+        </defs>
+        <rect width="100%" height="100%" style="fill: var(--paper)" filter="url(#pp-l-lupe)"/>
+      </svg>
+        <div class="marke">magnified eight times</div>
+      </div>
+
+    </div>
+    <div class="caption-wrapper">
+        <div class="caption">two frequency bands, symmetric around the fundamental tone — hence no greying</div>
+        <div class="metrics">Luminance deviation 0.06%, anisotropy 1.0588x</div>
+      </div>
+  </section>
+
+  <section data-theme="dark">
+    <div class="pair">
+      <div class="bogen">
+      <svg width="296" height="84" viewBox="0 0 296 84" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <filter id="pp-d-flach" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+            <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="4" seed="4464" result="n1"/>
+            <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="3" seed="4465" result="n2"/>
+            <feColorMatrix in="n1" type="matrix" values="0.3333 0.3333 0.3333 0 0  0.3333 0.3333 0.3333 0 0  0.3333 0.3333 0.3333 0 0  0 0 0 0 1" result="g1"/>
+            <feColorMatrix in="n2" type="matrix" values="0.3333 0.3333 0.3333 0 0  0.3333 0.3333 0.3333 0 0  0.3333 0.3333 0.3333 0 0  0 0 0 0 1" result="g2"/>
+            <feComposite in="g1" in2="g2" operator="arithmetic" k1="0" k2="0.55" k3="0.45" k4="0" result="mix"/>
+            <feComponentTransfer in="mix" result="off">
+              <feFuncR type="linear" slope="0.15" intercept="0.4250"/>
+              <feFuncG type="linear" slope="0.15" intercept="0.4250"/>
+              <feFuncB type="linear" slope="0.15" intercept="0.4250"/>
+            </feComponentTransfer>
+            <feComposite in="off" in2="SourceGraphic" operator="arithmetic" k1="0" k2="1" k3="1" k4="-0.5"/>
+          </filter>
+        </defs>
+        <rect width="100%" height="100%" style="fill: var(--paper)" filter="url(#pp-d-flach)"/>
+      </svg>
+        <div class="marke">Sheet</div>
+      </div>
+
+      <div class="bogen">
+      <svg viewBox="0 0 37 10.5" width="296" height="84" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <filter id="pp-d-lupe" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+            <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="4" seed="4464" result="n1"/>
+            <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="3" seed="4465" result="n2"/>
+            <feColorMatrix in="n1" type="matrix" values="0.3333 0.3333 0.3333 0 0  0.3333 0.3333 0.3333 0 0  0.3333 0.3333 0.3333 0 0  0 0 0 0 1" result="g1"/>
+            <feColorMatrix in="n2" type="matrix" values="0.3333 0.3333 0.3333 0 0  0.3333 0.3333 0.3333 0 0  0.3333 0.3333 0.3333 0 0  0 0 0 0 1" result="g2"/>
+            <feComposite in="g1" in2="g2" operator="arithmetic" k1="0" k2="0.55" k3="0.45" k4="0" result="mix"/>
+            <feComponentTransfer in="mix" result="off">
+              <feFuncR type="linear" slope="0.15" intercept="0.4250"/>
+              <feFuncG type="linear" slope="0.15" intercept="0.4250"/>
+              <feFuncB type="linear" slope="0.15" intercept="0.4250"/>
+            </feComponentTransfer>
+            <feComposite in="off" in2="SourceGraphic" operator="arithmetic" k1="0" k2="1" k3="1" k4="-0.5"/>
+          </filter>
+        </defs>
+        <rect width="100%" height="100%" style="fill: var(--paper)" filter="url(#pp-d-lupe)"/>
+      </svg>
+        <div class="marke">magnified eight times</div>
+      </div>
+
+    </div>
+    <div class="caption-wrapper">
+        <div class="caption">two frequency bands, symmetric around the fundamental tone — hence no greying</div>
+        <div class="metrics">Luminance deviation 0.06%, anisotropy 1.0588x</div>
+      </div>
+  </section>
+</body>
+</html>

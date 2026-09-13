@@ -1,0 +1,98 @@
+<!-- @dsCard group="Spacing" viewport="760x240" name="Steps" subtitle="Four-pixel division, nine steps" -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+body {
+  margin: 0;
+  height: 240px;
+  padding: var(--space-2);
+  font-family: var(--font-sans);
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.scales {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  flex: 1;
+}
+
+.scale-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.scale-bar {
+  height: var(--space-2);
+  background-color: var(--ink-tertiary);
+  flex-shrink: 0;
+}
+
+.scale-label {
+  font-size: var(--text-caption-size);
+  font-weight: var(--text-caption-weight);
+  letter-spacing: var(--text-caption-tracking);
+  line-height: 20px;
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+.note {
+  font-size: var(--text-caption-size);
+  font-weight: var(--text-caption-weight);
+  letter-spacing: var(--text-caption-tracking);
+  line-height: var(--text-caption-leading);
+  color: var(--ink-secondary);
+  margin-top: var(--space-1);
+  flex-shrink: 0;
+}
+</style>
+</head>
+<body>
+<div class="scales">
+  <div class="scale-row">
+    <div class="scale-bar" style="width: var(--space-1);"></div>
+    <span class="scale-label">--space-1 4px</span>
+  </div>
+  <div class="scale-row">
+    <div class="scale-bar" style="width: var(--space-2);"></div>
+    <span class="scale-label">--space-2 8px</span>
+  </div>
+  <div class="scale-row">
+    <div class="scale-bar" style="width: var(--space-3);"></div>
+    <span class="scale-label">--space-3 12px</span>
+  </div>
+  <div class="scale-row">
+    <div class="scale-bar" style="width: var(--space-4);"></div>
+    <span class="scale-label">--space-4 16px</span>
+  </div>
+  <div class="scale-row">
+    <div class="scale-bar" style="width: var(--space-5);"></div>
+    <span class="scale-label">--space-5 24px</span>
+  </div>
+  <div class="scale-row">
+    <div class="scale-bar" style="width: var(--space-6);"></div>
+    <span class="scale-label">--space-6 32px</span>
+  </div>
+  <div class="scale-row">
+    <div class="scale-bar" style="width: var(--space-7);"></div>
+    <span class="scale-label">--space-7 48px</span>
+  </div>
+  <div class="scale-row">
+    <div class="scale-bar" style="width: var(--space-8);"></div>
+    <span class="scale-label">--space-8 64px</span>
+  </div>
+  <div class="scale-row">
+    <div class="scale-bar" style="width: var(--space-9);"></div>
+    <span class="scale-label">--space-9 96px</span>
+  </div>
+</div>
+<div class="note">Four-pixel division, each step a multiple of four</div>
+</body>
+</html>

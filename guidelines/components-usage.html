@@ -1,0 +1,119 @@
+<!-- @dsCard group="Components" viewport="860x400" name="Usage figure" subtitle="Value, unit, source, asOf" -->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    body {
+      margin: 0;
+      height: 400px;
+      background: var(--paper);
+      color: var(--ink);
+      display: flex;
+      flex-direction: column;
+    }
+    .band-caption {
+      padding: var(--space-3);
+      font-size: var(--text-caption-size);
+      line-height: var(--text-caption-leading);
+      color: var(--ink-secondary);
+    }
+    .band-caption--top { border-bottom: 1px solid var(--hairline); }
+    .band-caption--bottom { border-top: 1px solid var(--hairline); }
+    .band-labels {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-3);
+      padding: var(--space-3) var(--space-3) 0;
+    }
+    .band-label {
+      font-size: var(--text-eyebrow-size);
+      font-weight: var(--text-eyebrow-weight);
+      letter-spacing: var(--text-eyebrow-tracking);
+      line-height: var(--text-eyebrow-leading);
+      color: var(--ink-secondary);
+    }
+    .band-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-3);
+      padding: var(--space-3);
+    }
+    .band-panel {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+    }
+    .band-panel--listung {
+      border-top: 1px solid var(--hairline);
+      margin-top: var(--space-1);
+      padding-top: var(--space-2);
+    }
+    .band-markdown {
+      margin: 0;
+      padding: 0;
+      font-family: var(--font-mono);
+      font-size: var(--text-caption-size);
+      line-height: var(--text-caption-leading);
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+  </style>
+</head>
+<body>
+
+<div class="band-caption band-caption--top">
+  A number without a source is an assertion — which is why every figure carries value, unit, source and asOf.
+</div>
+
+<div class="band-labels">
+  <div class="band-label">Web</div>
+  <div class="band-label">GitHub Markdown</div>
+</div>
+
+<div class="band-content">
+  <div class="band-panel">
+    <div class="usage">
+      <span class="usage-value">6509</span>
+      <span class="usage-unit">npm downloads per month</span>
+      <span class="usage-source">api.npmjs.org, 2026-08-08 to 2026-09-06</span>
+    </div>
+    <div class="usage">
+      <span class="usage-value">2230</span>
+      <span class="usage-unit">PyPI downloads per month</span>
+      <span class="usage-source">pypistats.org, last week 735</span>
+    </div>
+    <div class="usage">
+      <span class="usage-value">588</span>
+      <span class="usage-unit">Installs</span>
+      <span class="usage-source">VS Marketplace, 581 downloads total</span>
+    </div>
+    <div class="usage">
+      <span class="usage-value">347</span>
+      <span class="usage-unit">Zenodo downloads total</span>
+      <span class="usage-source">zenodo.org, 1189 views</span>
+    </div>
+    <div class="band-panel--listung">
+      <div class="listing">GitHub Marketplace — action Build .mcpb bundle, as of 2026-09-10</div>
+    </div>
+  </div>
+
+  <div class="band-panel">
+    <pre class="band-markdown">`6509` npm downloads per month · api.npmjs.org, 2026-08-08 to 2026-09-06
+`2230` PyPI downloads per month · pypistats.org, last week 735
+`588` Installs · VS Marketplace, 581 downloads total
+`347` Zenodo downloads total · zenodo.org, 1189 views
+
+---
+
+GitHub Marketplace — action Build .mcpb bundle, as of 2026-09-10</pre>
+  </div>
+</div>
+
+<div class="band-caption band-caption--bottom">
+  Four units, not one — npm, PyPI, Marketplace and Zenodo measure different things and are never netted against each other. A listing evidences visibility and therefore never carries a number.
+</div>
+
+</body>
+</html>

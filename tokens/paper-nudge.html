@@ -1,0 +1,89 @@
+<!doctype html><meta charset="utf-8"><title>Seed nudge finder</title>
+<link rel="stylesheet" href="../styles.css">
+<style>body{padding:2rem;font-family:var(--font-mono);font-size:13px}pre{white-space:pre-wrap}</style>
+<h1 style="font-family:var(--font-sans)">Seed nudge finder</h1>
+<p style="font-family:var(--font-sans);max-width:34em;color:var(--ink-secondary)">
+For every sheet that misses R6 or R3 in either band, search forward from its natural
+seed for the SMALLEST offset that clears both in both bands. This is the mechanism
+<code>bashplot</code> already uses — the sheet stays deterministic, the value stays
+readable, and no rule is loosened to make a measurement pass.</p>
+<pre id="out">searching…</pre>
+<script type="module">
+const { paperSheet, sheetSeed, BANDS, SEED_NUDGE } = await import(`./paper.mjs?t=${Date.now()}`);
+const projects = await (await fetch("../content/projects.json")).json();
+const NAMES = [...projects.categories.flatMap(c => c.projects.map(p => p.name)), "masthead", "colophon"];
+const W = 220, H = 130, R6 = 1.0, R3 = 1.15, MAX_OFFSET = 24;
+
+const lin = v => (v <= 0.04045 ? v/12.92 : ((v+0.055)/1.055)**2.4);
+const relLum = (r,g,b) => 0.2126*lin(r/255)+0.7152*lin(g/255)+0.0722*lin(b/255);
+async function measure(markup){
+  const img=new Image();
+  await new Promise((ok,no)=>{img.onload=ok;img.onerror=()=>no(new Error("load"));
+    img.src='data:image/svg+xml;charset=utf-8,'+encodeURIComponent(markup);});
+  const c=document.createElement("canvas");c.width=W;c.height=H;
+  const ctx=c.getContext("2d",{willReadFrequently:true});ctx.drawImage(img,0,0,W,H);
+  const d=ctx.getImageData(0,0,W,H).data;const L=new Float64Array(W*H);let sum=0;
+  for(let i=0,p=0;i<d.length;i+=4,p++){L[p]=relLum(d[i],d[i+1],d[i+2]);sum+=L[p];}
+  const n=W*H,mean=sum/n;let eh=0,ev=0,ch=0,cv=0;
+  for(let y=0;y<H;y++)for(let x=0;x<W-1;x++){eh+=(L[y*W+x+1]-L[y*W+x])**2;ch++;}
+  for(let y=0;y<H-1;y++)for(let x=0;x<W;x++){ev+=(L[(y+1)*W+x]-L[y*W+x])**2;cv++;}
+  eh/=ch;ev/=cv;
+  return {mean, aniso:Math.max(eh,ev)/Math.max(Math.min(eh,ev),1e-12)};
+}
+// paperSheet seeds from the NAME; to test an offset we render the filter at an
+// explicit seed instead, which is what SEED_NUDGE ultimately produces.
+function sheetAtSeed(seed, band){
+  const { ground, strength, grainRatio, baseFrequency } = BANDS[band];
+  const [fG,fS]=baseFrequency, ic=(0.5-strength*0.5).toFixed(4);
+  const g=grainRatio.toFixed(2), f=(1-grainRatio).toFixed(2);
+  const M='type="matrix" values="0.3333 0.3333 0.3333 0 0  0.3333 0.3333 0.3333 0 0  0.3333 0.3333 0.3333 0 0  0 0 0 0 1"';
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}"><defs>`
+  +`<filter id="f" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">`
+  +`<feTurbulence type="fractalNoise" baseFrequency="${fG}" numOctaves="4" seed="${seed}" result="n1"/>`
+  +`<feTurbulence type="fractalNoise" baseFrequency="${fS}" numOctaves="3" seed="${seed+1}" result="n2"/>`
+  +`<feColorMatrix in="n1" ${M} result="g1"/><feColorMatrix in="n2" ${M} result="g2"/>`
+  +`<feComposite in="g1" in2="g2" operator="arithmetic" k1="0" k2="${g}" k3="${f}" k4="0" result="mix"/>`
+  +`<feComponentTransfer in="mix" result="off"><feFuncR type="linear" slope="${strength}" intercept="${ic}"/>`
+  +`<feFuncG type="linear" slope="${strength}" intercept="${ic}"/><feFuncB type="linear" slope="${strength}" intercept="${ic}"/></feComponentTransfer>`
+  +`<feComposite in="off" in2="SourceGraphic" operator="arithmetic" k1="0" k2="1" k3="1" k4="-0.5"/></filter></defs>`
+  +`<rect width="${W}" height="${H}" fill="${ground}" filter="url(#f)"/></svg>`;
+}
+const flat={};
+for(const b of ["light","dark"]) flat[b]=(await measure(
+  `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}"><rect width="${W}" height="${H}" fill="${BANDS[b].ground}"/></svg>`)).mean;
+
+async function worst(seed){
+  let d=0,a=0;
+  for(const b of ["light","dark"]){
+    const m=await measure(sheetAtSeed(seed,b));
+    d=Math.max(d,Math.abs((m.mean-flat[b])/flat[b]*100)); a=Math.max(a,m.aniso);
+  }
+  return {d,a,ok:d<=R6&&a<=R3};
+}
+const o=[], nudges={};
+o.push(`grounds  light ${BANDS.light.ground}  dark ${BANDS.dark.ground}`);
+o.push(`limits   R6 <= ${R6.toFixed(2)} %   R3 <= ${R3.toFixed(2)}x   searched to offset ${MAX_OFFSET}`);
+o.push("");
+o.push("Sheet                     base  offset   seed    worst R6   worst R3");
+o.push("-".repeat(72));
+for(const n of NAMES){
+  const base=sheetSeed(n)-(SEED_NUDGE[n]||0);
+  let found=null;
+  for(let off=0;off<=MAX_OFFSET;off++){
+    const r=await worst(base+off);
+    if(r.ok){found={off,...r};break}
+  }
+  if(found){
+    if(found.off) nudges[n]=found.off;
+    o.push(n.padEnd(25)+String(base).padStart(5)+String(found.off).padStart(8)
+      +String(base+found.off).padStart(7)
+      +(found.d.toFixed(3)+"%").padStart(12)+(found.a.toFixed(4)+"x").padStart(11)
+      +(found.off?"":"   (natural)"));
+  } else {
+    o.push(n.padEnd(25)+String(base).padStart(5)+"   NONE within "+MAX_OFFSET);
+  }
+}
+o.push("");
+o.push("SEED_NUDGE = "+JSON.stringify(nudges,null,2));
+document.getElementById("out").textContent=o.join("\n");
+</script>

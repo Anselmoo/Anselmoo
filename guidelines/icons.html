@@ -1,0 +1,93 @@
+<!-- @dsCard group="Icons" viewport="880x800" name="Icon set" subtitle="Three glyphs, counted; one solved midtone; fifteen fenced platform marks" -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body { margin: 0; height: 800px; }
+  .card { height: 800px; background: var(--paper); color: var(--ink); padding: var(--space-6); display: flex; flex-direction: column; gap: var(--space-5); }
+  .eyebrow { font-size: var(--text-eyebrow-size); font-weight: var(--text-eyebrow-weight); letter-spacing: var(--text-eyebrow-tracking); line-height: var(--text-eyebrow-leading); text-transform: uppercase; color: var(--ink-tertiary); }
+  .title { font-size: var(--text-headline-size); font-weight: var(--text-headline-weight); letter-spacing: var(--text-headline-tracking); line-height: var(--text-headline-leading); margin: var(--space-1) 0 0; }
+  .three { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-5); }
+  .big { font-size: var(--text-display-sm-size); line-height: var(--text-display-sm-leading); color: var(--ink); }
+  .name { font-family: var(--font-mono); font-size: var(--text-code-size); line-height: var(--text-code-leading); color: var(--ink); margin-top: var(--space-2); }
+  .count { font-family: var(--font-mono); font-size: var(--text-code-size); line-height: var(--text-code-leading); color: var(--ink-tertiary); font-variant-numeric: tabular-nums; }
+  .inline-row { display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-5); font-size: var(--text-body-size); line-height: var(--text-body-leading); border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); padding: var(--space-3) 0; }
+  .inline-row span { display: inline-flex; align-items: center; gap: var(--space-2); white-space: nowrap; }
+  .proof { display: grid; grid-template-columns: max-content max-content 1fr; gap: var(--space-4); align-items: center; }
+  .tile { background: var(--paper); color: var(--ink); border: 1px solid var(--hairline); padding: var(--space-3) var(--space-4); display: flex; align-items: center; gap: var(--space-3); font-family: var(--font-mono); font-size: var(--text-code-size); line-height: var(--text-code-leading); color: var(--ink-secondary); font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .tile img { width: var(--space-5); height: var(--space-5); }
+  .note { font-size: var(--text-caption-size); line-height: var(--text-caption-leading); color: var(--ink-secondary); margin: 0; max-width: var(--measure); }
+  .marks { display: grid; grid-template-columns: repeat(8, 1fr); gap: var(--space-3) var(--space-4); border-top: 1px solid var(--hairline); padding-top: var(--space-4); }
+  .marks figure { margin: 0; display: flex; align-items: center; gap: var(--space-2); font-family: var(--font-mono); font-size: var(--text-code-size); line-height: var(--text-code-leading); color: var(--ink-secondary); white-space: nowrap; }
+  .marks img { width: 18px; height: 18px; flex: none; }
+  .marks-note { grid-column: 1 / -1; margin: 0; font-size: var(--text-caption-size); line-height: var(--text-caption-leading); color: var(--ink-secondary); }
+  .foot { margin-top: auto; display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-6); }
+  .foot p { margin: 0; font-size: var(--text-caption-size); line-height: var(--text-caption-leading); color: var(--ink-secondary); }
+  .mono { font-family: var(--font-mono); }
+</style>
+</head>
+<body>
+<section class="card" data-theme="light">
+  <div>
+    <div class="eyebrow">Icons</div>
+    <h1 class="title">Three glyphs, because the surfaces use three things</h1>
+  </div>
+
+  <div class="three">
+    <div>
+      <div class="big"><svg class="icon" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M 8.5 4.5 H 3.5 V 14.5 H 13.5 V 9.5"></path><path d="M 8.5 9.5 L 14.5 3.5"></path><path d="M 10.5 3.5 H 14.5 V 7.5"></path></svg></div>
+      <div class="name">external.svg</div>
+      <div class="count">34 outbound links, surface 2 · 18, surface 1</div>
+    </div>
+    <div>
+      <div class="big"><svg class="icon" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M 10.5 2.5 H 4.5 V 15.5 H 13.5 V 5.5 Z"></path><path d="M 10.5 2.5 V 5.5 H 13.5"></path><path d="M 6.5 9.5 H 11.5"></path><path d="M 6.5 12.5 H 9.5"></path></svg></div>
+      <div class="name">doi.svg</div>
+      <div class="count">9 DOI lines plus 15 publication DOIs</div>
+    </div>
+    <div>
+      <div class="big"><svg class="icon" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M 9 2.5 L 15.5 6.25 V 11.75 L 9 15.5 L 2.5 11.75 V 6.25 Z"></path><path d="M 2.5 6.25 L 9 10 L 15.5 6.25"></path><path d="M 9 10 V 15.5"></path></svg></div>
+      <div class="name">package.svg</div>
+      <div class="count">19 usage figures naming npm, PyPI or Zenodo</div>
+    </div>
+  </div>
+
+  <div class="inline-row">
+    <span><svg class="icon" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M 8.5 4.5 H 3.5 V 14.5 H 13.5 V 9.5"></path><path d="M 8.5 9.5 L 14.5 3.5"></path><path d="M 10.5 3.5 H 14.5 V 7.5"></path></svg> SpectraFit</span>
+    <span><svg class="icon" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M 10.5 2.5 H 4.5 V 15.5 H 13.5 V 5.5 Z"></path><path d="M 10.5 2.5 V 5.5 H 13.5"></path><path d="M 6.5 9.5 H 11.5"></path><path d="M 6.5 12.5 H 9.5"></path></svg> 10.1021/acsomega.3c09262</span>
+    <span><svg class="icon" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M 9 2.5 L 15.5 6.25 V 11.75 L 9 15.5 L 2.5 11.75 V 6.25 Z"></path><path d="M 2.5 6.25 L 9 10 L 15.5 6.25"></path><path d="M 9 10 V 15.5"></path></svg> 6509 downloads per month</span>
+  </div>
+
+  <div class="proof">
+    <div class="tile" data-theme="light"><img src="../assets/icons/external-mid.svg" alt=""> 3.86 · 3.57 · 3.26</div>
+    <div class="tile" data-theme="dark"><img src="../assets/icons/external-mid.svg" alt=""> 3.91 · 3.62 · 3.24</div>
+    <p class="note">The same file on both grounds. <span class="mono">#7e7e7e</span>, solved by searching lightness at the tint held from the seed for the value with the best worst case: <span class="mono">3.24</span> against a floor of <span class="mono">3.00</span>, on all six grounds.</p>
+  </div>
+
+  <div class="marks">
+    <figure><img src="../assets/icons/platform/python-mid.svg" alt="">Python</figure>
+    <figure><img src="../assets/icons/platform/typescript-mid.svg" alt="">TypeScript</figure>
+    <figure><img src="../assets/icons/platform/javascript-mid.svg" alt="">JavaScript</figure>
+    <figure><img src="../assets/icons/platform/vuedotjs-mid.svg" alt="">Vue</figure>
+    <figure><img src="../assets/icons/platform/jupyter-mid.svg" alt="">Jupyter</figure>
+    <figure><img src="../assets/icons/platform/numpy-mid.svg" alt="">NumPy</figure>
+    <figure><img src="../assets/icons/platform/scipy-mid.svg" alt="">SciPy</figure>
+    <figure><img src="../assets/icons/platform/pypi-mid.svg" alt="">PyPI</figure>
+    <figure><img src="../assets/icons/platform/npm-mid.svg" alt="">npm</figure>
+    <figure><img src="../assets/icons/platform/github-mid.svg" alt="">GitHub</figure>
+    <figure><img src="../assets/icons/platform/zenodo-mid.svg" alt="">Zenodo</figure>
+    <figure><img src="../assets/icons/platform/doi-mid.svg" alt="">DOI</figure>
+    <figure><img src="../assets/icons/platform/orcid-mid.svg" alt="">ORCID</figure>
+    <figure><img src="../assets/icons/platform/googlescholar-mid.svg" alt="">Scholar</figure>
+    <figure><img src="../assets/icons/platform/linkedin-mid.svg" alt="">LinkedIn</figure>
+    <p class="marks-note">Platform marks: third-party silhouettes (Simple Icons, CC0), flattened to the same grey and fenced in <span class="mono">.pm</span>. They name a language or a registry; they are not members of the drawn set.</p>
+  </div>
+
+  <div class="foot">
+    <p>Two files per icon, not a band pair. <span class="mono">external.svg</span> carries <span class="mono">currentColor</span> and takes the ink role of its context. <span class="mono">external-mid.svg</span> is for surface 1, where GitHub serves the file as an <span class="mono">&lt;img&gt;</span> and picks <span class="mono">&lt;picture&gt;</span> sources against the OS setting, not its own theme.</p>
+    <p>One band: the point of the midtone is that it does not need a second one, and the currentColor version has no colour of its own to show. 18-unit grid, 1-unit stroke, so at body size the stroke renders at 1.00px — the width of <span class="mono">--hairline</span>.</p>
+  </div>
+</section>
+</body>
+</html>

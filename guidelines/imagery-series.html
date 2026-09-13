@@ -1,0 +1,122 @@
+<!-- @dsCard group="Imagery" viewport="1180x980" name="Series palette" subtitle="Three greys, three patterns, no colour" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+body{margin:0;background:var(--paper);color:var(--ink)}
+section{padding:var(--space-6);display:grid;gap:var(--space-6)}
+h1{font-size:var(--text-headline-size);font-weight:var(--text-headline-weight);letter-spacing:var(--text-headline-tracking);line-height:var(--text-headline-leading);margin:0}
+.band{padding:var(--space-5);border:1px solid var(--hairline);border-radius:var(--radius-card);background:var(--paper);color:var(--ink);display:grid;gap:var(--space-4)}
+/* `color` is restated here because .band is where data-theme sits: colour inherits as
+ * an already-resolved value, so re-scoping --ink does not re-resolve an inherited
+ * `color` set further up on body. */
+section[data-theme]{color:var(--ink);background:var(--paper)}
+.sw{display:grid;grid-template-columns:repeat(auto-fit,minmax(9rem,1fr));gap:var(--space-4)}
+.chip{display:grid;gap:var(--space-2)}
+.chip-box{block-size:72px;border-radius:var(--radius-card);border:1px solid var(--hairline)}
+.cap{font-family:var(--font-mono);font-size:var(--text-caption-size);color:var(--ink-tertiary);text-transform:uppercase;letter-spacing:0.09em}
+.eyebrow-row .sheet-eyebrow{white-space:nowrap}
+.num{font-family:var(--font-mono);font-variant-numeric:tabular-nums}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(19rem,1fr));gap:var(--space-5)}
+</style>
+</head>
+<body>
+<section>
+
+<div>
+<div class="eyebrow-row"><span class="ordinal">01</span><span class="sheet-eyebrow">Series palette</span><hr class="eyebrow-rule"></div>
+<h1>Three greys, and a pattern for each</h1>
+<p class="deck">There is no colour in this system, the imagery layer included. The hero, spots, banner, ornament, thumbnails and both seed motifs use three grey series one <span class="num">0.155</span> step of OKLCH lightness apart, at chroma 0. Lightness alone is a weak channel at chart size, so every series also carries a <strong>pattern</strong>: the encoding is redundant rather than resting on one channel. Solved by <span class="num">_scripts/build-imagery.mjs</span>, recorded in <span class="num">imagery/series.json</span>.</p>
+</div>
+
+<div>
+<div class="eyebrow-row"><span class="ordinal">02</span><span class="sheet-eyebrow">The series, both bands</span><hr class="eyebrow-rule"></div>
+<div class="two">
+
+<div class="band" data-theme="light">
+<div class="cap">Light band &mdash; step 0.155, all clearing 3:1 against --paper-dim</div>
+<div class="sw">
+<div class="chip">
+<svg class="chip-box" viewBox="0 0 100 72" preserveAspectRatio="none" aria-hidden="true"><rect width="100" height="72" fill="#232323"/></svg>
+<span class="cap">Series 1 &middot; solid</span><span class="num">#232323 &middot; 12.71</span>
+</div>
+<div class="chip">
+<svg class="chip-box" viewBox="0 0 100 72" preserveAspectRatio="none" aria-hidden="true"><defs><pattern id="hl" width="4" height="4" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="4" height="4" fill="#4b4b4b"/><line x1="0" y1="0" x2="0" y2="4" stroke="#232323" stroke-width="1.2"/></pattern></defs><rect width="100" height="72" fill="url(#hl)"/></svg>
+<span class="cap">Series 2 &middot; hatch 45&deg;</span><span class="num">#4b4b4b &middot; 7.05</span>
+</div>
+<div class="chip">
+<svg class="chip-box" viewBox="0 0 100 72" preserveAspectRatio="none" aria-hidden="true"><defs><pattern id="xl" width="5" height="5" patternUnits="userSpaceOnUse"><rect width="5" height="5" fill="#767676"/><line x1="0" y1="0" x2="0" y2="5" stroke="#232323" stroke-width="1"/><line x1="0" y1="0" x2="5" y2="0" stroke="#232323" stroke-width="1"/></pattern></defs><rect width="100" height="72" fill="url(#xl)"/></svg>
+<span class="cap">Series 3 &middot; cross-hatch</span><span class="num">#767676 &middot; 3.67</span>
+</div>
+</div>
+</div>
+
+<div class="band" data-theme="dark">
+<div class="cap">Dark band &mdash; a separate solve, never an inversion</div>
+<div class="sw">
+<div class="chip">
+<svg class="chip-box" viewBox="0 0 100 72" preserveAspectRatio="none" aria-hidden="true"><rect width="100" height="72" fill="#fafafa"/></svg>
+<span class="cap">Series 1 &middot; solid</span><span class="num">#fafafa &middot; 12.46</span>
+</div>
+<div class="chip">
+<svg class="chip-box" viewBox="0 0 100 72" preserveAspectRatio="none" aria-hidden="true"><defs><pattern id="hd" width="4" height="4" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="4" height="4" fill="#c7c7c7"/><line x1="0" y1="0" x2="0" y2="4" stroke="#fafafa" stroke-width="1.2"/></pattern></defs><rect width="100" height="72" fill="url(#hd)"/></svg>
+<span class="cap">Series 2 &middot; hatch 45&deg;</span><span class="num">#c7c7c7 &middot; 7.70</span>
+</div>
+<div class="chip">
+<svg class="chip-box" viewBox="0 0 100 72" preserveAspectRatio="none" aria-hidden="true"><defs><pattern id="xd" width="5" height="5" patternUnits="userSpaceOnUse"><rect width="5" height="5" fill="#979797"/><line x1="0" y1="0" x2="0" y2="5" stroke="#fafafa" stroke-width="1"/><line x1="0" y1="0" x2="5" y2="0" stroke="#fafafa" stroke-width="1"/></pattern></defs><rect width="100" height="72" fill="url(#xd)"/></svg>
+<span class="cap">Series 3 &middot; cross-hatch</span><span class="num">#979797 &middot; 4.45</span>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div>
+<div class="eyebrow-row"><span class="ordinal">03</span><span class="sheet-eyebrow">A pattern is geometry, ground and line</span><hr class="eyebrow-rule"></div>
+<p class="deck">Grey is not a colour here, so the tone of a pattern's <strong>ground</strong> and of its <strong>lines</strong> are free choices alongside its geometry. Grey on white, grey on black and ink on grey read as different fills &mdash; more than three distinct fills from three geometries, without inventing a fourth. The hero uses the alternation: solid ink, a grey hatch on paper, a grey cross-hatch on ink, so every cut edge is light against dark.</p>
+<div class="two">
+<div class="band" data-theme="light">
+<div class="cap">Light band &mdash; line tone &times; ground tone</div>
+<div class="sw">
+<div class="chip"><svg class="chip-box" viewBox="0 0 100 72" preserveAspectRatio="none" aria-hidden="true"><defs><pattern id="vl1" width="4" height="4" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="4" height="4" fill="#fafafa"/><line x1="0" y1="0" x2="0" y2="4" stroke="#4b4b4b" stroke-width="1.2"/></pattern></defs><rect width="100" height="72" fill="url(#vl1)"/></svg><span class="cap">grey hatch on white</span></div>
+<div class="chip"><svg class="chip-box" viewBox="0 0 100 72" preserveAspectRatio="none" aria-hidden="true"><defs><pattern id="vl2" width="5" height="5" patternUnits="userSpaceOnUse"><rect width="5" height="5" fill="#232323"/><line x1="0" y1="0" x2="0" y2="5" stroke="#767676" stroke-width="1"/><line x1="0" y1="0" x2="5" y2="0" stroke="#767676" stroke-width="1"/></pattern></defs><rect width="100" height="72" fill="url(#vl2)"/></svg><span class="cap">grey cross-hatch on black</span></div>
+<div class="chip"><svg class="chip-box" viewBox="0 0 100 72" preserveAspectRatio="none" aria-hidden="true"><defs><pattern id="vl3" width="4" height="4" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="4" height="4" fill="#232323"/><line x1="0" y1="0" x2="0" y2="4" stroke="#767676" stroke-width="1.2"/></pattern></defs><rect width="100" height="72" fill="url(#vl3)"/></svg><span class="cap">grey hatch on black</span></div>
+</div>
+</div>
+<div class="band" data-theme="dark">
+<div class="cap">Dark band &mdash; the same pairings, solved for this ground</div>
+<div class="sw">
+<div class="chip"><svg class="chip-box" viewBox="0 0 100 72" preserveAspectRatio="none" aria-hidden="true"><defs><pattern id="vd1" width="4" height="4" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="4" height="4" fill="#232323"/><line x1="0" y1="0" x2="0" y2="4" stroke="#c7c7c7" stroke-width="1.2"/></pattern></defs><rect width="100" height="72" fill="url(#vd1)"/></svg><span class="cap">grey hatch on black</span></div>
+<div class="chip"><svg class="chip-box" viewBox="0 0 100 72" preserveAspectRatio="none" aria-hidden="true"><defs><pattern id="vd2" width="5" height="5" patternUnits="userSpaceOnUse"><rect width="5" height="5" fill="#fafafa"/><line x1="0" y1="0" x2="0" y2="5" stroke="#979797" stroke-width="1"/><line x1="0" y1="0" x2="5" y2="0" stroke="#979797" stroke-width="1"/></pattern></defs><rect width="100" height="72" fill="url(#vd2)"/></svg><span class="cap">grey cross-hatch on white</span></div>
+<div class="chip"><svg class="chip-box" viewBox="0 0 100 72" preserveAspectRatio="none" aria-hidden="true"><defs><pattern id="vd3" width="4" height="4" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="4" height="4" fill="#fafafa"/><line x1="0" y1="0" x2="0" y2="4" stroke="#979797" stroke-width="1.2"/></pattern></defs><rect width="100" height="72" fill="url(#vd3)"/></svg><span class="cap">grey hatch on white</span></div>
+</div>
+</div>
+</div>
+</div>
+
+<div>
+<div class="eyebrow-row"><span class="ordinal">04</span><span class="sheet-eyebrow">Why the pattern is not decoration</span><hr class="eyebrow-rule"></div>
+<div class="two">
+
+<div class="sheet on-veil">
+<div class="sheet-eyebrow">Lightness alone, at chart width</div>
+<svg viewBox="0 0 240 90" width="100%" height="90" aria-hidden="true" style="display:block"><g><rect x="8" y="10" width="9" height="70" fill="#232323"/><rect x="26" y="26" width="9" height="54" fill="#4b4b4b"/><rect x="44" y="44" width="9" height="36" fill="#767676"/><rect x="70" y="18" width="9" height="62" fill="#232323"/><rect x="88" y="38" width="9" height="42" fill="#4b4b4b"/><rect x="106" y="56" width="9" height="24" fill="#767676"/><rect x="132" y="30" width="9" height="50" fill="#232323"/><rect x="150" y="48" width="9" height="32" fill="#4b4b4b"/><rect x="168" y="62" width="9" height="18" fill="#767676"/><line x1="4" y1="80" x2="236" y2="80" stroke="var(--ink-faint)" stroke-width="1"/></g></svg>
+<p class="notice notice--failure">Three greys 0.155 apart are separable as 72px swatches and genuinely hard at 9px of bar. Photocopy it, or read it at a projector's gamma, and two of the three merge. The desaturation floor checks whether two values are distinguishable, not whether they are distinguishable <em>at the size the data is actually drawn</em>.</p>
+</div>
+
+<div class="sheet on-veil">
+<div class="sheet-eyebrow">Lightness <em>and</em> pattern</div>
+<svg viewBox="0 0 240 90" width="100%" height="90" aria-hidden="true" style="display:block"><defs><pattern id="h2" width="4" height="4" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="4" height="4" fill="#4b4b4b"/><line x1="0" y1="0" x2="0" y2="4" stroke="#232323" stroke-width="1.2"/></pattern><pattern id="x2" width="5" height="5" patternUnits="userSpaceOnUse"><rect width="5" height="5" fill="#767676"/><line x1="0" y1="0" x2="0" y2="5" stroke="#232323" stroke-width="1"/><line x1="0" y1="0" x2="5" y2="0" stroke="#232323" stroke-width="1"/></pattern></defs><g><rect x="8" y="10" width="9" height="70" fill="#232323"/><rect x="26" y="26" width="9" height="54" fill="url(#h2)"/><rect x="44" y="44" width="9" height="36" fill="url(#x2)"/><rect x="70" y="18" width="9" height="62" fill="#232323"/><rect x="88" y="38" width="9" height="42" fill="url(#h2)"/><rect x="106" y="56" width="9" height="24" fill="url(#x2)"/><rect x="132" y="30" width="9" height="50" fill="#232323"/><rect x="150" y="48" width="9" height="32" fill="url(#h2)"/><rect x="168" y="62" width="9" height="18" fill="url(#x2)"/><line x1="4" y1="80" x2="236" y2="80" stroke="var(--ink-faint)" stroke-width="1"/></g></svg>
+<p class="notice">Redundant encoding, the rule this system already states for colour &mdash; &ldquo;never category by one channel alone&rdquo;. The pattern survives desaturation, photocopying and a 9px bar, because its distinguishing feature is <em>geometry</em> and not value. A tile is opaque &mdash; series grey ground, series-1 lines &mdash; so a papercut layer never shows the layer beneath it.</p>
+</div>
+
+</div>
+<p class="notice" style="margin-block-start: var(--space-4)">The patterns come off the 4px division like everything else: a 4px period at 45&deg; for the hatch, a 5px grid for the cross-hatch, both at hairline width. Three is the cap &mdash; solid, hatch, cross-hatch &mdash; and a fourth would need a fourth <em>geometry</em>, not a fourth angle: hatches at 45&deg; and 135&deg; read as the same texture at nine pixels. The hue-bearing series this card used to show is retired; nothing in the system may reach for it.</p>
+</div>
+
+</section>
+</body>
+</html>

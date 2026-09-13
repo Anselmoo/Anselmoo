@@ -1,0 +1,112 @@
+<!-- @dsCard group="Components" viewport="860x360" name="Publication entry" subtitle="Year, title, source, DOI" -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+body {
+  margin: 0;
+  height: 360px;
+  background: var(--paper);
+  color: var(--ink);
+}
+
+section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-5);
+  padding: var(--space-5);
+  height: 100%;
+}
+
+section[data-theme="light"] {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.heading {
+  grid-column: 1 / -1;
+  font-size: var(--text-caption-size);
+  font-weight: var(--text-eyebrow-weight);
+  color: var(--ink-tertiary);
+  text-transform: uppercase;
+  letter-spacing: var(--text-eyebrow-tracking);
+  line-height: var(--text-caption-leading);
+  margin: 0 0 var(--space-3) 0;
+  padding-bottom: var(--space-3);
+  border-bottom: 1px solid var(--hairline);
+}
+
+.caption {
+  grid-column: 1 / -1;
+  font-size: var(--text-caption-size);
+  line-height: var(--text-caption-leading);
+  color: var(--ink-secondary);
+  margin-bottom: var(--space-3);
+  font-weight: 500;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+.column-title {
+  font-size: var(--text-body-size);
+  font-weight: var(--text-subhead-weight);
+  color: var(--ink);
+  margin-bottom: var(--space-3);
+}
+
+.publications {
+  flex: 1;
+}
+
+pre {
+  font-family: var(--font-mono);
+  font-size: var(--text-caption-size);
+  line-height: var(--text-caption-leading);
+  color: var(--ink-secondary);
+  background: var(--paper-alt);
+  padding: var(--space-3);
+  border-radius: var(--radius-card);
+  margin: 0;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+</style>
+</head>
+<body>
+
+<section data-theme="light">
+<div class="caption">A component is structure, and structure is band-independent: only the color roles change, and their behavior is already evidenced by the cards in the Colors group. A second band would double the area here without proving anything. That is the same justification that already applies to the type-* and spacing-* cards. The list itself comes live from ORCID with a committed fallback.</div>
+<div class="column">
+<div class="column-title">Web</div>
+<div class="publications">
+<div class="publication">
+<div class="publication-year">2024</div>
+<div>
+<div class="publication-title">Introducing SpectraFit: An Open-Source Tool for Interactive Spectral Analysis</div>
+<div class="publication-source">ACS Omega <span class="publication-doi">10.1021/acsomega.3c09262</span></div>
+</div>
+</div>
+<div class="publication">
+<div class="publication-year">2021</div>
+<div>
+<div class="publication-title">Probing Physical Oxidation State by Resonant X-ray Emission Spectroscopy</div>
+<div class="publication-source">Angewandte Chemie <span class="publication-doi">10.1002/ange.202015669</span></div>
+</div>
+</div>
+</div>
+</div>
+<div class="column">
+<div class="column-title">GitHub Markdown</div>
+<pre>2024 · **Introducing SpectraFit: An Open-Source Tool for Interactive Spectral Analysis** · ACS Omega · [10.1021/acsomega.3c09262](https://doi.org/10.1021/acsomega.3c09262)
+
+2021 · **Probing Physical Oxidation State by Resonant X-ray Emission Spectroscopy** · Angewandte Chemie · [10.1002/ange.202015669](https://doi.org/10.1002/ange.202015669)</pre>
+</div>
+</section>
+
+</body>
+</html>

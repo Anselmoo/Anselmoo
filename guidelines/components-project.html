@@ -1,0 +1,94 @@
+<!-- @dsCard group="Components" viewport="860x420" name="Project entry" subtitle="With flagship setting" -->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    body {
+      margin: 0;
+      height: 420px;
+      background: var(--paper);
+      color: var(--ink);
+      padding: var(--space-5);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+    }
+
+    .kommentar {
+      font-size: var(--text-caption-size);
+      line-height: var(--text-caption-leading);
+      color: var(--ink-secondary);
+      font-weight: 500;
+      margin: 0;
+    }
+
+    .spalten {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-5);
+      margin-top: var(--space-2);
+      padding-bottom: var(--space-2);
+      border-bottom: 1px solid var(--hairline);
+      font-size: var(--text-caption-size);
+      line-height: var(--text-caption-leading);
+      color: var(--ink-tertiary);
+      text-transform: uppercase;
+      letter-spacing: var(--text-eyebrow-tracking);
+    }
+
+    .content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-5);
+      min-width: 0;
+      min-height: 0;
+      flex: 1;
+    }
+
+    .content-web,
+    .content-markdown {
+      min-width: 0;
+    }
+
+    .content-markdown pre {
+      margin: 0;
+      font-family: var(--font-mono);
+      font-size: var(--text-caption-size);
+      line-height: var(--text-caption-leading);
+      white-space: pre-wrap;
+      word-break: break-word;
+      color: var(--ink);
+    }
+  </style>
+</head>
+<body>
+  <p class="kommentar">Single-band: a component is structure, and structure is band-independent — only the color roles change, and their behavior is already evidenced by the cards in the Colors group. A second band would double the area here without proving anything.</p>
+  <p class="kommentar">Flagship emphasizes through weight and line, never through color: the weight carries in both Web and Markdown, the line only in Web — GitHub has no border.</p>
+  <div class="spalten">
+    <span>Web</span>
+    <span>GitHub Markdown</span>
+  </div>
+  <div class="content">
+    <div class="content-web">
+      <div class="project project--flagship">
+        <div class="project-head">
+          <div class="project-name">mcp2mcpb</div>
+        </div>
+        <div class="project-summary">Turns published MCP servers on PyPI and npm into bundles that install in Claude Desktop with one click.</div>
+      </div>
+      <div class="project">
+        <div class="project-head">
+          <div class="project-name">repo-release-tools</div>
+        </div>
+        <div class="project-summary">Keeps versioning, commits and changelogs boring across four ecosystems.</div>
+      </div>
+    </div>
+    <div class="content-markdown">
+      <pre>- **mcp2mcpb** — Turns published MCP servers on PyPI and npm into bundles that install in Claude Desktop with one click.
+- **repo-release-tools** — Keeps versioning, commits and changelogs boring across four ecosystems.</pre>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>OG lab</title>
+<link rel="stylesheet" href="../../styles.css">
+<style>
+  main { max-width: 1280px; margin: 0 auto; padding: var(--space-7) var(--page-inset); }
+  h1 { font-size: var(--text-headline-size); font-weight: var(--text-headline-weight); letter-spacing: var(--text-headline-tracking); line-height: var(--text-headline-leading); margin: 0 0 var(--space-2); }
+  .lead { font-size: var(--text-body-size); line-height: var(--text-body-leading); color: var(--ink-secondary); max-width: var(--measure); margin: 0 0 var(--space-6); }
+  figure { margin: 0 0 var(--space-7); }
+  canvas { width: 100%; height: auto; display: block; border: 1px solid var(--hairline); }
+  figcaption { display: flex; align-items: baseline; gap: var(--space-4); margin-top: var(--space-3); font-family: var(--font-mono); font-size: var(--text-code-size); line-height: var(--text-code-leading); color: var(--ink-tertiary); }
+</style>
+</head>
+<body>
+<main>
+  <h1>OG lab</h1>
+  <p class="lead">Renders every file in <code>assets/og/</code> at its full 1200 × 630 and offers the PNG a feed will actually accept. Nothing here generates an image — <code>npm run og</code> does that. This only turns one format into another.</p>
+  <p class="lead"><strong>The rasteriser needs Inter.</strong> A font loaded by this page does not reach inside an <code>&lt;img&gt;</code>, so the SVG resolves the family against the system. Without Inter installed it falls back to Helvetica Neue or Arial, both measured 5.3 % narrower, and <code>size-adjust</code> cannot correct a face it cannot see.</p>
+  <div id="out"><p class="notice">Rendering the Open Graph images …</p></div>
+</main>
+<script type="module">
+  // Placeholder above is REPLACED, never left standing — the same rule the
+  // publication list follows (see the empty-and-error dimension).
+  const FILES = ["portfolio", "spectrafit", "mcp2mcpb", "vsplot"];
+  const W = 1200, H = 630;
+  const out = document.getElementById("out");
+
+  async function render(name) {
+    const res = await fetch(`./${name}.svg`);
+    if (!res.ok) throw new Error(`${name}.svg responded ${res.status}`);
+    const url = URL.createObjectURL(new Blob([await res.text()], { type: "image/svg+xml" }));
+    try {
+      const img = new Image();
+      await new Promise((ok, no) => { img.onload = ok; img.onerror = () => no(new Error(`${name}.svg did not decode`)); img.src = url; });
+      const c = document.createElement("canvas");
+      c.width = W; c.height = H;
+      c.getContext("2d").drawImage(img, 0, 0, W, H);
+      const fig = document.createElement("figure");
+      fig.append(c);
+      const cap = document.createElement("figcaption");
+      const a = document.createElement("a");
+      a.className = "link";
+      a.textContent = "download png";
+      a.download = `${name}.png`;
+      a.href = c.toDataURL("image/png");
+      cap.append(document.createTextNode(`${name}.svg — ${W} x ${H}`), a);
+      fig.append(cap);
+      return fig;
+    } finally { URL.revokeObjectURL(url); }
+  }
+
+  (async () => {
+    try {
+      const figures = await Promise.all(FILES.map(render));
+      out.replaceChildren(...figures);
+    } catch (error) {
+      out.innerHTML = `<p class="notice notice--failure">The Open Graph images could not be rendered: ${error.message}. The files themselves are in assets/og/ and can be opened directly.</p>`;
+    }
+  })();
+</script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!-- @dsCard group="Colors" viewport="1180x680" name="Two standards" subtitle="WCAG binds the light band, APCA binds the dark one" -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+body{margin:0;height:680px}
+.wrap{height:680px;display:grid;grid-template-rows:auto 1fr auto;gap:var(--space-5);padding:var(--space-6);background:var(--paper-alt);color:var(--ink)}
+.eyebrow{font-size:var(--text-eyebrow-size);font-weight:var(--text-eyebrow-weight);letter-spacing:var(--text-eyebrow-tracking);text-transform:uppercase;color:var(--ink-tertiary)}
+.title{font-size:var(--text-headline-size);font-weight:var(--text-headline-weight);letter-spacing:var(--text-headline-tracking);line-height:var(--text-headline-leading);margin:var(--space-1) 0 0;max-width:34em}
+.bands{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-5);min-height:0}
+.band{background:var(--paper);padding:var(--space-5);display:flex;flex-direction:column;gap:var(--space-4);border:1px solid var(--hairline)}
+.band-name{font-size:var(--text-eyebrow-size);font-weight:var(--text-eyebrow-weight);letter-spacing:var(--text-eyebrow-tracking);text-transform:uppercase;color:var(--ink-tertiary)}
+.role{display:grid;grid-template-columns:1fr auto;gap:var(--space-4);align-items:baseline;padding-bottom:var(--space-3);border-bottom:1px solid var(--hairline)}
+.sample{font-size:var(--text-body-size);line-height:1.3}
+.r-ink{color:var(--ink)}
+.r-sec{color:var(--ink-secondary)}
+.r-ter{color:var(--ink-tertiary)}
+.nums{font-family:var(--font-mono);font-size:var(--text-code-size);color:var(--ink-secondary);font-variant-numeric:tabular-nums;white-space:nowrap}
+.was{display:block;color:var(--ink-tertiary);text-decoration:line-through}
+.note{font-size:var(--text-caption-size);line-height:var(--text-caption-leading);color:var(--ink-secondary);max-width:60em;border-top:1px solid var(--hairline-strong);padding-top:var(--space-3)}
+.note b{color:var(--ink);font-weight:600}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div>
+    <div class="eyebrow">Colour · contrast</div>
+    <h1 class="title">Both bands now read the same, because one standard could not tell they didn't</h1>
+  </div>
+  <div class="bands">
+    <section class="band" data-theme="light">
+      <div class="band-name">Light band · WCAG binds</div>
+      <div class="role"><span class="sample r-ink">Ink carries the sentence</span><span class="nums">12.75 · Lc 88.6</span></div>
+      <div class="role"><span class="sample r-sec">Secondary carries the aside</span><span class="nums">7.07 · Lc 75.8</span></div>
+      <div class="role"><span class="sample r-ter">Tertiary carries the label</span><span class="nums">4.52 · Lc 63.8</span></div>
+      <p class="nums" style="margin:0">Unchanged. Solving on WCAG alone already cleared both floors.</p>
+    </section>
+    <section class="band" data-theme="dark">
+      <div class="band-name">Dark band · APCA binds</div>
+      <div class="role"><span class="sample r-ink">Ink carries the sentence</span><span class="nums">12.50 · Lc 99.3</span></div>
+      <div class="role"><span class="sample r-sec">Secondary carries the aside</span><span class="nums">8.83 · Lc 75.4<span class="was">7.04 · Lc 62.3</span></span></div>
+      <div class="role"><span class="sample r-ter">Tertiary carries the label</span><span class="nums">6.74 · Lc 60.0<span class="was">4.54 · Lc 41.5</span></span></div>
+      <p class="nums" style="margin:0">Lifted. WCAG was satisfied and the reading was not.</p>
+    </section>
+  </div>
+  <p class="note">Every number is the <b>worst of the three grounds</b>. The defect: dark tertiary scored WCAG <b>4.54</b> against its light twin's <b>4.52</b> — the same ratio — while reading <b>22.3 Lc weaker</b>, because WCAG 2 is symmetric and cannot see polarity. Neither standard alone produces this palette: APCA alone drops the light band to 6.86 and 3.99, under AA. Both are now solved for at once, on the hardest ground, and the gap between the bands is checked — 0.4 and 3.8 Lc, against a permitted 8.</p>
+</div>
+</body>
+</html>

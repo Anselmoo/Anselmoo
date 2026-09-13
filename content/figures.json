@@ -1,0 +1,26 @@
+{
+  "$comment": "Figure manifest. A figure is an ARTEFACT, so it carries the same contract as a usage figure: what it shows, what produced it, and when. The data files beside this manifest are REAL OUTPUT of the programs the page is about — nothing here is drawn to look plausible.",
+  "rule": "DESIGN.md binds colour to the image layer: hue band 70-145 degrees, at most four series, each at least 3:1 against its ground. Where a dataset has more series than that, the surplus is drawn as an ink-tertiary family and the series that carry the argument keep the colour. That is a resolution, not an exception.",
+  "asOf": "2026-09-12",
+  "figures": [
+    {
+      "id": "spectrafit-deconvolution",
+      "kind": "fit",
+      "data": "content/figures/spectrafit-example-3.csv",
+      "alt": "A measured spectrum with a four-component pseudo-Voigt fit, and the residual beneath it.",
+      "caption": "Four overlapping pseudo-Voigt components resolved from one measured band. The residual strip underneath is the part the model does not explain — it is shown because a fit without it is a picture, not a result.",
+      "source": "SpectraFit 1.5.2 · examples/example_3 · BSD-3-Clause, Anselm Hahn",
+      "placement": "lead"
+    },
+    {
+      "id": "tanabesugano-d5",
+      "kind": "diagram",
+      "data": "content/figures/tanabesugano-d5.json",
+      "alt": "Tanabe-Sugano diagram for a d5 configuration, showing the sextet ground term crossed by a doublet at high field.",
+      "caption": "d⁵ term energies against field strength. Every excited term is a quartet or a doublet above a sextet ground state, so every d–d transition here is spin-forbidden — which is why manganese(II) salts are almost colourless. The two highlighted terms are the pair that swaps at the spin crossover.",
+      "source": "TanabeSugano 2.0.0 · d5, B=860 cm⁻¹, C=3850 cm⁻¹ · MIT, Anselm Hahn",
+      "placement": "category:science"
+    }
+  ],
+  "placementRule": "Where a figure appears is content, not layout, so it is declared here. 'lead' puts it inside the lead case study; 'motivation' under the opening prose; 'category:<id>' inside that project sheet."
+}

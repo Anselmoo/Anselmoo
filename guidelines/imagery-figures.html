@@ -1,0 +1,62 @@
+<!-- @dsCard group="Imagery" viewport="1280x1100" name="Figures" subtitle="One construction, five classes, three refusals" -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+body{margin:0;height:1100px}
+.page{height:1100px;display:grid;grid-template-rows:auto auto auto 1fr;background:var(--paper);color:var(--ink)}
+.head{padding:var(--space-6) var(--space-6) 0}
+.eyebrow{font-size:var(--text-eyebrow-size);font-weight:var(--text-eyebrow-weight);letter-spacing:var(--text-eyebrow-tracking);text-transform:uppercase;color:var(--ink-tertiary)}
+.title{font-size:var(--text-headline-size);font-weight:var(--text-headline-weight);letter-spacing:var(--text-headline-tracking);line-height:var(--text-headline-leading);margin:var(--space-1) 0 0;max-width:34em}
+.row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-6);padding:var(--space-6)}
+.cell{display:flex;flex-direction:column;gap:var(--space-3);min-width:0;padding:var(--space-5);background:var(--paper-alt);color:var(--ink);border:1px solid var(--hairline)}
+.k{font-size:var(--text-eyebrow-size);font-weight:var(--text-eyebrow-weight);letter-spacing:var(--text-eyebrow-tracking);text-transform:uppercase;color:var(--ink-tertiary)}
+.w{font-size:var(--text-caption-size);line-height:var(--text-caption-leading);color:var(--ink-secondary)}
+.m{font-family:var(--font-mono);font-size:var(--text-code-size);color:var(--ink);font-variant-numeric:tabular-nums}
+.drop{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--space-5);padding:0 var(--space-6) var(--space-6);align-items:end}
+.fig{display:flex;flex-direction:column;gap:var(--space-2);align-items:center}
+.fig img{display:block}
+.refuse{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--space-5);padding:var(--space-5) var(--space-6);border-top:1px solid var(--hairline-strong);background:var(--paper-dim);align-content:start}
+.r-k{font-size:var(--text-subhead-size);font-weight:var(--text-subhead-weight);letter-spacing:var(--text-subhead-tracking);line-height:1.2}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="head">
+    <div class="eyebrow">Imagery · figures</div>
+    <h1 class="title">One construction at five sizes, and the three classes this system will not fake</h1>
+  </div>
+  <div class="row">
+    <section class="cell" data-theme="light">
+      <span class="k">Spot · 96px · 2 layers</span>
+      <div class="section-head">
+        <div class="spot spot--1"></div>
+        <div>
+          <h2 style="font-size:var(--text-subhead-size);font-weight:var(--text-subhead-weight);letter-spacing:var(--text-subhead-tracking);margin:0">Scientific Software</h2>
+          <p class="deck" style="margin:var(--space-1) 0 0">Whoever arrives from a DOI and is looking for the software behind the figure.</p>
+        </div>
+      </div>
+      <p class="w">Three spots, three sections, three series. Rotation distinguishes them without a second drawing — the mark is self-inverse under 180°, so the rotations are related figures rather than arbitrary ones.</p>
+    </section>
+    <section class="cell" data-theme="dark">
+      <span class="k">Banner · 1280×320 · 3 layers</span>
+      <div class="banner"></div>
+      <p class="w">The system-owned answer to the server-rendered banner that animates with no pause control. Nothing here moves. Its text is the one place this system cannot reach its own face: an SVG loaded as an image gets no webfont, so the line is short, single and left-aligned, where a metric difference cannot break a layout.</p>
+    </section>
+  </div>
+  <div class="drop">
+    <div class="fig"><img src="../imagery/hero-light.svg" width="200" alt=""><span class="m">630 → 3 · 48px</span><span class="w">hero</span></div>
+    <div class="fig"><img src="../imagery/spot-1-light.svg" width="96" alt=""><span class="m">96 → 2 · 11.0px</span><span class="w">spot, card image</span></div>
+    <div class="fig"><img src="../imagery/spot-2-light.svg" width="64" alt=""><span class="m">64 → 1 · no ring</span><span class="w">thumbnail</span></div>
+    <div class="fig"><img src="../imagery/ornament-light.svg" width="240" alt=""><span class="m">16 → 1 · no ring</span><span class="w">ornament</span></div>
+  </div>
+  <div class="refuse">
+    <div><div class="r-k">Key art</div><p class="w">Refused. Key art is campaign-level and there is no campaign. A one-person system that ships key art ships an asset with no occasion.</p></div>
+    <div><div class="r-k">Scrim</div><p class="w">Refused. A scrim is alpha, and every role here is solid and separately solved so nothing changes meaning over a different ground. Text never sits on imagery — the hero splits rather than overlays. The papercut shadow is the single alpha value in the system.</p></div>
+    <div><div class="r-k">Card image, per item</div><p class="w">Refused as drawn. A card image identifies one item; this system has one mark, so a per-item variation would be decoration pretending to be identification. The card image is the section's spot — a weaker claim, honestly made.</p></div>
+  </div>
+</div>
+</body>
+</html>

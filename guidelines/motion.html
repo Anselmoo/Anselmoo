@@ -1,0 +1,62 @@
+<!-- @dsCard group="Motion" viewport="880x480" name="Motion tokens" subtitle="Two tokens, one boundary, one absence" -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body { margin: 0; height: 480px; }
+  .card { height: 480px; background: var(--paper); color: var(--ink); padding: var(--space-6); display: flex; flex-direction: column; gap: var(--space-5); }
+  .eyebrow { font-size: var(--text-eyebrow-size); font-weight: var(--text-eyebrow-weight); letter-spacing: var(--text-eyebrow-tracking); line-height: var(--text-eyebrow-leading); text-transform: uppercase; color: var(--ink-tertiary); }
+  .title { font-size: var(--text-headline-size); font-weight: var(--text-headline-weight); letter-spacing: var(--text-headline-tracking); line-height: var(--text-headline-leading); margin: var(--space-1) 0 0; }
+  .tokens { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: var(--space-4) var(--space-6); align-items: baseline; }
+  .pair { display: grid; gap: var(--space-1); }
+  .name, .value { font-family: var(--font-mono); font-size: var(--text-code-size); line-height: var(--text-code-leading); }
+  .name { color: var(--ink); }
+  .value { color: var(--ink-secondary); font-variant-numeric: tabular-nums; }
+  .why { font-size: var(--text-caption-size); line-height: var(--text-caption-leading); color: var(--ink-secondary); }
+  .scale { display: grid; grid-template-columns: 60fr 40fr; align-items: end; }
+  .seg { padding-bottom: var(--space-2); }
+  .seg-fast { border-bottom: 2px solid var(--ink); border-right: 1px solid var(--ink); }
+  .seg-rest { border-bottom: 1px solid var(--hairline-strong); border-right: 1px solid var(--hairline-strong); }
+  .seg-label { font-family: var(--font-mono); font-size: var(--text-code-size); line-height: var(--text-code-leading); text-align: right; padding-right: var(--space-2); }
+  .seg-fast .seg-label { color: var(--ink); }
+  .seg-rest .seg-label { color: var(--ink-tertiary); }
+  .foot { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-6); margin-top: auto; }
+  .foot p { margin: 0; font-size: var(--text-caption-size); line-height: var(--text-caption-leading); color: var(--ink-secondary); max-width: var(--measure); }
+  .demo { display: flex; align-items: center; gap: var(--space-4); }
+  .demo .button { white-space: nowrap; flex: none; }
+  .demo-note { font-size: var(--text-caption-size); line-height: var(--text-caption-leading); color: var(--ink-tertiary); }
+</style>
+</head>
+<body>
+<section class="card" data-theme="light">
+  <div>
+    <div class="eyebrow">Motion</div>
+    <h1 class="title">Two tokens, and that is the set</h1>
+  </div>
+
+  <div class="tokens">
+    <div class="pair"><span class="name">--motion-fast</span><span class="value">120ms</span></div>
+    <span class="why">Colour and opacity. Not a new number: it is the <span class="name">--transition-fast</span> that sat unused in the Cupertino review flow, now with a consumer.</span>
+    <div class="pair"><span class="name">--motion-ease</span><span class="value">cubic-bezier(0, 0, 0.58, 1)</span></div>
+    <span class="why">The CSS Easing Level 1 definition of <span class="name">ease-out</span>, written out. A hand-tuned curve would be four numbers with no source.</span>
+  </div>
+
+  <div class="scale">
+    <div class="seg seg-fast"><div class="seg-label">120 ms · --motion-fast</div></div>
+    <div class="seg seg-rest"><div class="seg-label">200 ms · guard boundary</div></div>
+  </div>
+
+  <div class="demo">
+    <button class="button" type="button">hover this button</button>
+    <span class="demo-note">Colour and border-colour cross at 120 ms. Nothing moves, so nothing needs a guard.</span>
+  </div>
+
+  <div class="foot">
+    <p>Under 200 ms, colour and opacity need no <span class="name">prefers-reduced-motion</span> guard. Transform and position need one always — and get no token here, because no surface in this system moves. A third dead motion token is the defect this file was written to repair, not repeat.</p>
+    <p>One band: motion is structural and band-independent, so a second band would show the same two numbers twice. The one thing that differs between bands — which colour a transition crosses to — is already the Colors cards' evidence.</p>
+  </div>
+</section>
+</body>
+</html>

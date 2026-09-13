@@ -1,0 +1,180 @@
+<!-- @dsCard group="Type" viewport="760x460" name="Scale" subtitle="Six grades, smallest gap 1.17" -->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    body {
+      margin: 0;
+      height: 460px;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--font-sans);
+      padding: var(--space-6);
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      gap: var(--space-2);
+    }
+
+    .grade-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: var(--space-6);
+    }
+
+    .grade-sample {
+      flex: 1;
+    }
+
+    .grade-ratio {
+      font-size: var(--text-caption-size);
+      font-weight: var(--text-caption-weight);
+      letter-spacing: var(--text-caption-tracking);
+      line-height: var(--text-caption-leading);
+      color: var(--ink-tertiary);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .display {
+      font-size: var(--text-display-size);
+      font-weight: var(--text-display-weight);
+      letter-spacing: var(--text-display-tracking);
+      line-height: var(--text-display-leading);
+    }
+
+    .headline {
+      font-size: var(--text-headline-size);
+      font-weight: var(--text-headline-weight);
+      letter-spacing: var(--text-headline-tracking);
+      line-height: var(--text-headline-leading);
+    }
+
+    .subhead {
+      font-size: var(--text-subhead-size);
+      font-weight: var(--text-subhead-weight);
+      letter-spacing: var(--text-subhead-tracking);
+      line-height: var(--text-subhead-leading);
+    }
+
+    .body {
+      font-size: var(--text-body-size);
+      font-weight: var(--text-body-weight);
+      letter-spacing: var(--text-body-tracking);
+      line-height: var(--text-body-leading);
+    }
+
+    .caption {
+      font-size: var(--text-caption-size);
+      font-weight: var(--text-caption-weight);
+      letter-spacing: var(--text-caption-tracking);
+      line-height: var(--text-caption-leading);
+    }
+
+    .eyebrow {
+      font-size: var(--text-eyebrow-size);
+      font-weight: var(--text-eyebrow-weight);
+      letter-spacing: var(--text-eyebrow-tracking);
+      line-height: var(--text-eyebrow-leading);
+    }
+
+    .separator {
+      border-top: 1px solid var(--hairline);
+      margin: var(--space-3) 0;
+      padding: 0;
+    }
+
+    .variant-section {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-1);
+    }
+
+    .variant-label {
+      font-size: var(--text-caption-size);
+      font-weight: var(--text-caption-weight);
+      letter-spacing: var(--text-caption-tracking);
+      line-height: var(--text-caption-leading);
+      color: var(--ink-secondary);
+    }
+
+    .display-sm {
+      font-size: var(--text-display-sm-size);
+      line-height: var(--text-display-sm-leading);
+    }
+
+    .footnote {
+      font-size: var(--text-caption-size);
+      font-weight: var(--text-caption-weight);
+      letter-spacing: var(--text-caption-tracking);
+      line-height: var(--text-caption-leading);
+      color: var(--ink-tertiary);
+      border-top: 1px solid var(--hairline);
+      padding-top: var(--space-2);
+      margin-top: var(--space-2);
+    }
+  </style>
+</head>
+<body>
+  <div class="grade-row">
+    <div class="grade-sample">
+      <div class="display">display</div>
+    </div>
+    <div class="grade-ratio">2.07</div>
+  </div>
+
+  <div class="grade-row">
+    <div class="grade-sample">
+      <div class="headline">headline</div>
+    </div>
+    <div class="grade-ratio">1.30</div>
+  </div>
+
+  <div class="grade-row">
+    <div class="grade-sample">
+      <div class="subhead">subhead</div>
+    </div>
+    <div class="grade-ratio">1.28</div>
+  </div>
+
+  <div class="grade-row">
+    <div class="grade-sample">
+      <div class="body">body</div>
+    </div>
+    <div class="grade-ratio">1.29</div>
+  </div>
+
+  <div class="grade-row">
+    <div class="grade-sample">
+      <div class="caption">caption</div>
+    </div>
+    <div class="grade-ratio">1.17</div>
+  </div>
+
+  <div class="grade-row">
+    <div class="grade-sample">
+      <div class="eyebrow">eyebrow</div>
+    </div>
+  </div>
+
+  <div class="separator"></div>
+
+  <div class="variant-section">
+    <div class="variant-label">responsive variant</div>
+    <div class="grade-row">
+      <div class="grade-sample">
+        <div class="display-sm">display-sm</div>
+      </div>
+      <div class="grade-ratio">1.55</div>
+    </div>
+  </div>
+
+  <div class="footnote">
+    Smallest gap 1.17 against minimum 1.125
+  </div>
+</body>
+</html>

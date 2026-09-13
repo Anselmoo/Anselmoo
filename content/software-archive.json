@@ -1,0 +1,68 @@
+{
+  "$comment": "Own software with a Zenodo DOI that is NOT a curated project. Citable and discoverable, but not what the site opens with. The body of work deserves to be named so the colophon does not pretend there are only twelve things.",
+  "whySeparate": "content/projects.json is hand-picked. These records exist regardless and carry DOIs that someone can cite. Listing them here is more honest than concealing them or watering down the selection.",
+  "note": "useful-math-functions is, at 105 downloads, the most-downloaded Zenodo record of the whole body of work — and neither the repo nor the model knew this before the concept DOIs were resolved.",
+  "asOf": "2026-09-10",
+  "entries": [
+    {
+      "repo": "Anselmoo/useful-math-functions",
+      "title": "useful-math-functions",
+      "doiConcept": "10.5281/zenodo.8373434",
+      "year": 2026,
+      "zenodo": {
+        "downloads": 105,
+        "views": 299
+      }
+    },
+    {
+      "repo": "Anselmoo/bibtex2cff",
+      "title": "Dataset of code metrics",
+      "doiConcept": "10.5281/zenodo.7979014",
+      "year": 2023,
+      "zenodo": {
+        "downloads": 44,
+        "views": 244
+      }
+    },
+    {
+      "repo": "Anselmoo/RBF_NetworkFitting",
+      "title": "Radial Basis Function Network Fitting",
+      "doiConcept": "10.5281/zenodo.3418128",
+      "year": 2019,
+      "zenodo": {
+        "downloads": 33,
+        "views": 116
+      }
+    },
+    {
+      "repo": "Anselmoo/RIXSPlot",
+      "title": "RIXSPlot",
+      "doiConcept": "10.5281/zenodo.3407421",
+      "year": 2019,
+      "zenodo": {
+        "downloads": 33,
+        "views": 100
+      }
+    },
+    {
+      "repo": "Anselmoo/csv_first_insight",
+      "title": "CSV-First-Insight",
+      "doiConcept": "10.5281/zenodo.3405446",
+      "year": 2019,
+      "zenodo": {
+        "downloads": 21,
+        "views": 69
+      }
+    },
+    {
+      "repo": "Anselmoo/useful-optimizer",
+      "title": "useful-optimizer",
+      "doiConcept": "10.5281/zenodo.13294276",
+      "year": 2024,
+      "zenodo": {
+        "downloads": 19,
+        "views": 101
+      }
+    }
+  ]
+}

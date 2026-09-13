@@ -1,0 +1,47 @@
+{
+  "$comment": "GENERATED — do not edit by hand.",
+  "formula": "I(alpha)/I0 = cos^2(pi*d*sin(alpha)/lambda) * sinc^2(pi*b*sin(alpha)/lambda)",
+  "terms": {
+    "cos^2": "the two-slit interference term — the fast fringes",
+    "sinc^2": "the single-slit diffraction envelope"
+  },
+  "fixed": {
+    "b/lambda": 12,
+    "envelope first zero (deg)": 4.78,
+    "alpha range (deg)": [
+      -5.6,
+      5.6
+    ],
+    "samples": 441
+  },
+  "scrollDrives": "d/lambda, the slit separation, swept through 18 -> 28 -> 40 -> 54 -> 70 as the reader scrolls the cover. The fringes compress while the envelope stays, because the envelope depends on b and not on d — so the scroll moves a physical parameter rather than an effect.",
+  "frames": [
+    {
+      "d/lambda": 18,
+      "fringe spacing (deg)": 3.184,
+      "fringes under central lobe": 3
+    },
+    {
+      "d/lambda": 28,
+      "fringe spacing (deg)": 2.046,
+      "fringes under central lobe": 5
+    },
+    {
+      "d/lambda": 40,
+      "fringe spacing (deg)": 1.432,
+      "fringes under central lobe": 7
+    },
+    {
+      "d/lambda": 54,
+      "fringe spacing (deg)": 1.061,
+      "fringes under central lobe": 9
+    },
+    {
+      "d/lambda": 70,
+      "fringe spacing (deg)": 0.819,
+      "fringes under central lobe": 12
+    }
+  ],
+  "interpolation": "Every frame has the same 441 points and the same command structure, which is what lets the CSS `d` property interpolate between them. Between the five computed frames the shape is linearly interpolated rather than recomputed — the frames are exact, the tweens are not, which is the honest description.",
+  "restingState": "The first frame is the element attribute, so the figure is complete and correct with no timeline, under reduced motion, and in print."
+}

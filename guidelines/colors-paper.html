@@ -1,0 +1,87 @@
+<!-- @dsCard group="Colors" viewport="760x200" name="Paper" subtitle="Three grounds, two bands" -->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      height: 200px;
+    }
+
+    section {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      gap: var(--space-4);
+      background: var(--paper);
+      color: var(--ink);
+      padding: var(--space-3) var(--space-5);
+    }
+
+    .color-field {
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+    }
+
+    /* A ground is a sheet, not a point. The first version set
+     * --radius-card (28px) on a 44px square — that made a circle, and
+     * a circle does not read as paper. The field is now wide and flat,
+     * with a radius from the four-pixel division instead of from the card measure. */
+    .color-swatch {
+      height: 40px;
+      border: 1px solid var(--hairline);
+      border-radius: var(--space-1);
+    }
+
+    .color-caption {
+      white-space: nowrap;
+      font-family: var(--font-mono);
+      font-size: var(--text-caption-size);
+      font-weight: var(--text-caption-weight);
+    }
+
+    .color-caption .color-hex {
+      color: var(--ink-tertiary);
+      font-weight: normal;
+    }
+  </style>
+</head>
+<body>
+  <section data-theme="light">
+    <div class="color-field">
+      <div class="color-swatch" style="background: var(--paper);"></div>
+      <div class="color-caption">--paper <span class="color-hex">#fbfaf7</span></div>
+    </div>
+    <div class="color-field">
+      <div class="color-swatch" style="background: var(--paper-alt);"></div>
+      <div class="color-caption">--paper-alt <span class="color-hex">#f3f1ec</span></div>
+    </div>
+    <div class="color-field">
+      <div class="color-swatch" style="background: var(--paper-dim);"></div>
+      <div class="color-caption">--paper-dim <span class="color-hex">#eae7df</span></div>
+    </div>
+  </section>
+
+  <section data-theme="dark">
+    <div class="color-field">
+      <div class="color-swatch" style="background: var(--paper);"></div>
+      <div class="color-caption">--paper <span class="color-hex">#232320</span></div>
+    </div>
+    <div class="color-field">
+      <div class="color-swatch" style="background: var(--paper-alt);"></div>
+      <div class="color-caption">--paper-alt <span class="color-hex">#292926</span></div>
+    </div>
+    <div class="color-field">
+      <div class="color-swatch" style="background: var(--paper-dim);"></div>
+      <div class="color-caption">--paper-dim <span class="color-hex">#31312e</span></div>
+    </div>
+  </section>
+</body>
+</html>

@@ -1,0 +1,401 @@
+<!-- @dsCard group="Material" viewport="760x340" name="One ream" subtitle="Same stock, different lay" -->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    body {
+      margin: 0;
+      height: 340px;
+      display: flex;
+      flex-direction: column;
+      background: var(--paper);
+      color: var(--ink);
+    }
+
+    /* The heading sat at --text-display-size (62px) and alone ate up
+     * a third of the card. A card title is not a page heading. */
+    .header {
+      padding: var(--space-3) var(--space-4) 0;
+      font-size: var(--text-subhead-size);
+      font-weight: var(--text-subhead-weight);
+      letter-spacing: var(--text-subhead-tracking);
+      line-height: var(--text-subhead-leading);
+    }
+
+    .explanation {
+      padding: 0 var(--space-4) var(--space-2);
+      font-size: var(--text-caption-size);
+      color: var(--ink-secondary);
+    }
+
+    /* The two bands stood side by side: four sheets in 350px are 85px
+     * wide each, and at that size the fibre lay can no longer be told
+     * apart — exactly the point of the card. Stacked, each sheet gets 165px. */
+    .container {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      min-height: 0;
+    }
+
+    section {
+      flex: 0 0 auto;
+      min-width: 0;
+      padding: var(--space-2) var(--space-4);
+      background: var(--paper);
+      color: var(--ink);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+    }
+
+    /* HEIGHT leads, width follows. With flex:1 on the rows and aspect-ratio on
+     * the sheets, width determined height — and the sum blew out the
+     * section, so the caption sat on top of the dark band. Now the height is
+     * fixed, and sheet and magnifier get the same width, because both
+     * carry the same aspect ratio, 150:58 and 150:30 respectively. */
+    .sheets-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: var(--space-1);
+      flex: 0 0 auto;
+    }
+
+    svg.sheet { height: 56px; aspect-ratio: 150 / 58; }
+    svg.magnifier { height: 29px; aspect-ratio: 150 / 30; }
+
+    .caption {
+      padding: 0 var(--space-4) var(--space-3);
+      font-size: var(--text-caption-size);
+      color: var(--ink-tertiary);
+    }
+  </style>
+</head>
+<body>
+  <div class="header">One ream, different sheets</div>
+  <div class="explanation">Fibre lay from an FNV-1a hash of the sheet name — permanently the same per project.</div>
+
+  <div class="container">
+    <section data-theme="light">
+      <div class="sheets-row">
+        <svg class="sheet" viewBox="0 0 150 58" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <filter id="paper-spectrafit-4464-light" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+              <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="4" seed="4464" result="n1"/>
+              <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="3" seed="4465" result="n2"/>
+              <feColorMatrix in="n1" type="matrix" values="0.3333 0.3333 0.3333 0 0  0.3333 0.3333 0.3333 0 0  0.3333 0.3333 0.3333 0 0  0 0 0 0 1" result="g1"/>
+              <feColorMatrix in="n2" type="matrix" values="0.3333 0.3333 0.3333 0 0  0.3333 0.3333 0.3333 0 0  0.3333 0.3333 0.3333 0 0  0 0 0 0 1" result="g2"/>
+              <feComposite in="g1" in2="g2" operator="arithmetic" k1="0" k2="0.55" k3="0.45" k4="0" result="mix"/>
+              <feComponentTransfer in="mix" result="off">
+                <feFuncR type="linear" slope="0.15" intercept="0.4250"/>
+                <feFuncG type="linear" slope="0.15" intercept="0.4250"/>
+                <feFuncB type="linear" slope="0.15" intercept="0.4250"/>
+              </feComponentTransfer>
+              <feComposite in="off" in2="SourceGraphic" operator="arithmetic" k1="0" k2="1" k3="1" k4="-0.5"/>
+            </filter>
+          </defs>
+          <rect width="150" height="58" style="fill: var(--paper)" filter="url(#paper-spectrafit-4464-light)" />
+        </svg>
+
+        <svg class="sheet" viewBox="0 0 150 58" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <filter id="paper-tanabesugano-1729-light" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+              <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="4" seed="1729" result="n1"/>
+              <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="3" seed="1730" result="n2"/>
+              <feColorMatrix in="n1" type="matrix" values="0.3333 0.3333 0.3333 0 0  0.3333 0.3333 0.3333 0 0  0.3333 0.3333 0.3333 0 0  0 0 0 0 1" result="g1"/>
+              <feColorMatrix in="n2" type="matrix" values="0.3333 0.3333 0.3333 0 0  0.3333 0.3333 0.3333 0 0  0.3333 0.3333 0.3333 0 0  0 0 0 0 1" result="g2"/>
+              <feComposite in="g1" in2="g2" operator="arithmetic" k1="0" k2="0.55" k3="0.45" k4="0" result="mix"/>
+              <feComponentTransfer in="mix" result="off">
+                <feFuncR type="linear" slope="0.15" intercept="0.4250"/>
+                <feFuncG type="linear" slope="0.15" intercept="0.4250"/>
+                <feFuncB type="linear" slope="0.15" intercept="0.4250"/>
+              </feComponentTransfer>
+              <feComposite in="off" in2="SourceGraphic" operator="arithmetic" k1="0" k2="1" k3="1" k4="-0.5"/>
+            </filter>
+          </defs>
+          <rect width="150" height="58" style="fill: var(--paper)" filter="url(#paper-tanabesugano-1729-light)" />
+        </svg>
+
+        <svg class="sheet" viewBox="0 0 150 58" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <filter id="paper-bashplot-4963-light" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+              <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="4" seed="4963" result="n1"/>
+              <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="3" seed="4964" result="n2"/>
+              <feColorMatrix in="n1" type="matrix" values="0.3333 0.3333 0.3333 0 0  0.3333 0.3333 0.3333 0 0  0.3333 0.3333 0.3333 0 0  0 0 0 0 1" result="g1"/>
+              <feColorMatrix in="n2" type="matrix" values="0.3333 0.3333 0.3333 0 0  0.3333 0.3333 0.3333 0 0  0.3333 0.3333 0.3333 0 0  0 0 0 0 1" result="g2"/>
+              <feComposite in="g1" in2="g2" operator="arithmetic" k1="0" k2="0.55" k3="0.45" k4="0" result="mix"/>
+              <feComponentTransfer in="mix" result="off">
+                <feFuncR type="linear" slope="0.15" intercept="0.4250"/>
+                <feFuncG type="linear" slope="0.15" intercept="0.4250"/>
+                <feFuncB type="linear" slope="0.15" intercept="0.4250"/>
+              </feComponentTransfer>
+              <feComposite in="off" in2="SourceGraphic" operator="arithmetic" k1="0" k2="1" k3="1" k4="-0.5"/>
+            </filter>
+          </defs>
+          <rect width="150" height="58" style="fill: var(--paper)" filter="url(#paper-bashplot-4963-light)" />
+        </svg>
+
+        <svg class="sheet" viewBox="0 0 150 58" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <filter id="paper-werkstoff-5397-light" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+              <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="4" seed="5397" result="n1"/>
+              <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="3" seed="5398" result="n2"/>
+              <feColorMatrix in="n1" type="matrix" values="0.3333 0.3333 0.3333 0 0  0.3333 0.3333 0.3333 0 0  0.3333 0.3333 0.3333 0 0  0 0 0 0 1" result="g1"/>
+              <feColorMatrix in="n2" type="matrix" values="0.3333 0.3333 0.3333 0 0  0.3333 0.3333 0.3333 0 0  0.3333 0.3333 0.3333 0 0  0 0 0 0 1" result="g2"/>
+              <feComposite in="g1" in2="g2" operator="arithmetic" k1="0" k2="0.55" k3="0.45" k4="0" result="mix"/>
+              <feComponentTransfer in="mix" result="off">
+                <feFuncR type="linear" slope="0.15" intercept="0.4250"/>
+                <feFuncG type="linear" slope="0.15" intercept="0.4250"/>
+                <feFuncB type="linear" slope="0.15" intercept="0.4250"/>
+              </feComponentTransfer>
+              <feComposite in="off" in2="SourceGraphic" operator="arithmetic" k1="0" k2="1" k3="1" k4="-0.5"/>
+            </filter>
+          </defs>
+          <rect width="150" height="58" style="fill: var(--paper)" filter="url(#paper-werkstoff-5397-light)" />
+        </svg>
+      </div>
+
+      <div class="sheets-row">
+        <svg class="magnifier" viewBox="0 0 18.75 3.75" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <filter id="magnifier-spectrafit-4464-light" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+              <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="4" seed="4464" result="n1"/>
+              <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="3" seed="4465" result="n2"/>
+              <feColorMatrix in="n1" type="matrix" values="0.3333 0.3333 0.3333 0 0  0.3333 0.3333 0.3333 0 0  0.3333 0.3333 0.3333 0 0  0 0 0 0 1" result="g1"/>
+              <feColorMatrix in="n2" type="matrix" values="0.3333 0.3333 0.3333 0 0  0.3333 0.3333 0.3333 0 0  0.3333 0.3333 0.3333 0 0  0 0 0 0 1" result="g2"/>
+              <feComposite in="g1" in2="g2" operator="arithmetic" k1="0" k2="0.55" k3="0.45" k4="0" result="mix"/>
+              <feComponentTransfer in="mix" result="off">
+                <feFuncR type="linear" slope="0.15" intercept="0.4250"/>
+                <feFuncG type="linear" slope="0.15" intercept="0.4250"/>
+                <feFuncB type="linear" slope="0.15" intercept="0.4250"/>
+              </feComponentTransfer>
+              <feComposite in="off" in2="SourceGraphic" operator="arithmetic" k1="0" k2="1" k3="1" k4="-0.5"/>
+            </filter>
+          </defs>
+          <rect width="18.75" height="3.75" style="fill: var(--paper)" filter="url(#magnifier-spectrafit-4464-light)" />
+        </svg>
+
+        <svg class="magnifier" viewBox="0 0 18.75 3.75" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <filter id="magnifier-tanabesugano-1729-light" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+              <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="4" seed="1729" result="n1"/>
+              <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="3" seed="1730" result="n2"/>
+              <feColorMatrix in="n1" type="matrix" values="0.3333 0.3333 0.3333 0 0  0.3333 0.3333 0.3333 0 0  0.3333 0.3333 0.3333 0 0  0 0 0 0 1" result="g1"/>
+              <feColorMatrix in="n2" type="matrix" values="0.3333 0.3333 0.3333 0 0  0.3333 0.3333 0.3333 0 0  0.3333 0.3333 0.3333 0 0  0 0 0 0 1" result="g2"/>
+              <feComposite in="g1" in2="g2" operator="arithmetic" k1="0" k2="0.55" k3="0.45" k4="0" result="mix"/>
+              <feComponentTransfer in="mix" result="off">
+                <feFuncR type="linear" slope="0.15" intercept="0.4250"/>
+                <feFuncG type="linear" slope="0.15" intercept="0.4250"/>
+                <feFuncB type="linear" slope="0.15" intercept="0.4250"/>
+              </feComponentTransfer>
+              <feComposite in="off" in2="SourceGraphic" operator="arithmetic" k1="0" k2="1" k3="1" k4="-0.5"/>
+            </filter>
+          </defs>
+          <rect width="18.75" height="3.75" style="fill: var(--paper)" filter="url(#magnifier-tanabesugano-1729-light)" />
+        </svg>
+
+        <svg class="magnifier" viewBox="0 0 18.75 3.75" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <filter id="magnifier-bashplot-4963-light" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+              <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="4" seed="4963" result="n1"/>
+              <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="3" seed="4964" result="n2"/>
+              <feColorMatrix in="n1" type="matrix" values="0.3333 0.3333 0.3333 0 0  0.3333 0.3333 0.3333 0 0  0.3333 0.3333 0.3333 0 0  0 0 0 0 1" result="g1"/>
+              <feColorMatrix in="n2" type="matrix" values="0.3333 0.3333 0.3333 0 0  0.3333 0.3333 0.3333 0 0  0.3333 0.3333 0.3333 0 0  0 0 0 0 1" result="g2"/>
+              <feComposite in="g1" in2="g2" operator="arithmetic" k1="0" k2="0.55" k3="0.45" k4="0" result="mix"/>
+              <feComponentTransfer in="mix" result="off">
+                <feFuncR type="linear" slope="0.15" intercept="0.4250"/>
+                <feFuncG type="linear" slope="0.15" intercept="0.4250"/>
+                <feFuncB type="linear" slope="0.15" intercept="0.4250"/>
+              </feComponentTransfer>
+              <feComposite in="off" in2="SourceGraphic" operator="arithmetic" k1="0" k2="1" k3="1" k4="-0.5"/>
+            </filter>
+          </defs>
+          <rect width="18.75" height="3.75" style="fill: var(--paper)" filter="url(#magnifier-bashplot-4963-light)" />
+        </svg>
+
+        <svg class="magnifier" viewBox="0 0 18.75 3.75" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <filter id="magnifier-werkstoff-5397-light" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+              <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="4" seed="5397" result="n1"/>
+              <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="3" seed="5398" result="n2"/>
+              <feColorMatrix in="n1" type="matrix" values="0.3333 0.3333 0.3333 0 0  0.3333 0.3333 0.3333 0 0  0.3333 0.3333 0.3333 0 0  0 0 0 0 1" result="g1"/>
+              <feColorMatrix in="n2" type="matrix" values="0.3333 0.3333 0.3333 0 0  0.3333 0.3333 0.3333 0 0  0.3333 0.3333 0.3333 0 0  0 0 0 0 1" result="g2"/>
+              <feComposite in="g1" in2="g2" operator="arithmetic" k1="0" k2="0.55" k3="0.45" k4="0" result="mix"/>
+              <feComponentTransfer in="mix" result="off">
+                <feFuncR type="linear" slope="0.15" intercept="0.4250"/>
+                <feFuncG type="linear" slope="0.15" intercept="0.4250"/>
+                <feFuncB type="linear" slope="0.15" intercept="0.4250"/>
+              </feComponentTransfer>
+              <feComposite in="off" in2="SourceGraphic" operator="arithmetic" k1="0" k2="1" k3="1" k4="-0.5"/>
+            </filter>
+          </defs>
+          <rect width="18.75" height="3.75" style="fill: var(--paper)" filter="url(#magnifier-werkstoff-5397-light)" />
+        </svg>
+      </div>
+    </section>
+
+    <section data-theme="dark">
+      <div class="sheets-row">
+        <svg class="sheet" viewBox="0 0 150 58" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <filter id="paper-spectrafit-4464-dark" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+              <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="4" seed="4464" result="n1"/>
+              <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="3" seed="4465" result="n2"/>
+              <feColorMatrix in="n1" type="matrix" values="0.3333 0.3333 0.3333 0 0  0.3333 0.3333 0.3333 0 0  0.3333 0.3333 0.3333 0 0  0 0 0 0 1" result="g1"/>
+              <feColorMatrix in="n2" type="matrix" values="0.3333 0.3333 0.3333 0 0  0.3333 0.3333 0.3333 0 0  0.3333 0.3333 0.3333 0 0  0 0 0 0 1" result="g2"/>
+              <feComposite in="g1" in2="g2" operator="arithmetic" k1="0" k2="0.55" k3="0.45" k4="0" result="mix"/>
+              <feComponentTransfer in="mix" result="off">
+                <feFuncR type="linear" slope="0.15" intercept="0.4250"/>
+                <feFuncG type="linear" slope="0.15" intercept="0.4250"/>
+                <feFuncB type="linear" slope="0.15" intercept="0.4250"/>
+              </feComponentTransfer>
+              <feComposite in="off" in2="SourceGraphic" operator="arithmetic" k1="0" k2="1" k3="1" k4="-0.5"/>
+            </filter>
+          </defs>
+          <rect width="150" height="58" style="fill: var(--paper)" filter="url(#paper-spectrafit-4464-dark)" />
+        </svg>
+
+        <svg class="sheet" viewBox="0 0 150 58" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <filter id="paper-tanabesugano-1729-dark" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+              <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="4" seed="1729" result="n1"/>
+              <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="3" seed="1730" result="n2"/>
+              <feColorMatrix in="n1" type="matrix" values="0.3333 0.3333 0.3333 0 0  0.3333 0.3333 0.3333 0 0  0.3333 0.3333 0.3333 0 0  0 0 0 0 1" result="g1"/>
+              <feColorMatrix in="n2" type="matrix" values="0.3333 0.3333 0.3333 0 0  0.3333 0.3333 0.3333 0 0  0.3333 0.3333 0.3333 0 0  0 0 0 0 1" result="g2"/>
+              <feComposite in="g1" in2="g2" operator="arithmetic" k1="0" k2="0.55" k3="0.45" k4="0" result="mix"/>
+              <feComponentTransfer in="mix" result="off">
+                <feFuncR type="linear" slope="0.15" intercept="0.4250"/>
+                <feFuncG type="linear" slope="0.15" intercept="0.4250"/>
+                <feFuncB type="linear" slope="0.15" intercept="0.4250"/>
+              </feComponentTransfer>
+              <feComposite in="off" in2="SourceGraphic" operator="arithmetic" k1="0" k2="1" k3="1" k4="-0.5"/>
+            </filter>
+          </defs>
+          <rect width="150" height="58" style="fill: var(--paper)" filter="url(#paper-tanabesugano-1729-dark)" />
+        </svg>
+
+        <svg class="sheet" viewBox="0 0 150 58" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <filter id="paper-bashplot-4963-dark" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+              <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="4" seed="4963" result="n1"/>
+              <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="3" seed="4964" result="n2"/>
+              <feColorMatrix in="n1" type="matrix" values="0.3333 0.3333 0.3333 0 0  0.3333 0.3333 0.3333 0 0  0.3333 0.3333 0.3333 0 0  0 0 0 0 1" result="g1"/>
+              <feColorMatrix in="n2" type="matrix" values="0.3333 0.3333 0.3333 0 0  0.3333 0.3333 0.3333 0 0  0.3333 0.3333 0.3333 0 0  0 0 0 0 1" result="g2"/>
+              <feComposite in="g1" in2="g2" operator="arithmetic" k1="0" k2="0.55" k3="0.45" k4="0" result="mix"/>
+              <feComponentTransfer in="mix" result="off">
+                <feFuncR type="linear" slope="0.15" intercept="0.4250"/>
+                <feFuncG type="linear" slope="0.15" intercept="0.4250"/>
+                <feFuncB type="linear" slope="0.15" intercept="0.4250"/>
+              </feComponentTransfer>
+              <feComposite in="off" in2="SourceGraphic" operator="arithmetic" k1="0" k2="1" k3="1" k4="-0.5"/>
+            </filter>
+          </defs>
+          <rect width="150" height="58" style="fill: var(--paper)" filter="url(#paper-bashplot-4963-dark)" />
+        </svg>
+
+        <svg class="sheet" viewBox="0 0 150 58" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <filter id="paper-werkstoff-5397-dark" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+              <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="4" seed="5397" result="n1"/>
+              <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="3" seed="5398" result="n2"/>
+              <feColorMatrix in="n1" type="matrix" values="0.3333 0.3333 0.3333 0 0  0.3333 0.3333 0.3333 0 0  0.3333 0.3333 0.3333 0 0  0 0 0 0 1" result="g1"/>
+              <feColorMatrix in="n2" type="matrix" values="0.3333 0.3333 0.3333 0 0  0.3333 0.3333 0.3333 0 0  0.3333 0.3333 0.3333 0 0  0 0 0 0 1" result="g2"/>
+              <feComposite in="g1" in2="g2" operator="arithmetic" k1="0" k2="0.55" k3="0.45" k4="0" result="mix"/>
+              <feComponentTransfer in="mix" result="off">
+                <feFuncR type="linear" slope="0.15" intercept="0.4250"/>
+                <feFuncG type="linear" slope="0.15" intercept="0.4250"/>
+                <feFuncB type="linear" slope="0.15" intercept="0.4250"/>
+              </feComponentTransfer>
+              <feComposite in="off" in2="SourceGraphic" operator="arithmetic" k1="0" k2="1" k3="1" k4="-0.5"/>
+            </filter>
+          </defs>
+          <rect width="150" height="58" style="fill: var(--paper)" filter="url(#paper-werkstoff-5397-dark)" />
+        </svg>
+      </div>
+
+      <div class="sheets-row">
+        <svg class="magnifier" viewBox="0 0 18.75 3.75" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <filter id="magnifier-spectrafit-4464-dark" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+              <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="4" seed="4464" result="n1"/>
+              <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="3" seed="4465" result="n2"/>
+              <feColorMatrix in="n1" type="matrix" values="0.3333 0.3333 0.3333 0 0  0.3333 0.3333 0.3333 0 0  0.3333 0.3333 0.3333 0 0  0 0 0 0 1" result="g1"/>
+              <feColorMatrix in="n2" type="matrix" values="0.3333 0.3333 0.3333 0 0  0.3333 0.3333 0.3333 0 0  0.3333 0.3333 0.3333 0 0  0 0 0 0 1" result="g2"/>
+              <feComposite in="g1" in2="g2" operator="arithmetic" k1="0" k2="0.55" k3="0.45" k4="0" result="mix"/>
+              <feComponentTransfer in="mix" result="off">
+                <feFuncR type="linear" slope="0.15" intercept="0.4250"/>
+                <feFuncG type="linear" slope="0.15" intercept="0.4250"/>
+                <feFuncB type="linear" slope="0.15" intercept="0.4250"/>
+              </feComponentTransfer>
+              <feComposite in="off" in2="SourceGraphic" operator="arithmetic" k1="0" k2="1" k3="1" k4="-0.5"/>
+            </filter>
+          </defs>
+          <rect width="18.75" height="3.75" style="fill: var(--paper)" filter="url(#magnifier-spectrafit-4464-dark)" />
+        </svg>
+
+        <svg class="magnifier" viewBox="0 0 18.75 3.75" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <filter id="magnifier-tanabesugano-1729-dark" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+              <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="4" seed="1729" result="n1"/>
+              <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="3" seed="1730" result="n2"/>
+              <feColorMatrix in="n1" type="matrix" values="0.3333 0.3333 0.3333 0 0  0.3333 0.3333 0.3333 0 0  0.3333 0.3333 0.3333 0 0  0 0 0 0 1" result="g1"/>
+              <feColorMatrix in="n2" type="matrix" values="0.3333 0.3333 0.3333 0 0  0.3333 0.3333 0.3333 0 0  0.3333 0.3333 0.3333 0 0  0 0 0 0 1" result="g2"/>
+              <feComposite in="g1" in2="g2" operator="arithmetic" k1="0" k2="0.55" k3="0.45" k4="0" result="mix"/>
+              <feComponentTransfer in="mix" result="off">
+                <feFuncR type="linear" slope="0.15" intercept="0.4250"/>
+                <feFuncG type="linear" slope="0.15" intercept="0.4250"/>
+                <feFuncB type="linear" slope="0.15" intercept="0.4250"/>
+              </feComponentTransfer>
+              <feComposite in="off" in2="SourceGraphic" operator="arithmetic" k1="0" k2="1" k3="1" k4="-0.5"/>
+            </filter>
+          </defs>
+          <rect width="18.75" height="3.75" style="fill: var(--paper)" filter="url(#magnifier-tanabesugano-1729-dark)" />
+        </svg>
+
+        <svg class="magnifier" viewBox="0 0 18.75 3.75" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <filter id="magnifier-bashplot-4963-dark" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+              <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="4" seed="4963" result="n1"/>
+              <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="3" seed="4964" result="n2"/>
+              <feColorMatrix in="n1" type="matrix" values="0.3333 0.3333 0.3333 0 0  0.3333 0.3333 0.3333 0 0  0.3333 0.3333 0.3333 0 0  0 0 0 0 1" result="g1"/>
+              <feColorMatrix in="n2" type="matrix" values="0.3333 0.3333 0.3333 0 0  0.3333 0.3333 0.3333 0 0  0.3333 0.3333 0.3333 0 0  0 0 0 0 1" result="g2"/>
+              <feComposite in="g1" in2="g2" operator="arithmetic" k1="0" k2="0.55" k3="0.45" k4="0" result="mix"/>
+              <feComponentTransfer in="mix" result="off">
+                <feFuncR type="linear" slope="0.15" intercept="0.4250"/>
+                <feFuncG type="linear" slope="0.15" intercept="0.4250"/>
+                <feFuncB type="linear" slope="0.15" intercept="0.4250"/>
+              </feComponentTransfer>
+              <feComposite in="off" in2="SourceGraphic" operator="arithmetic" k1="0" k2="1" k3="1" k4="-0.5"/>
+            </filter>
+          </defs>
+          <rect width="18.75" height="3.75" style="fill: var(--paper)" filter="url(#magnifier-bashplot-4963-dark)" />
+        </svg>
+
+        <svg class="magnifier" viewBox="0 0 18.75 3.75" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <filter id="magnifier-werkstoff-5397-dark" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+              <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="4" seed="5397" result="n1"/>
+              <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="3" seed="5398" result="n2"/>
+              <feColorMatrix in="n1" type="matrix" values="0.3333 0.3333 0.3333 0 0  0.3333 0.3333 0.3333 0 0  0.3333 0.3333 0.3333 0 0  0 0 0 0 1" result="g1"/>
+              <feColorMatrix in="n2" type="matrix" values="0.3333 0.3333 0.3333 0 0  0.3333 0.3333 0.3333 0 0  0.3333 0.3333 0.3333 0 0  0 0 0 0 1" result="g2"/>
+              <feComposite in="g1" in2="g2" operator="arithmetic" k1="0" k2="0.55" k3="0.45" k4="0" result="mix"/>
+              <feComponentTransfer in="mix" result="off">
+                <feFuncR type="linear" slope="0.15" intercept="0.4250"/>
+                <feFuncG type="linear" slope="0.15" intercept="0.4250"/>
+                <feFuncB type="linear" slope="0.15" intercept="0.4250"/>
+              </feComponentTransfer>
+              <feComposite in="off" in2="SourceGraphic" operator="arithmetic" k1="0" k2="1" k3="1" k4="-0.5"/>
+            </filter>
+          </defs>
+          <rect width="18.75" height="3.75" style="fill: var(--paper)" filter="url(#magnifier-werkstoff-5397-dark)" />
+        </svg>
+      </div>
+    </section>
+  </div>
+
+  <div class="caption">seed 4963 instead of 4962 — the original sheet missed the isotropy threshold.</div>
+</body>
+</html>

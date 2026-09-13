@@ -1,0 +1,12 @@
+{
+  "$comment": "AUTHOR-WRITTEN, like motivation.json. The lead case study: one project told properly before the list starts. Nothing here may be generated, and nothing here may state a number — every figure on this surface comes from projects.json and publications.json through the same components the list entries use, so the case study cannot quietly claim more than the list does.",
+  "rule": "Exactly one lead, and it must be a project that already carries BOTH a figure in content/figures.json and a peer-reviewed publication in publications.json. Without the figure there is nothing to show; without the paper it is an assertion at a larger size. _scripts/check-content.mjs enforces both.",
+  "project": "spectrafit",
+  "eyebrow": "Lead case",
+  "paragraphs": [
+    "A measured X-ray absorption band is almost never one thing. The number a chemist wants — where each transition sits, and how much of it there is — only exists once the band has been separated into components.",
+    "SpectraFit does that separation as a tool rather than as a script: a data file in, the fitted components and the residual out. It went through peer review, which is the part that matters — the method is described somewhere a reader can check it.",
+    "The figure below is real output, not an illustration."
+  ],
+  "asOf": "2026-09-12"
+}

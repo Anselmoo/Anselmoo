@@ -1,0 +1,55 @@
+<!-- @dsCard group="Type" viewport="1180x860" name="Emphasis and the deck" subtitle="No italic is shipped, so none is faked" -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+body{margin:0;height:860px}
+.wrap{height:860px;display:grid;grid-template-rows:auto 1fr auto;gap:var(--space-5);padding:var(--space-6);background:var(--paper);color:var(--ink)}
+.eyebrow{font-size:var(--text-eyebrow-size);font-weight:var(--text-eyebrow-weight);letter-spacing:var(--text-eyebrow-tracking);text-transform:uppercase;color:var(--ink-tertiary)}
+.title{font-size:var(--text-headline-size);font-weight:var(--text-headline-weight);letter-spacing:var(--text-headline-tracking);line-height:var(--text-headline-leading);margin:var(--space-1) 0 0;max-width:34em}
+.cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-6);align-content:start;min-height:0}
+.col{display:flex;flex-direction:column;gap:var(--space-3)}
+.col-name{font-size:var(--text-eyebrow-size);font-weight:var(--text-eyebrow-weight);letter-spacing:var(--text-eyebrow-tracking);text-transform:uppercase;color:var(--ink-tertiary);padding-bottom:var(--space-2);border-bottom:1px solid var(--hairline-strong)}
+.body{font-size:var(--text-body-size);line-height:var(--text-body-leading);margin:0;max-width:34em}
+.fake em{font-style:italic;font-weight:400;font-synthesis:style}
+.tag{font-family:var(--font-mono);font-size:var(--text-code-size);color:var(--ink-tertiary)}
+.slot{padding-top:var(--space-4);border-top:1px solid var(--hairline);display:flex;flex-direction:column;gap:var(--space-2)}
+.h{font-size:var(--text-subhead-size);font-weight:var(--text-subhead-weight);letter-spacing:var(--text-subhead-tracking);line-height:var(--text-subhead-leading);margin:0}
+.note{font-size:var(--text-caption-size);line-height:var(--text-caption-leading);color:var(--ink-secondary);max-width:62em;border-top:1px solid var(--hairline-strong);padding-top:var(--space-3)}
+.note b{color:var(--ink);font-weight:600}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div>
+    <div class="eyebrow">Type · emphasis</div>
+    <h1 class="title">Emphasis is weight, because the italic this system would need does not exist</h1>
+  </div>
+  <div class="cols">
+    <div class="col">
+      <div class="col-name">Was · synthesised oblique</div>
+      <p class="body fake">Spectral data fitting, grown from a personal script into <em>peer-reviewed software</em> with its own DOI.</p>
+      <p class="tag">font-style: italic on a roman-only face</p>
+      <div class="slot">
+        <h2 class="h">Scientific Software</h2>
+        <p class="body fake" style="color:var(--ink-secondary)"><em>Whoever arrives from a DOI and is looking for the software behind the figure.</em></p>
+        <p class="tag">a deck with no name, set in italics</p>
+      </div>
+    </div>
+    <div class="col">
+      <div class="col-name">Is · weight 500, and a named slot</div>
+      <p class="body">Spectral data fitting, grown from a personal script into <em>peer-reviewed software</em> with its own DOI.</p>
+      <p class="tag">em, i, cite → weight 500, no slant</p>
+      <div class="slot">
+        <h2 class="h">Scientific Software</h2>
+        <p class="deck">Whoever arrives from a DOI and is looking for the software behind the figure.</p>
+        <p class="tag">--text-deck-*, subhead size at body weight</p>
+      </div>
+    </div>
+  </div>
+  <p class="note">Inter is self-hosted and ships <b>roman only</b>, so every <code>&lt;em&gt;</code> here was a browser-synthesised oblique — the roman mechanically skewed, which is not a cut anyone drew. It was also unstable: the metric fallbacks carry real italics, so emphasis changed shape between the fallback and the webfont. <b>font-synthesis: none</b> refuses the fake, which makes the gap visible instead of plausible. Emphasis takes the carrier this system already uses everywhere else — one variable weight step, 500, short of the 600 a subhead uses, so emphasis inside a sentence cannot be read as a heading. The second row is the other half: the audience line was italic because the system had no word for it. It is a <b>deck</b>, and now it is a slot — an existing size named for a purpose, never a new step. Shipping the real Inter italic supersedes all of this.</p>
+</div>
+</body>
+</html>

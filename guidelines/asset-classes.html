@@ -1,0 +1,77 @@
+<!-- @dsCard group="Assets" viewport="960x720" name="Asset classes" subtitle="What origin lets the system promise" -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body { margin: 0; height: 720px; }
+  .card { height: 720px; background: var(--paper); color: var(--ink); padding: var(--space-6); display: flex; flex-direction: column; gap: var(--space-5); }
+  .eyebrow { font-size: var(--text-eyebrow-size); font-weight: var(--text-eyebrow-weight); letter-spacing: var(--text-eyebrow-tracking); line-height: var(--text-eyebrow-leading); text-transform: uppercase; color: var(--ink-tertiary); }
+  .title { font-size: var(--text-headline-size); font-weight: var(--text-headline-weight); letter-spacing: var(--text-headline-tracking); line-height: var(--text-headline-leading); margin: var(--space-1) 0 0; }
+  .cols { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-6); flex: 1; }
+  .col { display: grid; grid-template-rows: max-content max-content 1fr; gap: var(--space-3); border-top: 1px solid var(--hairline-strong); padding-top: var(--space-3); align-content: start; }
+  .origin { font-family: var(--font-mono); font-size: var(--text-code-size); line-height: var(--text-code-leading); color: var(--ink); }
+  .promise { font-size: var(--text-caption-size); line-height: var(--text-caption-leading); color: var(--ink-secondary); }
+  dl { margin: 0; display: grid; gap: var(--space-2); align-content: start; }
+  dt { font-size: var(--text-caption-size); line-height: var(--text-caption-leading); color: var(--ink); }
+  dd { margin: 0 0 var(--space-1); font-family: var(--font-mono); font-size: var(--text-code-size); line-height: var(--text-code-leading); color: var(--ink-tertiary); }
+  .foot { border-top: 1px solid var(--hairline); padding-top: var(--space-3); font-size: var(--text-caption-size); line-height: var(--text-caption-leading); color: var(--ink-secondary); margin: 0; }
+  .mono { font-family: var(--font-mono); }
+</style>
+</head>
+<body>
+<section class="card" data-theme="light">
+  <div>
+    <div class="eyebrow">Asset classes</div>
+    <h1 class="title">Origin decides what can be promised</h1>
+  </div>
+
+  <div class="cols">
+    <div class="col">
+      <div class="origin">derivable</div>
+      <div class="promise">The asset itself, completely.</div>
+      <dl>
+        <dt>Open Graph image</dt><dd>4 files, generated</dd>
+        <dt>Favicon</dt><dd>the mark, inlined</dd>
+        <dt>Pattern, texture</dt><dd>tokens/paper.mjs</dd>
+        <dt>Chart</dt><dd>the level-4 motif</dd>
+        <dt>Loading placeholder</dt><dd>.notice</dd>
+        <dt>Thumbnail</dt><dd>absent — never a shrunk card image</dd>
+      </dl>
+    </div>
+
+    <div class="col">
+      <div class="origin">drawn</div>
+      <div class="promise">A system — grid, stroke, naming — plus a seed set and a rule for growth. Never complete coverage.</div>
+      <dl>
+        <dt>Mark</dt><dd>1, decided 2026-09-11</dd>
+        <dt>Icon</dt><dd>3, counted in the surfaces</dd>
+        <dt>Spot illustration</dt><dd>1 seed, level 3</dd>
+        <dt>Empty and error state</dt><dd>answered with type, not drawing</dd>
+        <dt>Card image, key art</dt><dd>absent — no collection, no campaign</dd>
+      </dl>
+    </div>
+
+    <div class="col">
+      <div class="origin">captured</div>
+      <div class="promise">Capture rules — frame, chrome, state, redaction. Never assets.</div>
+      <dl>
+        <dt>Screenshot</dt><dd>absent — no rule written yet</dd>
+        <dt>Avatar</dt><dd>GitHub's, not ours</dd>
+      </dl>
+    </div>
+
+    <div class="col">
+      <div class="origin">shot</div>
+      <div class="promise">Direction — subject, colour temperature, crop. Never assets.</div>
+      <dl>
+        <dt>Hero photograph</dt><dd>out of scope</dd>
+      </dl>
+    </div>
+  </div>
+
+  <p class="foot">The column is not a taxonomy for its own sake: it is the promise a generator is allowed to make. It is also why the icon set stops at three — <span class="mono">drawn</span> classes ship as a system and a seed, and a complete icon library is a promise that cannot be kept. Absent is written out rather than left blank, because a table with a hole in it reads as an oversight.</p>
+</section>
+</body>
+</html>

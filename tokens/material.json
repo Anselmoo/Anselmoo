@@ -1,0 +1,62 @@
+{
+  "$comment": "MEASURED on 2026-09-10 with tokens/paper-check.html, tile size 220x130 in the browser. Transcribed by hand, because the measurement needs a rendering and no script can produce it.",
+  "whyThisFileExists": "A cross-check of the colophon card reported that the figure 'luminance deviation at most 0.06 percent' stood in no file of the repo. That was true: the value was measured, but never written down anywhere. A number that only stood in a browser window is, for any surface, a claim — exactly the rule the content model for usage figures already knows.",
+  "measured": "2026-09-10",
+  "method": "SVG filter rendered per sheet, rasterised via canvas, WCAG luminance per pixel, mean against the flat ground tone. Anisotropy via directional energy, horizontal versus vertical.",
+  "ground": "#fbfaf7",
+  "referenceLuminance": 0.95596,
+  "limits": {
+    "r6DeviationPercent": 1.0,
+    "r3Anisotropy": 1.15
+  },
+  "result": {
+    "maxDeviationPercent": 0.0553,
+    "maxAnisotropy": 1.069,
+    "bothPassed": true
+  },
+  "sheets": [
+    {
+      "name": "SpectraFit",
+      "seed": 4464,
+      "meanLuminance": 0.95649,
+      "deviationPercent": 0.055,
+      "anisotropy": 1.0588
+    },
+    {
+      "name": "TanabeSugano",
+      "seed": 1729,
+      "meanLuminance": 0.95628,
+      "deviationPercent": 0.033,
+      "anisotropy": 1.0205
+    },
+    {
+      "name": "mcp-server-analyzer",
+      "seed": 7496,
+      "meanLuminance": 0.95635,
+      "deviationPercent": 0.041,
+      "anisotropy": 1.0539
+    },
+    {
+      "name": "bashplot",
+      "seed": 4963,
+      "meanLuminance": 0.95612,
+      "deviationPercent": 0.017,
+      "anisotropy": 1.0487
+    },
+    {
+      "name": "repo-release-tools",
+      "seed": 658,
+      "meanLuminance": 0.95636,
+      "deviationPercent": 0.042,
+      "anisotropy": 1.0143
+    },
+    {
+      "name": "werkstoff",
+      "seed": 5397,
+      "meanLuminance": 0.95572,
+      "deviationPercent": -0.025,
+      "anisotropy": 1.069
+    }
+  ],
+  "bashplotNote": "seed 4963 instead of 4962: the original sheet measured 1.1542x and thereby missed the isotropy limit. The offset is recorded in tokens/paper.mjs under SEED_NUDGE, with the measurement log for offsets 0 to 8."
+}

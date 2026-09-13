@@ -1,0 +1,115 @@
+<!-- @dsCard group="Brand" viewport="860x410" name="Mark" subtitle="The bend, decided" -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  /* The card used to present three candidates and an open question. The question is
+   * answered, so the card had to change shape: the chosen mark leads at the sizes that
+   * matter, and the two it beat stay below as the record. A decision whose alternatives
+   * have been deleted cannot be re-argued, and this one turned on a measurement worth
+   * keeping visible.
+   *
+   * No radius anywhere near the mark. An earlier version put --radius-chip (999px)
+   * around a 58px field and turned every candidate into a circle; the self-inversion
+   * is a statement about the SQUARE, and a clipped mark is no longer a mark. */
+  body {
+    margin: 0;
+    height: 410px;
+    padding: var(--space-4) var(--space-5);
+    background: var(--paper);
+    color: var(--ink);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+  .eyebrow {
+    font-size: var(--text-eyebrow-size);
+    font-weight: var(--text-eyebrow-weight);
+    letter-spacing: var(--text-eyebrow-tracking);
+    line-height: var(--text-eyebrow-leading);
+    text-transform: uppercase;
+    color: var(--ink-tertiary);
+  }
+  .lead { display: flex; align-items: center; gap: var(--space-5); }
+  .lead .name {
+    font-size: var(--text-headline-size);
+    font-weight: var(--text-headline-weight);
+    letter-spacing: var(--text-headline-tracking);
+    line-height: var(--text-headline-leading);
+  }
+  .lead .why {
+    font-size: var(--text-body-size);
+    line-height: var(--text-body-leading);
+    color: var(--ink-secondary);
+    max-width: 30em;
+    margin: 0;
+  }
+  /* Each band paints its OWN ground. data-theme flips --ink as well as --paper, so a
+   * section that inherits the page ground puts light ink on light paper and shows
+   * nothing at all — which is exactly what happened here before this line existed. */
+  .band {
+    display: flex;
+    align-items: flex-end;
+    gap: var(--space-3);
+    padding: var(--space-2);
+    background: var(--paper);
+    color: var(--ink);
+    border: 1px solid var(--hairline);
+  }
+  .band svg { display: block; }
+  .rejected { display: flex; gap: var(--space-6); align-items: center; padding-top: var(--space-3); border-top: 1px solid var(--hairline); }
+  .rej { display: flex; align-items: center; gap: var(--space-2); }
+  .cap {
+    font-size: var(--text-caption-size);
+    line-height: var(--text-caption-leading);
+    color: var(--ink-secondary);
+  }
+  .cap b { color: var(--ink); font-weight: var(--text-subhead-weight); }
+  .note { font-size: var(--text-caption-size); line-height: var(--text-caption-leading); color: var(--ink-tertiary); margin: 0; max-width: var(--measure); }
+</style>
+</head>
+<body>
+  <div class="eyebrow">Brand · decided 2026-09-11</div>
+
+  <div class="lead">
+    <div class="band" data-theme="light" data-comment-anchor="cd41f6c275-div">
+      <svg width="58" height="58" viewBox="0 0 64 64"><path fill-rule="evenodd" style="fill: var(--ink)" d="M 6 6 L 23.68 14.32 L 32 32 L 40.32 49.68 L 58 58 L 58 6 Z"/></svg>
+      <svg width="28" height="28" viewBox="0 0 64 64"><path fill-rule="evenodd" style="fill: var(--ink)" d="M 6 6 L 23.68 14.32 L 32 32 L 40.32 49.68 L 58 58 L 58 6 Z"/></svg>
+      <svg width="16" height="16" viewBox="0 0 64 64"><path fill-rule="evenodd" style="fill: var(--ink)" d="M 6 6 L 23.68 14.32 L 32 32 L 40.32 49.68 L 58 58 L 58 6 Z"/></svg>
+    </div>
+    <div class="band" data-theme="dark">
+      <svg width="58" height="58" viewBox="0 0 64 64"><path fill-rule="evenodd" style="fill: var(--ink)" d="M 6 6 L 23.68 14.32 L 32 32 L 40.32 49.68 L 58 58 L 58 6 Z"/></svg>
+      <svg width="28" height="28" viewBox="0 0 64 64"><path fill-rule="evenodd" style="fill: var(--ink)" d="M 6 6 L 23.68 14.32 L 32 32 L 40.32 49.68 L 58 58 L 58 6 Z"/></svg>
+      <svg width="16" height="16" viewBox="0 0 64 64"><path fill-rule="evenodd" style="fill: var(--ink)" d="M 6 6 L 23.68 14.32 L 32 32 L 40.32 49.68 L 58 58 L 58 6 Z"/></svg>
+    </div>
+    <div>
+      <div class="name">The bend</div>
+      <p class="why">One change of direction. Ink coverage 50.00 per cent,
+      self-inversion 0.000 per cent — rotate it and it becomes its own complement.</p>
+    </div>
+  </div>
+
+  <div class="rejected">
+    <div class="rej">
+      <svg width="28" height="28" viewBox="0 0 64 64"><path fill-rule="evenodd" style="fill: var(--ink-tertiary)" d="M 6 6 L 6 14.67 L 14.67 14.67 L 14.67 23.33 L 23.33 23.33 L 23.33 32 L 32 32 L 40.67 32 L 40.67 40.67 L 49.33 40.67 L 49.33 49.33 L 58 49.33 L 58 58 L 58 6 Z"/></svg>
+      <svg width="16" height="16" viewBox="0 0 64 64"><path fill-rule="evenodd" style="fill: var(--ink-tertiary)" d="M 6 6 L 6 14.67 L 14.67 14.67 L 14.67 23.33 L 23.33 23.33 L 23.33 32 L 32 32 L 40.67 32 L 40.67 40.67 L 49.33 40.67 L 49.33 49.33 L 58 49.33 L 58 58 L 58 6 Z"/></svg>
+      <span class="cap"><b>Stairs</b> — not taken</span>
+    </div>
+    <div class="rej">
+      <svg width="28" height="28" viewBox="0 0 64 64"><path fill-rule="evenodd" style="fill: var(--ink-tertiary)" d="M 6 6 L 21.6 10.16 L 16.4 23.68 L 32 32 L 47.6 40.32 L 42.4 53.84 L 58 58 L 58 6 Z"/></svg>
+      <svg width="16" height="16" viewBox="0 0 64 64"><path fill-rule="evenodd" style="fill: var(--ink-tertiary)" d="M 6 6 L 21.6 10.16 L 16.4 23.68 L 32 32 L 47.6 40.32 L 42.4 53.84 L 58 58 L 58 6 Z"/></svg>
+      <span class="cap"><b>Wave</b> — not taken</span>
+    </div>
+  </div>
+
+  <p class="note">The stairs told the better story: four contrast steps, three jumps, the
+  staggering the system rests on. But the choice is settled at 16 px, not at 58, and three
+  steps is one too many at favicon size. The council's precedence is fixed — Usability
+  before Metaphor — and this is where the two part company. All three measured 50.00 per
+  cent coverage and 0.000 per cent self-inversion, so the two-band property cost nothing;
+  the decision was made on legibility alone. The alternatives stay on this card so it can
+  be re-argued.</p>
+</body>
+</html>
